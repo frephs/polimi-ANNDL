@@ -1,0 +1,131 @@
+# Pirates Pain Classification - Default Configuration
+
+# Random seed for reproducibility
+seed: 55
+
+# Data paths
+data:
+  raw_dir: "../data/raw"
+  processed_dir: "../data/processed"
+  train_file: "pirate_pain_train.csv"
+  train_labels_file: "pirate_pain_train_labels.csv"
+  test_file: "pirate_pain_test.csv"
+
+# Data preprocessing
+preprocessing:
+  enabled: False
+  # Features to scale (joint features)
+  scale_features: True
+  # Skewness threshold for feature transformation
+  skew_threshold: 5.0
+  # Quantile range for clipping outliers
+  clip_quantiles: [0.01, 0.99]
+  # Features to drop
+  drop_features: ["joint_30"]  # constant feature
+  # Feature engineering
+  combine_correlations: True  # Combine highly correlated features
+  create_prosthesis_flag: True  # Create prosthesis indicator from body parts
+
+# Label mapping
+labels:
+  no_pain: 0
+  low_pain: 1
+  high_pain: 2
+
+# Data splitting
+split:
+  val_size: 0.15  # Percentage of users for validation set (0.0 to 1.0)
+  stratify: True  # Maintain class balance across train/val splits
+
+# Sequence building
+sequences:
+  window_size: 160  # Size of sliding window (MUST be <= 160, the actual data length per user!)
+  stride: 160       # Step size for sliding window (160 = no overlap, 1 sequence per user)
+
+# Data augmentation and oversampling
+augmentation:
+  enabled: False
+  oversample: False  # Oversample minority classes
+  target_distribution: "balanced"  # 'balanced' or 'majority'
+  augment_duplicates: True  # Apply augmentation to oversampled data
+  # Augmentation parameters
+  noise_level: 0.01  # Std dev of Gaussian noise
+  scale_range: [0.95, 1.05]  # Random scaling range
+  shift_range: 5  # Max timesteps to shift
+  apply_noise: True
+  apply_scaling: True
+  apply_shift: True
+
+# Model architecture
+model:
+  type: "RecurrentClassifier"  # RecurrentClassifier or FeedForwardNet
+  input_size: null  # Will be set automatically from data
+  hidden_size: 128
+  num_layers: 2
+  num_classes: 3
+  rnn_type: "LSTM"  # RNN, LSTM, or GRU
+  bidirectional: False
+  dropout_rate: 0.2
+  task: "classification"
+
+# Training configuration
+training:
+  epochs: 500
+  batch_size: 64
+  learning_rate: 0.001
+  
+  # Regularization
+  l1_lambda: 0.0
+  l2_lambda: 0.001
+  dropout_rate: 0.3
+  
+  # Early stopping
+  patience: 50
+  evaluation_metric: "val_f1"  # Metric to monitor for early stopping
+  mode: "max"  # 'max' or 'min' for the evaluation metric
+  restore_best_weights: True
+  
+  # Learning rate scheduler
+  scheduler:
+    enabled: True
+    type: "ReduceLROnPlateau"
+    factor: 0.5
+    patience: 10
+    min_lr: 1.0e-6
+  
+  # Verbosity
+  verbose: 10  # Print frequency (epochs)
+
+# DataLoader configuration
+dataloader:
+  num_workers: 2
+  shuffle_train: True
+  shuffle_val: False
+  drop_last: False
+  pin_memory: True
+  prefetch_factor: 4
+
+# Logging and checkpointing
+logging:
+  tensorboard_dir: "./tensorboard"
+  save_dir: "./models"
+  experiment_name: "pirates_pain_classification"
+  
+# Cross-validation (optional)
+cross_validation:
+  enabled: False
+  k_folds: 5
+  n_val_users: 5
+  n_test_users: 5
+
+# Hyperparameter tuning (optional)
+hyperparameter_tuning:
+  enabled: False
+  param_grid:
+    window_size: [ 50, 100, 200]
+    stride: [25, 50]
+    hidden_size: [64, 128, 256]
+    num_layers: [1, 2, 3]
+    learning_rate: [0.0001, 0.001, 0.01]
+    dropout_rate: [0.0, 0.2, 0.5]
+
