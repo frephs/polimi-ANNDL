@@ -1,13 +1,9 @@
 # =============================================================================
 # Pirates Pain Classification - Default Configuration
 # =============================================================================
-# This configuration file controls all aspects of the training pipeline.
-# All settings are validated against a schema to prevent errors.
 
-# Random seed for reproducibility
 seed: 42
 
-# Data paths
 data:
   raw_dir: "../data/raw"
   processed_dir: "../data/processed"
@@ -15,125 +11,90 @@ data:
   train_labels_file: "pirate_pain_train_labels.csv"
   test_file: "pirate_pain_test.csv"
 
-# Data preprocessing
 preprocessing:
-  enabled: True  # Enable/disable preprocessing steps
-  # Features to scale (joint features)
+  enabled: True
   scale_features: True
-  # Skewness threshold for feature transformation
   skew_threshold: 5.0
-  # Quantile range for clipping outliers
   clip_quantiles: [0.01, 0.99]
-  # Features to drop
-  drop_features: ["joint_30"]  # constant feature
-  # Feature engineering
-  combine_correlations: True  # Combine highly correlated features
-  create_prosthesis_flag: True  # Create prosthesis indicator from body parts
+  drop_features: ["joint_30"]
+  combine_correlations: True
+  create_prosthesis_flag: True
 
-# Label mapping
 labels:
   no_pain: 0
   low_pain: 1
   high_pain: 2
 
-# Data splitting
 split:
-  val_size: 0.15  # Percentage of users for validation set (0.0 to 1.0)
-  stratify: True  # Maintain class balance across train/val splits
+  val_size: 0.15
+  stratify: True
 
-# Sequence building
-# NOTE: Each pirate has exactly 160 timesteps of data
-# window_size MUST be <= 160 to avoid zero-padding
-# For best results with small dataset: window_size = stride = 160 (1 sequence per user)
 sequences:
-  window_size: 160  # MUST be <= 160 (actual data length per user)
-  stride: 160      # 160 = no overlap, 1 sequence per user (recommended for small dataset)
+  window_size: 50
+  stride: 25
 
-# Data augmentation and oversampling
-# For imbalanced time series classification, oversampling can help
-# But be careful: too much augmentation can lead to overfitting
 augmentation:
-  enabled: True  # Set to True to enable augmentation
-  oversample: True  # Oversample minority classes to balance dataset
-  target_distribution: "balanced"  # 'balanced' (equal counts) or 'majority' (match largest class)
-  augment_duplicates: True  # Apply augmentation to oversampled data (prevents exact duplicates)
-  # Augmentation parameters (applied when augment_duplicates=True)
-  noise_level: 0.01  # Std dev of Gaussian noise to add (increased for better diversity)
-  scale_range: [0.97, 1.02]  # Random scaling range
-  shift_range: 5  # Max timesteps to shift (time warping)
-  apply_noise: True  # Add Gaussian noise (ENABLED for diversity)
-  apply_scaling: True  # Apply random scaling
-  apply_shift: True  # Apply time shifting
+  enabled: True
+  oversample: True
+  target_distribution: "balanced"
+  augment_duplicates: True
+  noise_level: 0.01
+  scale_range: [0.97, 1.02]
+  shift_range: 5
+  apply_noise: True
+  apply_scaling: True
+  apply_shift: True
 
-# Model architecture
 model:
   type: "RecurrentClassifier"
-  input_size: null  # Auto-detected from data
-  hidden_size: 128  # Size of hidden state in RNN layers
-  num_layers: 2  # Number of stacked RNN layers
-  num_classes: 3  # Number of output classes (no_pain, low_pain, high_pain)
-  rnn_type: "LSTM"  # Options: RNN, LSTM, GRU (LSTM recommended for time series)
-  bidirectional: True  # Use bidirectional RNN (doubles parameters)
-  dropout_rate: 0.3  # Dropout rate between RNN layers
-  task: "classification"  # Task type: classification or regression
+  input_size: null
+  hidden_size: 128
+  num_layers: 2
+  num_classes: 3
+  rnn_type: "LSTM"
+  bidirectional: True
+  dropout_rate: 0.3
+  task: "classification"
 
-# Training configuration
 training:
-  epochs: 500  # Maximum number of epochs
-  batch_size: 64  # Batch size for training
-  learning_rate: 0.001  # Initial learning rate
-  
-  # Regularization
-  # NOTE: L2 regularization is applied via AdamW's weight_decay parameter
-  # Setting both l2_lambda AND weight_decay would apply L2 twice
-  l1_lambda: 0.0  # L1 regularization (not commonly used with AdamW)
-  l2_lambda: 0.001  # L2 via manual loss term (DISABLED - using weight_decay instead)
-  dropout_rate: 0.3  # Dropout rate (note: also set in model config)
-  
-  # Early stopping
-  patience: 50  # Number of epochs to wait before early stopping
-  evaluation_metric: "val_f1"  # Metric to monitor (val_f1, val_loss, val_accuracy)
-  mode: "max"  # 'max' for F1/accuracy, 'min' for loss
-  restore_best_weights: True  # Restore best model weights after training
-  
-  # Learning rate scheduler
+  epochs: 500
+  batch_size: 64
+  learning_rate: 0.0003
+  l1_lambda: 0.0
+  l2_lambda: 0.0001
+  dropout_rate: 0.3
+  patience: 50
+  evaluation_metric: "val_f1"
+  mode: "max"
+  restore_best_weights: True
   scheduler:
-    enabled: True  # Enable learning rate scheduling
-    type: "ReduceLROnPlateau"  # Type of scheduler
-    factor: 0.5  # Factor to reduce LR by
-    patience: 20  # Epochs to wait before reducing LR
-    min_lr: 1.0e-6  # Minimum learning rate
-  
-  # Verbosity
-  verbose: 10  # Print training progress every N epochs
+    enabled: True
+    type: "ReduceLROnPlateau"
+    factor: 0.5
+    patience: 20
+    min_lr: 1.0e-6
+  verbose: 10
 
-# DataLoader configuration
 dataloader:
-  num_workers: 0  # Set to 0 to avoid multiprocessing issues (use single process)
+  num_workers: 0
   shuffle_train: True
   shuffle_val: False
   drop_last: False
-  pin_memory: False  # Set to True only if using GPU (auto-detected in notebook)
+  pin_memory: False
   prefetch_factor: 4
 
-# Logging and checkpointing
 logging:
   tensorboard_dir: "./tensorboard"
   save_dir: "./models"
   experiment_name: "oversampling_B_rnn"
-  
-# Cross-validation (optional)
-# Provides more robust performance estimates than single train/val split
-cross_validation:
-  enabled: False  # Set to True to run K-fold cross-validation (WARNING: K times slower!)
-  k_folds: 5  # Number of folds
 
-# Hyperparameter tuning (optional)
-# WARNING: EXTREMELY time-consuming! Only enable for serious tuning.
+cross_validation:
+  enabled: False
+  k_folds: 5
+
 hyperparameter_tuning:
-  enabled: False  # Set to True ONLY when ready for extensive tuning
+  enabled: False
   param_grid:
-    # Reduced grid for faster testing (still takes ~30-60 min with 5-fold CV)
     hidden_size: [64, 128]
     num_layers: [1, 2]
     learning_rate: [0.001, 0.0005, 0.01]
