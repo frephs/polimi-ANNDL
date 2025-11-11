@@ -13,6 +13,7 @@ from typing import Dict, Optional, Tuple, Literal
 from tqdm import tqdm
 
 from .metrics import calculate_metrics
+from ..utils.naming import generate_model_filename
 
 
 class Trainer:
