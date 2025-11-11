@@ -3,6 +3,10 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+*.pt
+*.csv
+events.out.tfevents.*
+
 # C extensions
 *.so
 
