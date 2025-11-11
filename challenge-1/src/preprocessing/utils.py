@@ -239,7 +239,10 @@ def normalize_features(
     feature_columns: List[str]
 ) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """
-    Normalize features using min-max scaling from training set.
+    Normalize features using min-max scaling fitted ONLY on training set.
+    
+    IMPORTANT: This prevents data leakage by ensuring validation statistics
+    don't influence training data normalization.
     
     Args:
         X_train: Training features
@@ -247,23 +250,24 @@ def normalize_features(
         feature_columns: List of columns to normalize
         
     Returns:
-        Normalized X_train and X_val
+        Normalized X_train and X_val (both normalized using training statistics)
     """
-    # Calculate min and max from both training and validation sets together
-    mins_train = X_train[feature_columns].min()
-    maxs_train = X_train[feature_columns].max()
-    mins_val = X_val[feature_columns].min()
-    maxs_val = X_val[feature_columns].max()
-    overall_mins = pd.concat([mins_train, mins_val], axis=1).min(axis=1)
-    overall_maxs = pd.concat([maxs_train, maxs_val], axis=1).max(axis=1)
+    # FIXED: Calculate min and max ONLY from training set (prevents data leakage)
+    train_mins = X_train[feature_columns].min()
+    train_maxs = X_train[feature_columns].max()
 
-    # Apply normalization
+    # Apply normalization using TRAINING statistics to both sets
     X_train = X_train.copy()
     X_val = X_val.copy()
     
     for column in feature_columns:
-        X_train[column] = (X_train[column] - overall_mins[column]) / (overall_maxs[column] - overall_mins[column])
-        X_val[column] = (X_val[column] - overall_mins[column]) / (overall_maxs[column] - overall_mins[column])
+        # Avoid division by zero for constant features
+        denominator = train_maxs[column] - train_mins[column]
+        if denominator == 0:
+            denominator = 1.0
+        
+        X_train[column] = (X_train[column] - train_mins[column]) / denominator
+        X_val[column] = (X_val[column] - train_mins[column]) / denominator
 
     return X_train, X_val
 
@@ -305,14 +309,13 @@ def build_sequences(
         # Get label
         label = df[df['sample_index'] == sample_id]['label'].values[0]
         
-        # FIXED: Don't pad with zeros! Instead use the FULL sequence as-is
-        # Each user has exactly 160 timesteps, so use window <= 160
+        # Data quality check: each user should have exactly 160 timesteps
         if len(sample_data) < window:
-            # If somehow data is shorter than window, pad with LAST value (not zeros)
-            padding_len = window - len(sample_data)
-            last_value = sample_data[-1:]
-            padding = np.repeat(last_value, padding_len, axis=0)
-            sample_data = np.concatenate((sample_data, padding))
+            # FIXED: Raise error instead of padding (indicates data quality issue)
+            raise ValueError(
+                f"Sample {sample_id} has {len(sample_data)} timesteps but window={window}. "
+                f"Expected at least {window} timesteps. Check your data preprocessing."
+            )
         
         # Build windows with sliding window
         idx = 0

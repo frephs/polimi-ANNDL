@@ -59,7 +59,7 @@ augmentation:
   augment_duplicates: True  # Apply augmentation to oversampled data (prevents exact duplicates)
   # Augmentation parameters (applied when augment_duplicates=True)
   noise_level: 0.01  # Std dev of Gaussian noise to add (increased for better diversity)
-  scale_range: [0.95, 1.05]  # Random scaling range
+  scale_range: [0.97, 1.02]  # Random scaling range
   shift_range: 5  # Max timesteps to shift (time warping)
   apply_noise: True  # Add Gaussian noise (ENABLED for diversity)
   apply_scaling: True  # Apply random scaling
@@ -72,7 +72,7 @@ model:
   hidden_size: 128  # Size of hidden state in RNN layers
   num_layers: 2  # Number of stacked RNN layers
   num_classes: 3  # Number of output classes (no_pain, low_pain, high_pain)
-  rnn_type: "RNN"  # Options: RNN, LSTM, GRU (LSTM recommended for time series)
+  rnn_type: "LSTM"  # Options: RNN, LSTM, GRU (LSTM recommended for time series)
   bidirectional: True  # Use bidirectional RNN (doubles parameters)
   dropout_rate: 0.3  # Dropout rate between RNN layers
   task: "classification"  # Task type: classification or regression
@@ -84,8 +84,10 @@ training:
   learning_rate: 0.001  # Initial learning rate
   
   # Regularization
+  # NOTE: L2 regularization is applied via AdamW's weight_decay parameter
+  # Setting both l2_lambda AND weight_decay would apply L2 twice
   l1_lambda: 0.0  # L1 regularization (not commonly used with AdamW)
-  l2_lambda: 0.001  # L2 regularization (weight decay for AdamW)
+  l2_lambda: 0.001  # L2 via manual loss term (DISABLED - using weight_decay instead)
   dropout_rate: 0.3  # Dropout rate (note: also set in model config)
   
   # Early stopping
@@ -99,7 +101,7 @@ training:
     enabled: True  # Enable learning rate scheduling
     type: "ReduceLROnPlateau"  # Type of scheduler
     factor: 0.5  # Factor to reduce LR by
-    patience: 10  # Epochs to wait before reducing LR
+    patience: 20  # Epochs to wait before reducing LR
     min_lr: 1.0e-6  # Minimum learning rate
   
   # Verbosity
@@ -134,5 +136,5 @@ hyperparameter_tuning:
     # Reduced grid for faster testing (still takes ~30-60 min with 5-fold CV)
     hidden_size: [64, 128]
     num_layers: [1, 2]
-    learning_rate: [0.001, 0.01]
-    dropout_rate: [0.1, 0.2]
+    learning_rate: [0.001, 0.0005, 0.01]
+    dropout_rate: [0.1, 0.2, 0.3]

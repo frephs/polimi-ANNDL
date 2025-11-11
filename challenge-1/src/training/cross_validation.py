@@ -94,7 +94,7 @@ def k_fold_cross_validation(
             print(f"Train class dist: {np.bincount(y_train)}")
             print(f"Val class dist:   {np.bincount(y_val)}")
         
-        # Normalize features using training statistics
+        # FIXED: Normalize using ONLY training statistics (prevents data leakage)
         # Handle both 2D (n_samples, n_features) and 3D (n_samples, seq_length, n_features)
         if X.ndim == 3:
             # Time series: normalize across both samples and time
@@ -105,6 +105,7 @@ def k_fold_cross_validation(
             train_min = X_train.min(axis=0, keepdims=True)
             train_max = X_train.max(axis=0, keepdims=True)
         
+        # Apply training statistics to BOTH train and validation
         X_train_norm = (X_train - train_min) / (train_max - train_min + 1e-8)
         X_val_norm = (X_val - train_min) / (train_max - train_min + 1e-8)
         
