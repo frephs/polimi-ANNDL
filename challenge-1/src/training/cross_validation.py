@@ -155,6 +155,9 @@ def k_fold_cross_validation(
             raise ValueError(f"Unknown optimizer: {optimizer_type}")
         
         # Build config dict for Trainer
+        # Use the save_dir from base_trainer_params if provided, otherwise use ./models/cv
+        save_dir = base_trainer_params.get('save_dir', './models/cv')
+        
         cv_config = {
             'training': {
                 'epochs': base_trainer_params.get('epochs', 100),
@@ -168,7 +171,7 @@ def k_fold_cross_validation(
                 'scheduler': base_trainer_params.get('scheduler', {'enabled': False})
             },
             'logging': {
-                'save_dir': f'/tmp/cv_fold_{fold_idx}'  # Temporary for CV
+                'save_dir': f'{save_dir}/fold_{fold_idx}'
             }
         }
         

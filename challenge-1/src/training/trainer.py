@@ -254,6 +254,7 @@ class Trainer:
         best_metric = float('-inf') if self.mode == 'max' else float('inf')
         best_epoch = 0
         patience_counter = 0
+        best_model_state = None  # Store best model state in memory
         
         # Create base model path with timestamp
         base_model_name = f"{self.experiment_name}_{self.timestamp}"
@@ -299,7 +300,7 @@ class Trainer:
                       f"Train: Loss={train_loss:.4f}, {metric_display}={train_metric:.4f} | "
                       f"Val: Loss={val_loss:.4f}, {metric_display}={val_metric:.4f}")
             
-            # Early stopping logic and model saving
+            # Early stopping logic (track best but don't save yet)
             if self.patience > 0:
                 current_metric = self.history[self.evaluation_metric][-1]
                 is_improvement = (
@@ -311,17 +312,10 @@ class Trainer:
                     best_metric = current_metric
                     best_epoch = epoch
                     
-                    # Save model with timestamp and best metric
-                    metric_str = f"{self.primary_metric}{best_metric:.4f}".replace('.', '_')
-                    model_path = os.path.join(
-                        self.save_dir, 
-                        f"{base_model_name}_epoch{epoch:03d}_best_{metric_str}.pt"
-                    )
-                    
-                    # Save model state dict and metadata
-                    save_dict = {
+                    # Store best model state in memory (don't save to disk yet)
+                    best_model_state = {
                         'epoch': epoch,
-                        'model_state_dict': self.model.state_dict(),
+                        'model_state_dict': self.model.state_dict().copy(),
                         'optimizer_state_dict': self.optimizer.state_dict(),
                         'best_metric': best_metric,
                         'metric_name': self.primary_metric,
@@ -329,10 +323,9 @@ class Trainer:
                         'timestamp': self.timestamp,
                         'config': self.config
                     }
-                    torch.save(save_dict, model_path)
                     
                     if self.verbose > 0:
-                        print(f"✓ Model improved! Saved to: {os.path.basename(model_path)}")
+                        print(f"✓ New best {self.primary_metric.upper()}: {best_metric:.4f}")
                     
                     patience_counter = 0
                 else:
@@ -342,20 +335,21 @@ class Trainer:
                         print(f"Best {self.primary_metric.upper()}: {best_metric:.4f} at epoch {best_epoch}")
                         break
         
-        # Load best model weights
-        if self.restore_best_weights and self.patience > 0 and best_epoch > 0:
-            # Find the best model file
+        # Save best model ONCE at the end of training
+        if best_model_state is not None:
             metric_str = f"{self.primary_metric}{best_metric:.4f}".replace('.', '_')
             model_path = os.path.join(
-                self.save_dir,
+                self.save_dir, 
                 f"{base_model_name}_epoch{best_epoch:03d}_best_{metric_str}.pt"
             )
-            
-            if os.path.exists(model_path):
-                checkpoint = torch.load(model_path)
-                self.model.load_state_dict(checkpoint['model_state_dict'])
-                print(f"\n✓ Best model restored from epoch {best_epoch}")
-                print(f"  {self.primary_metric.upper()}: {best_metric:.4f}")
+            torch.save(best_model_state, model_path)
+            print(f"\n✓ Best model saved to: {os.path.basename(model_path)}")
+            print(f"  Epoch: {best_epoch} | {self.primary_metric.upper()}: {best_metric:.4f}")
+        
+        # Restore best model weights if configured
+        if self.restore_best_weights and best_model_state is not None:
+            self.model.load_state_dict(best_model_state['model_state_dict'])
+            print(f"✓ Best model weights restored")
         
         # Save final model if no early stopping
         if self.patience == 0:
