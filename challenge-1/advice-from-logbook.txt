@@ -1,0 +1,22 @@
+ADVICE 11/11 - Autocorrelation x Windowing
+“Its own echo, the series sings. In the rhythm of this echo, the true window lies.”
+
+By instinct, your window you choose. 30 steps? 50? A blind number, it is. But the data, their own memory show you. Autocorrelation, a mirror to the past it is. Look at its plot. Where does the past most resemble the present? At 12 steps? At 24? These peaks, the natural cycles they are. If the echo fades after 15 steps, why force your LSTM to remember 100? Listen to the data. It tells you how far back, it is worth looking.
+
+
+ADVICE 10/11 - Gradient Clipping
+“A step too great, from the precipice fall it makes you. The gradient, tamed it must be.”
+
+In the valleys of RNNs, the exploding gradient a sudden foe it is. A single unstable step, and your training into NaN (chaos) collapses. 'Clipping', a bridle on this wild horse it places. Not the direction, but the magnitude it controls. To learn with constancy, with control advance you must.
+
+
+ADVICE 09/11 - Label Smoothing
+“Absolute truth, fragile it is. In blind certainty, the arrogance of overfitting lies hidden.”
+
+Your model, a perfect '1.0' chase it must not. This, rigidity it teaches. If the master says "perhaps 0.9, but 0.1 of doubt," the student (the model) to explore is forced. In this whisper of uncertainty, a stronger generalisation find, you can.
+
+ADVICE 08/11 - Class Imbalance
+“Many the healthy, few the sick. If only to the many you listen, the faint whisper of truth never shall you hear.”
+
+Your model, the easy path it chooses: to always predict the common class. Accuracy, an illusion it becomes. Weigh your loss! Give more power to the rare voices. Ensure an error on the 'few' matters more than an error on the 'many'. Only then, the rare class to find will you learn.
+
