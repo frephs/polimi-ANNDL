@@ -72,6 +72,10 @@ class Trainer:
         self.restore_best_weights = training_config['restore_best_weights']
         self.verbose = training_config['verbose']
         
+        # Gradient clipping configuration (ADVICE 10/11)
+        self.gradient_clip_value = training_config.get('gradient_clip_value', 0.0)
+        self.gradient_clip_norm = training_config.get('gradient_clip_norm', 0.0)
+        
         # Mixed precision scaler (only enable for CUDA)
         self.use_amp = (device.type == 'cuda')
         self.scaler = torch.amp.GradScaler(enabled=self.use_amp)
@@ -153,6 +157,20 @@ class Trainer:
             
             # Backward pass
             self.scaler.scale(loss).backward()
+            
+            # Gradient clipping (ADVICE 10/11: Tame the exploding gradient)
+            # Unscale gradients before clipping (required for mixed precision)
+            self.scaler.unscale_(self.optimizer)
+            
+            if self.gradient_clip_value > 0:
+                # Clip by value: clamps each gradient element to [-value, +value]
+                torch.nn.utils.clip_grad_value_(self.model.parameters(), self.gradient_clip_value)
+            
+            if self.gradient_clip_norm > 0:
+                # Clip by norm: scales down the gradient if its L2 norm exceeds max_norm
+                # This is the recommended approach for RNNs (preserves direction)
+                torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.gradient_clip_norm)
+            
             self.scaler.step(self.optimizer)
             self.scaler.update()
             

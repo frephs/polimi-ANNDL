@@ -17,6 +17,7 @@ from typing import Dict, List, Tuple, Any, Optional
 from tqdm import tqdm
 
 from .trainer import Trainer
+from .losses import LabelSmoothingCrossEntropy
 
 
 def k_fold_cross_validation(
@@ -126,20 +127,40 @@ def k_fold_cross_validation(
         # Reset model weights for this fold
         model.load_state_dict(initial_state)
         
-        # Compute class weights if requested
+        # Create criterion with label smoothing and/or class weights (ADVICE 08/11, 09/11)
+        label_smoothing = base_trainer_params.get('label_smoothing', 0.0)
+        
         if use_class_weights:
             class_weights = compute_class_weight(
                 class_weight='balanced',
                 classes=np.unique(y_train),
                 y=y_train
             )
-            criterion = nn.CrossEntropyLoss(
-                weight=torch.FloatTensor(class_weights).to(device)
-            )
+            class_weights_tensor = torch.FloatTensor(class_weights).to(device)
+            
+            if label_smoothing > 0:
+                # Use label smoothing with class weights
+                criterion = LabelSmoothingCrossEntropy(
+                    smoothing=label_smoothing,
+                    weight=class_weights_tensor
+                )
+            else:
+                # Use standard CE with class weights
+                criterion = nn.CrossEntropyLoss(weight=class_weights_tensor)
+            
             if verbose:
                 print(f"Class weights: {class_weights}")
+                if label_smoothing > 0:
+                    print(f"Label smoothing: {label_smoothing}")
         else:
-            criterion = nn.CrossEntropyLoss()
+            if label_smoothing > 0:
+                # Use label smoothing without class weights
+                criterion = LabelSmoothingCrossEntropy(smoothing=label_smoothing)
+                if verbose:
+                    print(f"Label smoothing: {label_smoothing}")
+            else:
+                # Standard cross-entropy
+                criterion = nn.CrossEntropyLoss()
         
         # Create optimizer
         optimizer_type = base_trainer_params.get('optimizer', 'AdamW')
@@ -169,6 +190,8 @@ def k_fold_cross_validation(
                 'mode': base_trainer_params.get('mode', 'max'),
                 'restore_best_weights': base_trainer_params.get('restore_best_weights', True),
                 'verbose': base_trainer_params.get('verbose', 10),
+                'gradient_clip_value': base_trainer_params.get('gradient_clip_value', 0.0),
+                'gradient_clip_norm': base_trainer_params.get('gradient_clip_norm', 0.0),
                 'scheduler': base_trainer_params.get('scheduler', {'enabled': False})
             },
             'logging': {
