@@ -75,11 +75,7 @@ training:
   gradient_clip_norm: 1.0    # Recommended: 1.0 for RNNs/LSTMs
   # ADVICE 09/11: Label Smoothing - Prevent overconfident predictions
   # Typical values: 0.05 to 0.2 (0.1 is common)
-  focal_loss:
-    enabled: false
-    alpha: 0.25
-    gamma: 2.0
-  label_smoothing: 0  # 0.0 = disabled, 0.1 = 10% smoothing
+  label_smoothing: 0.1  # 0.0 = disabled, 0.1 = 10% smoothing
   # ADVICE 08/11: Class Imbalance - Use class weights
   use_class_weights: True
   scheduler:

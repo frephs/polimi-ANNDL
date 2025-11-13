@@ -30,8 +30,8 @@ split:
   stratify: True
 
 sequences:
-  window_size: 50
-  stride: 25
+  window_size: 10
+  stride: 5
 
 augmentation:
   enabled: True
@@ -71,11 +71,15 @@ training:
   # gradient_clip_value: Clips each gradient element to [-value, +value]
   # gradient_clip_norm: Clips gradient L2 norm (recommended for RNNs, preserves direction)
   # Typical values: norm=1.0 to 5.0 for RNNs
-  gradient_clip_value: 1.0  # 0 = disabled
+  gradient_clip_value: 0.0  # 0 = disabled
   gradient_clip_norm: 1.0    # Recommended: 1.0 for RNNs/LSTMs
   # ADVICE 09/11: Label Smoothing - Prevent overconfident predictions
   # Typical values: 0.05 to 0.2 (0.1 is common)
-  label_smoothing: 0.2  # 0.0 = disabled, 0.1 = 10% smoothing
+  focal_loss:
+    enabled: True
+    alpha: 0.25
+    gamma: 2.0
+  label_smoothing: 0  # 0.0 = disabled, 0.1 = 10% smoothing
   # ADVICE 08/11: Class Imbalance - Use class weights
   use_class_weights: True
   scheduler:
