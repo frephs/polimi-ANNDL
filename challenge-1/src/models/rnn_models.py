@@ -24,7 +24,11 @@ class RecurrentNet(nn.Module):
         bidirectional: bool = False,
         dropout_rate: float = 0.2,
         task: Literal['classification', 'regression'] = 'classification',
-        output_size: Optional[int] = None
+        output_size: Optional[int] = None,
+        use_conv1d: bool = False,
+        conv1d_filters: list = None,
+        conv1d_kernel_sizes: list = None,
+        conv1d_dropout: float = 0.1
     ):
         """
         Args:
@@ -37,6 +41,10 @@ class RecurrentNet(nn.Module):
             dropout_rate: Dropout probability (applied between layers if num_layers > 1)
             task: Type of task ('classification' or 'regression')
             output_size: Number of output dimensions (for regression). If None, uses num_classes
+            use_conv1d: If True, adds 1D convolutional layers before RNN
+            conv1d_filters: List of output channels for each Conv1D layer (e.g., [64, 128])
+            conv1d_kernel_sizes: List of kernel sizes for each Conv1D layer (e.g., [3, 3])
+            conv1d_dropout: Dropout rate for Conv1D layers
         """
         super().__init__()
         
@@ -45,9 +53,39 @@ class RecurrentNet(nn.Module):
         self.hidden_size = hidden_size
         self.bidirectional = bidirectional
         self.task = task
+        self.use_conv1d = use_conv1d
         
         # Determine output size
         self.output_size = output_size if output_size is not None else num_classes
+        
+        if self.use_conv1d and conv1d_filters and conv1d_kernel_sizes:
+            self.conv_layers = nn.ModuleList()
+            
+            # Default values if not provided
+            if conv1d_filters is None:
+                conv1d_filters = [64]
+            if conv1d_kernel_sizes is None:
+                conv1d_kernel_sizes = [3] * len(conv1d_filters)
+            
+            # Build Conv1D layers
+            in_channels = input_size
+            for i, (out_channels, kernel_size) in enumerate(zip(conv1d_filters, conv1d_kernel_sizes)):
+                # Conv1D expects (batch, channels, sequence_length)
+                # We'll transpose in forward()
+                conv_block = nn.Sequential(
+                    nn.Conv1d(in_channels, out_channels, kernel_size, padding=kernel_size//2),
+                    nn.BatchNorm1d(out_channels),
+                    nn.ReLU(),
+                    nn.Dropout(conv1d_dropout)
+                )
+                self.conv_layers.append(conv_block)
+                in_channels = out_channels
+            
+            # Update input size for RNN (output of last conv layer)
+            rnn_input_size = conv1d_filters[-1]
+        else:
+            self.conv_layers = None
+            rnn_input_size = input_size
         
         # Map string name to PyTorch RNN class
         rnn_map = {
@@ -66,7 +104,7 @@ class RecurrentNet(nn.Module):
         
         # Create the recurrent layer
         self.rnn = rnn_module(
-            input_size=input_size,
+            input_size=rnn_input_size,  # Updated to use conv output size if conv is enabled
             hidden_size=hidden_size,
             num_layers=num_layers,
             batch_first=True,  # Input shape: (batch, seq_len, features)
@@ -92,6 +130,19 @@ class RecurrentNet(nn.Module):
                    For classification: logits (raw scores)
                    For regression: predicted values
         """
+        # ADVICE 13/11: Apply Conv1D layers first if enabled
+        if self.use_conv1d and self.conv_layers is not None:
+            # Conv1D expects (batch, channels, sequence)
+            # Input is (batch, sequence, features) so transpose
+            x = x.transpose(1, 2)  # (batch, features, sequence)
+            
+            # Apply convolutional layers
+            for conv_block in self.conv_layers:
+                x = conv_block(x)
+            
+            # Transpose back for RNN: (batch, sequence, features)
+            x = x.transpose(1, 2)
+        
         # rnn_out shape: (batch_size, seq_len, hidden_size * num_directions)
         rnn_out, hidden = self.rnn(x)
         

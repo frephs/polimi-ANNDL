@@ -44,6 +44,18 @@ CONFIG_SCHEMA = {
             'create_prosthesis_flag': {'type': bool, 'required': True},
         }
     },
+    # ADVICE 12/11: Time Feature Engineering
+    'time_features': {
+        'type': dict,
+        'required': False,
+        'schema': {
+            'enabled': {'type': bool, 'required': True},
+            'extract_hour': {'type': bool, 'required': False},
+            'extract_day_of_week': {'type': bool, 'required': False},
+            'extract_day_of_month': {'type': bool, 'required': False},
+            'use_cyclical_encoding': {'type': bool, 'required': False},
+        }
+    },
     'labels': {
         'type': dict,
         'required': True,
@@ -98,6 +110,11 @@ CONFIG_SCHEMA = {
             'bidirectional': {'type': bool, 'required': True},
             'dropout_rate': {'type': (int, float), 'required': True, 'min': 0.0, 'max': 1.0},
             'task': {'type': str, 'required': True, 'choices': ['classification', 'regression']},
+            # ADVICE 13/11: 1D Convolutions for local pattern extraction
+            'use_conv1d': {'type': bool, 'required': False},
+            'conv1d_filters': {'type': list, 'required': False},
+            'conv1d_kernel_sizes': {'type': list, 'required': False},
+            'conv1d_dropout': {'type': (int, float), 'required': False, 'min': 0.0, 'max': 1.0},
         }
     },
     'training': {
