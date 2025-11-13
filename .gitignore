@@ -2,9 +2,14 @@
 data/raw/
 data/processed/
 
+
 #Models 
 *.pt
 events.out.tfevents.*
+
+#submission
+*/models/*.csv
+*/models/*.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
