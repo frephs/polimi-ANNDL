@@ -5,7 +5,7 @@ Recurrent Neural Network models for time series classification and regression
 import torch
 import torch.nn as nn
 from typing import Literal, Optional
-
+import torch.nn.functional as F
 
 class RecurrentNet(nn.Module):
     """
@@ -60,18 +60,12 @@ class RecurrentNet(nn.Module):
         
         if self.use_conv1d and conv1d_filters and conv1d_kernel_sizes:
             self.conv_layers = nn.ModuleList()
-            
-            # Default values if not provided
             if conv1d_filters is None:
                 conv1d_filters = [64]
             if conv1d_kernel_sizes is None:
                 conv1d_kernel_sizes = [3] * len(conv1d_filters)
-            
-            # Build Conv1D layers
             in_channels = input_size
             for i, (out_channels, kernel_size) in enumerate(zip(conv1d_filters, conv1d_kernel_sizes)):
-                # Conv1D expects (batch, channels, sequence_length)
-                # We'll transpose in forward()
                 conv_block = nn.Sequential(
                     nn.Conv1d(in_channels, out_channels, kernel_size, padding=kernel_size//2),
                     nn.BatchNorm1d(out_channels),
@@ -80,34 +74,23 @@ class RecurrentNet(nn.Module):
                 )
                 self.conv_layers.append(conv_block)
                 in_channels = out_channels
-            
-            # Update input size for RNN (output of last conv layer)
             rnn_input_size = conv1d_filters[-1]
         else:
             self.conv_layers = None
             rnn_input_size = input_size
         
-        # Map string name to PyTorch RNN class
-        rnn_map = {
-            'RNN': nn.RNN,
-            'LSTM': nn.LSTM,
-            'GRU': nn.GRU
-        }
-        
+        rnn_map = {'RNN': nn.RNN, 'LSTM': nn.LSTM, 'GRU': nn.GRU}
         if rnn_type not in rnn_map:
             raise ValueError("rnn_type must be 'RNN', 'LSTM', or 'GRU'")
-        
         rnn_module = rnn_map[rnn_type]
-        
-        # Dropout is only applied between layers (if num_layers > 1)
         dropout_val = dropout_rate if num_layers > 1 else 0
         
         # Create the recurrent layer
         self.rnn = rnn_module(
-            input_size=rnn_input_size,  # Updated to use conv output size if conv is enabled
+            input_size=rnn_input_size,
             hidden_size=hidden_size,
             num_layers=num_layers,
-            batch_first=True,  # Input shape: (batch, seq_len, features)
+            batch_first=True,
             bidirectional=bidirectional,
             dropout=dropout_val
         )
@@ -115,55 +98,52 @@ class RecurrentNet(nn.Module):
         # Calculate input size for the final output layer
         output_input_size = hidden_size * 2 if bidirectional else hidden_size
         
-        # Final output layer (works for both classification and regression)
+        # --- NEW: Attention Layer ---
+        # This layer will learn the "importance score" for each time-step.
+        # It takes the full BiLSTM output (output_input_size) and projects it to a single score (1).
+        self.attention_scorer = nn.Linear(output_input_size, 1)
+
+        # --- MODIFIED: The classifier layer is unchanged, but what it receives will change ---
+        # It will now receive the "context_vector" from the attention mechanism,
+        # which has the same size as the RNN's output (output_input_size).
         self.output_layer = nn.Linear(output_input_size, self.output_size)
+
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """
-        Forward pass through the network.
+        """ (Your docstring here) """
         
-        Args:
-            x: Input tensor of shape (batch_size, seq_length, input_size)
-            
-        Returns:
-            output: Output tensor of shape (batch_size, output_size)
-                   For classification: logits (raw scores)
-                   For regression: predicted values
-        """
-        # ADVICE 13/11: Apply Conv1D layers first if enabled
+        # --- 1. Conv1D Layers ---
         if self.use_conv1d and self.conv_layers is not None:
-            # Conv1D expects (batch, channels, sequence)
-            # Input is (batch, sequence, features) so transpose
             x = x.transpose(1, 2)  # (batch, features, sequence)
-            
-            # Apply convolutional layers
             for conv_block in self.conv_layers:
                 x = conv_block(x)
-            
-            # Transpose back for RNN: (batch, sequence, features)
-            x = x.transpose(1, 2)
+            x = x.transpose(1, 2) # (batch, sequence, features_out)
         
+        # --- 2. RNN Layer ---
         # rnn_out shape: (batch_size, seq_len, hidden_size * num_directions)
+        # hidden shape: (num_layers * num_directions, batch_size, hidden_size)
         rnn_out, hidden = self.rnn(x)
         
-        # LSTM returns (h_n, c_n), we only need h_n
-        if self.rnn_type == 'LSTM':
-            hidden = hidden[0]
+        # --- Attention Mechanism ---
+
+        # a) Get "energy" scores: (batch, seq_len, rnn_output_size) -> (batch, seq_len, 1)
+        # We pass all time-step outputs through the attention_scorer
+        energy = torch.tanh(self.attention_scorer(rnn_out))
         
-        # hidden shape: (num_layers * num_directions, batch_size, hidden_size)
+        # b) Get "attention weights": Apply softmax across the time dimension (dim=1)
+        # This creates a probability distribution (sums to 1) over the 50 time-steps.
+        # (batch, seq_len, 1) -> (batch, seq_len, 1)
+        attention_weights = F.softmax(energy, dim=1)
         
-        if self.bidirectional:
-            # Reshape to (num_layers, 2, batch_size, hidden_size)
-            hidden = hidden.view(self.num_layers, 2, -1, self.hidden_size)
-            
-            # Concat last fwd (hidden[-1, 0, ...]) and bwd (hidden[-1, 1, ...])
-            # Final shape: (batch_size, hidden_size * 2)
-            hidden_to_output = torch.cat([hidden[-1, 0, :, :], hidden[-1, 1, :, :]], dim=1)
-        else:
-            # Take the last layer's hidden state
-            # Final shape: (batch_size, hidden_size)
-            hidden_to_output = hidden[-1]
+        # c) Get "context vector": Multiply the RNN output by its importance weights
+        # (batch, seq_len, rnn_output_size) * (batch, seq_len, 1) -> (batch, seq_len, rnn_output_size)
+        context_vector = rnn_out * attention_weights
         
-        # Get output (logits for classification, predictions for regression)
-        output = self.output_layer(hidden_to_output)
+        # d) Sum the weighted outputs to get a single vector
+        # (batch, seq_len, rnn_output_size) -> (batch, rnn_output_size)
+        context_vector = torch.sum(context_vector, dim=1)
+        
+        # --- 4. Classifier ---
+        # Feed the final "attended" context vector into the classifier
+        output = self.output_layer(context_vector)
         return output
