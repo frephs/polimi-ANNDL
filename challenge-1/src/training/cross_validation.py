@@ -1,8 +1,5 @@
 """
 Cross-validation utilities for hyperparameter tuning and model evaluation.
-
-This module provides clean, general-purpose cross-validation functions that work
-with any PyTorch model and preprocessed data (numpy arrays).
 """
 
 import copy
@@ -34,11 +31,6 @@ def k_fold_cross_validation(
     """
     Perform stratified K-fold cross-validation.
     
-    This is the RECOMMENDED approach for cross-validation:
-    - Each sample appears in exactly one validation fold
-    - All data is used for both training and validation
-    - Stratification maintains class balance across folds
-    - Works with any PyTorch model and preprocessed data
     
     Args:
         X: Feature array of shape (n_samples, seq_length, n_features) or (n_samples, n_features)
@@ -95,14 +87,10 @@ def k_fold_cross_validation(
             print(f"Train class dist: {np.bincount(y_train)}")
             print(f"Val class dist:   {np.bincount(y_val)}")
         
-        # FIXED: Normalize using ONLY training statistics (prevents data leakage)
-        # Handle both 2D (n_samples, n_features) and 3D (n_samples, seq_length, n_features)
         if X.ndim == 3:
-            # Time series: normalize across both samples and time
             train_min = X_train.min(axis=(0, 1), keepdims=True)
             train_max = X_train.max(axis=(0, 1), keepdims=True)
         else:
-            # Regular features: normalize across samples
             train_min = X_train.min(axis=0, keepdims=True)
             train_max = X_train.max(axis=0, keepdims=True)
         
@@ -127,7 +115,7 @@ def k_fold_cross_validation(
         # Reset model weights for this fold
         model.load_state_dict(initial_state)
         
-        # Create criterion with label smoothing and/or class weights (ADVICE 08/11, 09/11)
+        # Create criterion with label smoothing and/or class weights
         label_smoothing = base_trainer_params.get('label_smoothing', 0.0)
         
         if use_class_weights:
@@ -177,7 +165,6 @@ def k_fold_cross_validation(
             raise ValueError(f"Unknown optimizer: {optimizer_type}")
         
         # Build config dict for Trainer
-        # Use the save_dir from base_trainer_params if provided, otherwise use ./models/cv
         save_dir = base_trainer_params.get('save_dir', './models/cv')
         
         cv_config = {
@@ -199,7 +186,7 @@ def k_fold_cross_validation(
             }
         }
         
-        # Create trainer (uses existing Trainer class from library)
+        # Create trainer
         trainer = Trainer(
             model=model,
             train_loader=train_loader,
@@ -231,7 +218,7 @@ def k_fold_cross_validation(
     
     if verbose:
         print(f"\n{'='*80}")
-        print(f"📊 Cross-Validation Results")
+        print(f"Cross-Validation Results")
         print(f"{'='*80}")
         print(f"Mean F1: {best_scores['mean']:.4f} ± {best_scores['std']:.4f}")
         print(f"Min F1:  {min(all_best_scores):.4f}")
@@ -363,7 +350,7 @@ def grid_search_hyperparameters(
                 print(f"    Max F1:  {max([fold_scores[f'fold_{i}'] for i in range(cv_k)]):.4f}")
         
         except Exception as e:
-            print(f"\n  ❌ Configuration failed: {e}")
+            print(f"\n Configuration failed: {e}")
             all_results[config_str] = {
                 'params': current_config.copy(),
                 'mean_f1': 0.0,
@@ -399,9 +386,6 @@ def plot_cv_results(
         metric_name: Name of the metric to display (default: 'F1 Score')
         figsize: Figure size (default: (12, 6))
         
-    Example:
-        >>> fold_losses, fold_metrics, best_scores = k_fold_cross_validation(...)
-        >>> plot_cv_results(fold_metrics, k=5)
     """
     import matplotlib.pyplot as plt
     
@@ -454,9 +438,6 @@ def plot_grid_search_results(
         top_n: Number of top configurations to display (default: 10)
         figsize: Figure size (default: (14, 8))
         
-    Example:
-        >>> all_results, best_params, best_score = grid_search_hyperparameters(...)
-        >>> plot_grid_search_results(all_results, top_n=10)
     """
     import matplotlib.pyplot as plt
     

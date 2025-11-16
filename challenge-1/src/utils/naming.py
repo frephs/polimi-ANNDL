@@ -12,13 +12,9 @@ def generate_experiment_name(config: Dict[str, Any], f1_score: float = None) -> 
     
     Format: {rnn_type}_{bidir}_{hidden}h_{layers}l_{lr}lr_{timestamp}[_{f1}f1]
     
-    Examples:
-        - LSTM_bi_128h_2l_0.001lr_20251111_143022
-        - GRU_uni_64h_3l_0.0001lr_20251111_143022_0.8756f1
-    
     Args:
         config: Configuration dictionary
-        f1_score: Optional F1 score to append (e.g., 0.8756)
+        f1_score: Optional F1 score to append
         
     Returns:
         Descriptive experiment name string
@@ -95,15 +91,12 @@ def generate_model_filename(
     
     Format: {rnn_type}_{bidir}_{hidden}h_{layers}l_{timestamp}_ep{epoch}_best_{metric}{value}.pt
     
-    Example:
-        LSTM_bi_128h_2l_20251111_143022_ep048_best_f10.8586.pt
-    
     Args:
         config: Configuration dictionary
         epoch: Training epoch number
-        metric_value: Best metric value (e.g., 0.8586)
-        metric_name: Name of metric (e.g., 'f1', 'r2')
-        timestamp: Optional timestamp string (uses current time if None)
+        metric_value: Best metric value
+        metric_name: Name of metric
+        timestamp: Optional timestamp string
         
     Returns:
         Model filename string
@@ -149,18 +142,6 @@ def parse_experiment_name(name: str) -> Dict[str, Any]:
         
     Returns:
         Dictionary with parsed components
-        
-    Example:
-        >>> parse_experiment_name("LSTM_bi_128h_2l_0.001lr_20251111_143022_f108756")
-        {
-            'rnn_type': 'LSTM',
-            'bidirectional': True,
-            'hidden_size': 128,
-            'num_layers': 2,
-            'learning_rate': 0.001,
-            'timestamp': '20251111_143022',
-            'f1_score': 0.8756
-        }
     """
     components = {}
     parts = name.split('_')
@@ -182,21 +163,17 @@ def parse_experiment_name(name: str) -> Dict[str, Any]:
                 lr_str = part[:-2]
                 components['learning_rate'] = float(lr_str)
             elif part.startswith('d') and len(part) <= 4:
-                # Dropout like d020
                 components['dropout'] = float(part[1:]) / 100
             elif part.startswith('wd'):
                 components['weight_decay'] = float(part[2:])
             elif part.startswith('bs'):
                 components['batch_size'] = int(part[2:])
             elif part.startswith('f1'):
-                # F1 score like f108756 -> 0.8756
                 f1_str = part[2:]
                 components['f1_score'] = float(f1_str) / 10000
             elif len(part) == 8 and part.isdigit():
-                # Date like 20251111
                 components['date'] = part
             elif len(part) == 6 and part.isdigit():
-                # Time like 143022
                 components['time'] = part
                 components['timestamp'] = f"{components.get('date', '')}_{part}"
     

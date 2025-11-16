@@ -79,7 +79,7 @@ def plot_training_history(
     ax1.legend()
     ax1.grid(alpha=0.3)
     
-    # Plot metric (task-dependent)
+    # Plot metric
     if task == 'classification':
         metric_key = 'f1'
         metric_name = 'F1 Score'

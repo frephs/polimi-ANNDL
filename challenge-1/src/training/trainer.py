@@ -128,7 +128,7 @@ class Trainer:
         Perform one training epoch.
         
         Returns:
-            Tuple of (average_loss, primary_metric_value)
+            (average_loss, primary_metric_value)
         """
         self.model.train()
         
@@ -158,17 +158,13 @@ class Trainer:
             # Backward pass
             self.scaler.scale(loss).backward()
             
-            # Gradient clipping (ADVICE 10/11: Tame the exploding gradient)
-            # Unscale gradients before clipping (required for mixed precision)
+            # Unscale gradients before clipping
             self.scaler.unscale_(self.optimizer)
             
             if self.gradient_clip_value > 0:
-                # Clip by value: clamps each gradient element to [-value, +value]
                 torch.nn.utils.clip_grad_value_(self.model.parameters(), self.gradient_clip_value)
             
             if self.gradient_clip_norm > 0:
-                # Clip by norm: scales down the gradient if its L2 norm exceeds max_norm
-                # This is the recommended approach for RNNs (preserves direction)
                 torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.gradient_clip_norm)
             
             self.scaler.step(self.optimizer)
@@ -245,7 +241,7 @@ class Trainer:
         self.writer.add_scalar('Loss/Training', train_loss, epoch)
         self.writer.add_scalar('Loss/Validation', val_loss, epoch)
         
-        # Log primary metric (F1 for classification, R² for regression)
+        # Log primary metric
         metric_name = 'F1' if self.task == 'classification' else 'R2'
         self.writer.add_scalar(f'{metric_name}/Training', train_metric, epoch)
         self.writer.add_scalar(f'{metric_name}/Validation', val_metric, epoch)
@@ -319,7 +315,7 @@ class Trainer:
                       f"Train: Loss={train_loss:.4f}, {metric_display}={train_metric:.4f} | "
                       f"Val: Loss={val_loss:.4f}, {metric_display}={val_metric:.4f}")
             
-            # Early stopping logic (track best but don't save yet)
+            # Early stopping logic
             if self.patience > 0:
                 current_metric = self.history[self.evaluation_metric][-1]
                 is_improvement = (
@@ -331,7 +327,7 @@ class Trainer:
                     best_metric = current_metric
                     best_epoch = epoch
                     
-                    # Store best model state in memory (don't save to disk yet)
+                    # Store best model state in memory
                     best_model_state = {
                         'epoch': epoch,
                         'model_state_dict': self.model.state_dict().copy(),
@@ -354,7 +350,7 @@ class Trainer:
                         print(f"Best {self.primary_metric.upper()}: {best_metric:.4f} at epoch {best_epoch}")
                         break
         
-        # Save best model ONCE at the end of training
+        # Save best model at the end
         if best_model_state is not None:
             metric_str = f"{self.primary_metric}{best_metric:.4f}".replace('.', '_')
             model_path = os.path.join(

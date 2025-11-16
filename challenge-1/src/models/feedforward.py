@@ -48,7 +48,6 @@ class FeedForwardNet(nn.Module):
         # Determine output size
         self.output_size = output_size if output_size is not None else num_classes
         
-        # Map activation names to PyTorch modules
         activation_map = {
             'relu': nn.ReLU,
             'tanh': nn.Tanh,
@@ -77,7 +76,7 @@ class FeedForwardNet(nn.Module):
                 modules.append(nn.Dropout(dropout_rate))
             modules.append(activation_fn())
         
-        # Output layer (works for both classification and regression)
+        # Output layer
         modules.append(nn.Linear(hidden_size, self.output_size))
         
         self.net = nn.Sequential(*modules)
@@ -174,7 +173,7 @@ class ResidualFeedForwardNet(nn.Module):
             for _ in range(num_blocks)
         ])
         
-        # Output layer (works for both classification and regression)
+        # Output layer
         self.output = nn.Linear(hidden_size, self.output_size)
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:

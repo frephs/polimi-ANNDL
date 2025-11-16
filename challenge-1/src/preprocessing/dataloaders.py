@@ -78,7 +78,6 @@ def create_dataloaders(
     Returns:
         Training, validation, and test DataLoaders
     """
-    # Determine optimal number of worker processes if not specified
     if num_workers is None:
         cpu_cores = os.cpu_count() or 2
         num_workers = max(2, min(4, cpu_cores))
@@ -88,10 +87,7 @@ def create_dataloaders(
     val_ds = TensorDataset(torch.from_numpy(X_val), torch.from_numpy(y_val))
     test_ds = TensorDataset(torch.from_numpy(X_test), torch.from_numpy(y_test))
     
-    # Set prefetch_factor based on num_workers
     prefetch = 4 if num_workers > 0 else None
-    
-    # Set pin_memory_device only if pin_memory is enabled and CUDA is available
     pin_memory_device = "cuda" if (pin_memory and torch.cuda.is_available()) else ""
     
     # Create DataLoaders with performance optimizations

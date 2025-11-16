@@ -98,52 +98,28 @@ class RecurrentNet(nn.Module):
         # Calculate input size for the final output layer
         output_input_size = hidden_size * 2 if bidirectional else hidden_size
         
-        # --- NEW: Attention Layer ---
-        # This layer will learn the "importance score" for each time-step.
-        # It takes the full BiLSTM output (output_input_size) and projects it to a single score (1).
+        # Attention Layer 
         self.attention_scorer = nn.Linear(output_input_size, 1)
-
-        # --- MODIFIED: The classifier layer is unchanged, but what it receives will change ---
-        # It will now receive the "context_vector" from the attention mechanism,
-        # which has the same size as the RNN's output (output_input_size).
         self.output_layer = nn.Linear(output_input_size, self.output_size)
 
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """ (Your docstring here) """
-        
-        # --- 1. Conv1D Layers ---
+        # Conv1D Layers
         if self.use_conv1d and self.conv_layers is not None:
-            x = x.transpose(1, 2)  # (batch, features, sequence)
+            x = x.transpose(1, 2)
             for conv_block in self.conv_layers:
                 x = conv_block(x)
-            x = x.transpose(1, 2) # (batch, sequence, features_out)
+            x = x.transpose(1, 2)
         
-        # --- 2. RNN Layer ---
-        # rnn_out shape: (batch_size, seq_len, hidden_size * num_directions)
-        # hidden shape: (num_layers * num_directions, batch_size, hidden_size)
+        # RNN Layer
         rnn_out, hidden = self.rnn(x)
         
-        # --- Attention Mechanism ---
-
-        # a) Get "energy" scores: (batch, seq_len, rnn_output_size) -> (batch, seq_len, 1)
-        # We pass all time-step outputs through the attention_scorer
+        # Attention Mechanism
         energy = torch.tanh(self.attention_scorer(rnn_out))
-        
-        # b) Get "attention weights": Apply softmax across the time dimension (dim=1)
-        # This creates a probability distribution (sums to 1) over the 50 time-steps.
-        # (batch, seq_len, 1) -> (batch, seq_len, 1)
         attention_weights = F.softmax(energy, dim=1)
-        
-        # c) Get "context vector": Multiply the RNN output by its importance weights
-        # (batch, seq_len, rnn_output_size) * (batch, seq_len, 1) -> (batch, seq_len, rnn_output_size)
         context_vector = rnn_out * attention_weights
-        
-        # d) Sum the weighted outputs to get a single vector
-        # (batch, seq_len, rnn_output_size) -> (batch, rnn_output_size)
         context_vector = torch.sum(context_vector, dim=1)
         
-        # --- 4. Classifier ---
-        # Feed the final "attended" context vector into the classifier
+        # Feed the final context vector into the classifier
         output = self.output_layer(context_vector)
         return output

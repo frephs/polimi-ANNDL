@@ -20,9 +20,6 @@ preprocessing:
   combine_correlations: True
   create_prosthesis_flag: True
 
-# ADVICE 12/11: Time Feature Engineering
-# "Not only what happens, but when. Time, not just an index, but a feature it is."
-# Extract temporal features and encode them cyclically
 time_features:
   enabled: True  # Set to True to enable time feature extraction
   extract_hour: True
@@ -65,9 +62,6 @@ model:
   bidirectional: True
   dropout_rate: 0.2  # Increased from 0.2 to prevent overfitting
   task: "classification"
-  # ADVICE 13/11: 1D Convolutions for local pattern extraction
-  # "A pattern in time, like a pattern in space it is."
-  # Conv1D scans across sequences to find local temporal patterns before RNN processing
   use_conv1d: True  # Set to True to enable Conv1D layers before RNN
   conv1d_filters: [64, 128]  # Number of filters for each Conv1D layer
   conv1d_kernel_sizes: [3, 3]  # Fixed: was [10, 10] which equals window size - too large!
@@ -84,20 +78,13 @@ training:
   evaluation_metric: "val_f1"
   mode: "max"
   restore_best_weights: True
-  # ADVICE 10/11: Gradient Clipping - Tame the exploding gradient
-  # gradient_clip_value: Clips each gradient element to [-value, +value]
-  # gradient_clip_norm: Clips gradient L2 norm (recommended for RNNs, preserves direction)
-  # Typical values: norm=1.0 to 5.0 for RNNs
   gradient_clip_value: 0.0  # 0 = disabled
   gradient_clip_norm: 1.0    # Recommended: 1.0 for RNNs/LSTMs
-  # ADVICE 09/11: Label Smoothing - Prevent overconfident predictions
-  # Typical values: 0.05 to 0.2 (0.1 is common)
   focal_loss:
     enabled: false
     alpha: 0.25
     gamma: 2.0
-  label_smoothing: 0  # Enabled: prevents overconfident predictions and overfitting
-  # ADVICE 08/11: Class Imbalance - Use class weights
+  label_smoothing: 0
   use_class_weights: True
   scheduler:
     enabled: True

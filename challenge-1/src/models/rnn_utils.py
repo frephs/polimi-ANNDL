@@ -24,46 +24,43 @@ def recurrent_summary(model: nn.Module, input_size: Tuple[int, ...]) -> None:
     def get_hook(name):
         """Factory function to create a forward hook for a specific module."""
         def hook(module, input, output):
-            # Handle RNN layer outputs (returns a tuple)
+            # Handle RNN layer outputs
             if isinstance(output, tuple):
-                # output[0]: all hidden states with shape (batch, seq_len, hidden*directions)
                 shape1 = list(output[0].shape)
-                shape1[0] = -1  # Replace batch dimension with -1
+                shape1[0] = -1
                 
-                # output[1]: final hidden state h_n (or tuple (h_n, c_n) for LSTM)
                 if isinstance(output[1], tuple):  # LSTM case: (h_n, c_n)
-                    shape2 = list(output[1][0].shape)  # Extract h_n only
+                    shape2 = list(output[1][0].shape)
                 else:  # RNN/GRU case: h_n only
                     shape2 = list(output[1].shape)
                 
-                # Replace batch dimension (middle position) with -1
                 shape2[1] = -1
                 
                 output_shapes[name] = f"[{shape1}, {shape2}]"
             
-            # Handle standard layer outputs (e.g., Linear)
+            # Handle standard layer outputs
             else:
                 shape = list(output.shape)
                 shape[0] = -1  # Replace batch dimension with -1
                 output_shapes[name] = f"{shape}"
         return hook
     
-    # 1. Determine the device where model parameters reside
+    # Determine the device where model parameters reside
     try:
         device = next(model.parameters()).device
     except StopIteration:
-        device = torch.device("cpu")  # Fallback for models without parameters
+        device = torch.device("cpu")
     
-    # 2. Create a dummy input tensor with batch_size=1
+    # Create a dummy input tensor with batch_size=1
     dummy_input = torch.randn(1, *input_size).to(device)
     
-    # 3. Register forward hooks on target layers
+    # Register forward hooks on target layers
     for name, module in model.named_children():
         if isinstance(module, (nn.Linear, nn.RNN, nn.GRU, nn.LSTM)):
             hook_handle = module.register_forward_hook(get_hook(name))
             hooks.append(hook_handle)
     
-    # 4. Execute a dummy forward pass in evaluation mode
+    # Execute a dummy forward pass in evaluation mode
     model.eval()
     with torch.no_grad():
         try:
@@ -74,11 +71,11 @@ def recurrent_summary(model: nn.Module, input_size: Tuple[int, ...]) -> None:
                 h.remove()
             return
     
-    # 5. Remove all registered hooks
+    # Remove all registered hooks
     for h in hooks:
         h.remove()
     
-    # 6. Print the summary table
+    # Print the summary table
     print("-" * 79)
     print(f"{'Layer (type)':<25} {'Output Shape':<28} {'Param #':<18}")
     print("=" * 79)

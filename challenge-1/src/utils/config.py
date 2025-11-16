@@ -45,10 +45,6 @@ def update_config(config: Dict[str, Any], **kwargs) -> Dict[str, Any]:
         
     Returns:
         Updated configuration dictionary
-    
-    Example:
-        >>> config = load_config('config.yaml')
-        >>> config = update_config(config, **{'model.hidden_size': 256, 'training.epochs': 100})
     """
     import copy
     updated_config = copy.deepcopy(config)

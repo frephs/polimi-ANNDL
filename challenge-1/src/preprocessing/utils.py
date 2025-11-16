@@ -87,7 +87,6 @@ def preprocess_pirates_data(
         print("PREPROCESSING PIRATES PAIN DATA")
         print("=" * 80)
     
-    # ADVICE 12/11: Extract time features if enabled
     if config.get('time_features', {}).get('enabled', False):
         X_train = extract_time_features(
             X_train,
@@ -254,9 +253,6 @@ def normalize_features(
     """
     Normalize features using min-max scaling fitted ONLY on training set.
     
-    IMPORTANT: This prevents data leakage by ensuring validation statistics
-    don't influence training data normalization.
-    
     Args:
         X_train: Training features
         X_val: Validation features
@@ -293,9 +289,6 @@ def build_sequences(
 ) -> Tuple[np.ndarray, np.ndarray]:
     """
     Build sequences from time series data with sliding windows.
-    
-    NOTE: Each user in the Pirates Pain dataset has exactly 160 timesteps.
-    Default window=50 and stride=25 creates ~5-6 sequences per user.
     
     Args:
         df: DataFrame with columns ['sample_index', 'label', ...features...]
@@ -435,10 +428,10 @@ def oversample_minority_classes(
     unique_classes, class_counts = np.unique(y_labels, return_counts=True)
     
     if target_distribution == 'balanced':
-        # Target: equal number of samples for all classes
+        # equal number of samples for all classes
         target_count = int(np.mean(class_counts))
     else:  # 'majority'
-        # Target: all classes have as many samples as the majority class
+        # all classes have as many samples as the majority class
         target_count = int(np.max(class_counts))
     
     print(f"Oversampling to {target_distribution} distribution:")
@@ -460,7 +453,7 @@ def oversample_minority_classes(
         X_oversampled.append(cls_samples)
         y_oversampled.append(cls_labels)
         
-        # Calculate how many more samples we need
+        # Calculate how many more samples are needed
         samples_needed = target_count - current_count
         
         if samples_needed > 0:
@@ -516,12 +509,8 @@ def extract_time_features(
     verbose: bool = True
 ) -> pd.DataFrame:
     """
-    ADVICE 12/11: Time Feature Engineering
-    "Not only what happens, but when. Time, not just an index, but a feature it is."
-    
     Extract temporal features from a time column and optionally encode them cyclically.
     Cyclical encoding (sine/cosine) preserves the circular nature of time features
-    (e.g., hour 23 is close to hour 0, Monday is close to Sunday).
     
     Args:
         df: Input DataFrame with a time/timestamp column
@@ -549,19 +538,9 @@ def extract_time_features(
             print("=" * 80)
         return df
     
-    # For this dataset, 'time' is just a timestep index (0-159 per sample)
-    # We'll create synthetic temporal features based on the timestep
-    # In a real scenario, this would be actual timestamps
-    
-    # Treat 'time' as index within a sequence (0-159)
-    # We can create features like:
-    # - Position in sequence (normalized 0-1)
-    # - Cyclical encoding of position
-    
     num_features_added = 0
     
-    # 1. Position in sequence (normalized)
-    # Group by sample_index to get position within each sample
+    # Position in sequence (normalized)
     if 'sample_index' in df.columns:
         df['time_position'] = df.groupby('sample_index')[time_column].transform(
             lambda x: (x - x.min()) / (x.max() - x.min() + 1e-8)
@@ -570,20 +549,13 @@ def extract_time_features(
         
         if use_cyclical_encoding:
             # Cyclical encoding of position
-            # Treat the sequence as a cycle (useful for periodic patterns)
             df['time_position_sin'] = np.sin(2 * np.pi * df['time_position'])
             num_features_added += 1
             
             if verbose:
                 print(f"✓ Added cyclical position features (sin/cos)")
     
-    # 2. For datasets with actual timestamps, we would extract:
-    # This section is prepared for future use with real timestamps
-    
     if extract_hour and use_cyclical_encoding:
-        # Example: if we had real timestamps
-        # For now, we'll simulate this based on timestep
-        # Simulate hour by mapping timestep to 24-hour cycle
         simulated_hour = (df[time_column] % 24.0)
         df['hour_sin'] = np.sin(2 * np.pi * simulated_hour / 24.0)
         df['hour_cos'] = np.cos(2 * np.pi * simulated_hour / 24.0)
@@ -593,7 +565,6 @@ def extract_time_features(
             print(f"✓ Added cyclical hour features (sin/cos)")
     
     if extract_day_of_week and use_cyclical_encoding:
-        # Simulate day of week by mapping timestep to 7-day cycle
         simulated_day = (df[time_column] % 7.0)
         df['day_of_week_sin'] = np.sin(2 * np.pi * simulated_day / 7.0)
         df['day_of_week_cos'] = np.cos(2 * np.pi * simulated_day / 7.0)

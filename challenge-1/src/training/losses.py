@@ -13,15 +13,8 @@ class LabelSmoothingCrossEntropy(nn.Module):
     """
     Cross-entropy loss with label smoothing.
     
-    ADVICE 09/11: Label Smoothing
-    "Absolute truth, fragile it is. In blind certainty, the arrogance of overfitting lies hidden."
-    
-    Instead of hard targets [0, 1, 0], we use soft targets like [0.033, 0.934, 0.033]
-    This encourages the model to be less confident and improves generalization.
-    
     Args:
         smoothing: Label smoothing factor (0.0 = no smoothing, 0.1 = 10% smoothing)
-                  Typical values: 0.05 to 0.2
         weight: Class weights for handling imbalance (optional)
         reduction: 'mean', 'sum', or 'none'
     
@@ -75,11 +68,9 @@ class FocalLoss(nn.Module):
     Focal loss focuses training on hard examples by down-weighting easy examples.
     Particularly useful when combined with class weights.
     
-    Reference: Lin et al. "Focal Loss for Dense Object Detection" (2017)
-    
     Args:
-        alpha: Weighting factor for class balance (can be None, scalar, or tensor)
-        gamma: Focusing parameter (gamma=0 reduces to CE, gamma=2 is typical)
+        alpha: Weighting factor for class balance
+        gamma: Focusing parameter
         reduction: 'mean', 'sum', or 'none'
     """
     
@@ -106,10 +97,8 @@ class FocalLoss(nn.Module):
         ce_loss = F.nll_loss(log_prob, target, reduction='none')
         p_t = prob.gather(1, target.unsqueeze(1)).squeeze(1)
         
-        # Compute focal term: (1 - p_t)^gamma
-        focal_term = (1 - p_t) ** self.gamma
-        
         # Compute focal loss
+        focal_term = (1 - p_t) ** self.gamma
         loss = focal_term * ce_loss
         
         # Apply alpha weighting if provided
