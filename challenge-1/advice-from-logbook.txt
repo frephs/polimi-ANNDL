@@ -1,3 +1,31 @@
+ADVICE 16/11 - Test-Time Augmentation 
+“Your final judgement, on a single view base you must not. In the chorus of many gazes, the truth is strengthened.”
+
+At test time, one window you show. But is this the only truth? What if you create 'echoes' of this window? Perhaps the same window, with subtle noise that changes not its meaning? Or the window that ends one step before? And the one two steps before? Each one, a small variation of the same question. Listen to all their answers. In their 'vote' (the average), a deeper certainty find you can, than one single prediction ever give you may.
+
+ADVICE 15/11 - Data Cleaning
+“Every column, a path it promises. But some paths, only into the fog they lead.”
+
+Have you looked at your data, before bestowing it upon the model? Or blind, have you fed it everything? Perhaps one column, the same value always repeats (zero variance). What guide can this be? Perhaps two columns, the very same song they sing (high correlation). Why carry twice the weight? And that one row, so different from all others... an error, or a rare jewel is it? Not all that you see, is signal. To separate the wheat from the chaff, this the first duty of the wise it is.
+
+
+ADVICE 14/11 - Attention
+“Not all steps in time, equal weight do they carry. What is important, the model must learn to see.”
+
+Your LSTM, long memory it has. But does it remember the vital first step, when it reaches the last? Attention, a torch in the long corridor of time it is. It teaches the network where to look. It gives more weight to the critical moments. In this focus, great power find you can.
+
+ADVICE 13/11 - 1D Convolutions
+“A pattern in time, like a pattern in space it is. With a new eye, look you must.”
+
+The Conv2D upon images observes; the Conv1D across sequences scans. The same rules of kernel, padding, and stride, they obey. How might this eye for local patterns, your recurrent network assist? Before the RNN's memory processes the past, the CNN can find the shape.
+
+
+ADVICE 12/11 - Time Feature Engineering
+“Not only what happens, but when. Time, not just an index, but a feature it is.”
+
+Your signal, bare it is. But the 'when', rich context it gives. Is it the hour of the day? The day of the week? The start of the month? These are not numbers, but cycles. Transform this 'hour' into a feature. And if it is a category ('Monday'), in the embedding space, its true meaning let it learn.
+
+
 ADVICE 11/11 - Autocorrelation x Windowing
 “Its own echo, the series sings. In the rhythm of this echo, the true window lies.”
 
