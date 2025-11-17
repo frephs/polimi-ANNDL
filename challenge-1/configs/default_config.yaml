@@ -13,9 +13,7 @@ data:
 
 preprocessing:
   enabled: True
-  scale_features: True
-  skew_threshold: 5.0
-  clip_quantiles: [0.01, 0.99]
+
   drop_features: ["joint_30"]
   combine_correlations: True
   create_prosthesis_flag: True
@@ -60,7 +58,7 @@ model:
   num_classes: 3
   rnn_type: "LSTM"
   bidirectional: True
-  dropout_rate: 0.2  # Increased from 0.2 to prevent overfitting
+  dropout_rate: 0.4  # Increased from 0.2 to prevent overfitting
   task: "classification"
   use_conv1d: True  # Set to True to enable Conv1D layers before RNN
   conv1d_filters: [64, 128]  # Number of filters for each Conv1D layer
@@ -73,7 +71,6 @@ training:
   learning_rate: 0.0003
   l1_lambda: 0.0
   l2_lambda: 0.0001  # Added weight decay to prevent overfitting
-  dropout_rate: 0.2
   patience: 50
   evaluation_metric: "val_f1"
   mode: "max"
