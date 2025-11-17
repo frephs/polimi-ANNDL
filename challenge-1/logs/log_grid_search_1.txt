@@ -1,0 +1,1677 @@
+6.2s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.2s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.2s 3 0.00s - to python to disable frozen modules.
+6.2s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+6.7s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.7s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.7s 7 0.00s - to python to disable frozen modules.
+6.7s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+15.0s 9 2025-11-10 15:45:43.009983: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+15.0s 10 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+15.0s 11 E0000 00:00:1762789543.195012      19 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+15.0s 12 E0000 00:00:1762789543.249303      19 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+15.2s 13 2025-11-10 15:45:43.009983: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+15.2s 14 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+15.2s 15 E0000 00:00:1762789543.195012      19 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+15.2s 16 E0000 00:00:1762789543.249303      19 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+15.2s 17 
+15.2s 18 2025-11-10 15:45:43.009983: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+15.2s 19 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+15.2s 20 E0000 00:00:1762789543.195012      19 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+15.2s 21 E0000 00:00:1762789543.249303      19 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+29.5s 22 PyTorch version: 2.6.0+cu124
+29.5s 23 Device: cuda
+31.5s 24 Detected 13 skewed features (|skew| > 5.0):
+31.5s 25 joint_13: skew=36.26
+31.5s 26 joint_14: skew=108.27
+31.5s 27 joint_15: skew=33.36
+31.5s 28 joint_16: skew=57.07
+31.5s 29 joint_17: skew=33.52
+31.5s 30 joint_18: skew=63.59
+31.5s 31 joint_19: skew=88.02
+31.5s 32 joint_20: skew=79.39
+31.5s 33 joint_21: skew=256.08
+31.5s 34 joint_22: skew=226.58
+31.5s 35 joint_23: skew=204.95
+31.5s 36 joint_24: skew=37.84
+31.5s 37 joint_25: skew=250.58
+31.5s 38 
+31.5s 39 After transformation:
+31.5s 40 joint_13: skew=6.76
+31.5s 41 joint_14: skew=6.80
+31.5s 42 joint_15: skew=7.13
+31.5s 43 joint_16: skew=7.28
+31.5s 44 joint_17: skew=7.40
+31.5s 45 joint_18: skew=7.28
+31.5s 46 joint_19: skew=6.63
+31.5s 47 joint_20: skew=6.92
+31.5s 48 joint_21: skew=6.03
+31.5s 49 joint_22: skew=6.21
+31.5s 50 joint_23: skew=6.40
+31.5s 51 joint_24: skew=6.55
+31.5s 52 joint_25: skew=6.09
+32.0s 53 (105760, 34)
+32.0s 54 (661, 2)
+32.0s 55 661
+32.3s 56 X_train: (89760, 34) y_train: (561, 2)
+32.3s 57 X_val: (16000, 34) y_val: (100, 2)
+32.3s 58 Train prosthesis count: 640
+32.3s 59 Validation prosthesis count: 320
+32.9s 60 Class weights: {0: 0.6541541256747524, 1: 1.558387444947959, 2: 1.9946737588526398}
+33.1s 61 ['joint_04', 'joint_05', 'joint_06', 'joint_07', 'joint_08', 'joint_09', 'joint_12', 'joint_13', 'joint_14', 'joint_15', 'joint_16', 'joint_17', 'joint_18', 'joint_19', 'joint_20', 'joint_21', 'joint_22', 'joint_23', 'joint_24', 'joint_25', 'joint_26', 'joint_27', 'joint_28', 'joint_29', 'joint_00_02', 'joint_01_03', 'joint_10_11']
+33.3s 62 ['pain_survey_1', 'pain_survey_2', 'pain_survey_3', 'pain_survey_4', 'joint_04', 'joint_05', 'joint_06', 'joint_07', 'joint_08', 'joint_09', 'joint_12', 'joint_13', 'joint_14', 'joint_15', 'joint_16', 'joint_17', 'joint_18', 'joint_19', 'joint_20', 'joint_21', 'joint_22', 'joint_23', 'joint_24', 'joint_25', 'joint_26', 'joint_27', 'joint_28', 'joint_29', 'joint_00_02', 'joint_01_03', 'joint_10_11', 'has_prosthesis']
+35.3s 63 Features batch shape: torch.Size([512, 200, 32])
+35.3s 64 Labels batch shape: torch.Size([512])
+35.6s 65 -------------------------------------------------------------------------------
+35.6s 66 Layer (type)              Output Shape                 Param #
+35.6s 67 ===============================================================================
+35.6s 68 rnn (RNN)                 [[-1, 200, 128], [2, -1, 128]] 53,760
+35.6s 69 classifier (Linear)       [-1, 3]                      387
+35.6s 70 ===============================================================================
+35.6s 71 Total params: 54,147
+35.6s 72 Trainable params: 54,147
+35.6s 73 Non-trainable params: 0
+35.6s 74 -------------------------------------------------------------------------------
+36.2s 75 -------------------------------------------------------------------------------
+36.2s 76 Layer (type)              Output Shape                 Param #
+36.2s 77 ===============================================================================
+36.2s 78 rnn (RNN)                 [[-1, 200, 128], [2, -1, 128]] 53,760
+36.2s 79 classifier (Linear)       [-1, 3]                      387
+36.2s 80 ===============================================================================
+36.2s 81 Total params: 54,147
+36.2s 82 Trainable params: 54,147
+36.2s 83 Non-trainable params: 0
+36.2s 84 -------------------------------------------------------------------------------
+40.9s 85 Training 500 epochs...
+41.8s 86 Epoch   1/500 | Train: Loss=1.0995, F1 Score=0.1244 | Val: Loss=1.0943, F1 Score=0.0494
+42.2s 87 Epoch   2/500 | Train: Loss=1.1033, F1 Score=0.0343 | Val: Loss=1.0996, F1 Score=0.0149
+42.6s 88 Epoch   3/500 | Train: Loss=1.0986, F1 Score=0.1781 | Val: Loss=1.1094, F1 Score=0.6294
+43.0s 89 Epoch   4/500 | Train: Loss=1.1016, F1 Score=0.6822 | Val: Loss=1.1124, F1 Score=0.6294
+43.4s 90 Epoch   5/500 | Train: Loss=1.1019, F1 Score=0.6822 | Val: Loss=1.1089, F1 Score=0.6294
+43.8s 91 Epoch   6/500 | Train: Loss=1.1012, F1 Score=0.6822 | Val: Loss=1.1040, F1 Score=0.6294
+44.1s 92 Epoch   7/500 | Train: Loss=1.1013, F1 Score=0.6822 | Val: Loss=1.1009, F1 Score=0.6294
+44.5s 93 Epoch   8/500 | Train: Loss=1.0994, F1 Score=0.6761 | Val: Loss=1.0990, F1 Score=0.6294
+44.9s 94 Epoch   9/500 | Train: Loss=1.1001, F1 Score=0.5527 | Val: Loss=1.0983, F1 Score=0.0494
+45.3s 95 Epoch  10/500 | Train: Loss=1.0979, F1 Score=0.4771 | Val: Loss=1.0985, F1 Score=0.0494
+45.6s 96 Epoch  11/500 | Train: Loss=1.0991, F1 Score=0.3887 | Val: Loss=1.0977, F1 Score=0.0494
+46.0s 97 Epoch  12/500 | Train: Loss=1.0976, F1 Score=0.2699 | Val: Loss=1.0980, F1 Score=0.0494
+46.4s 98 Epoch  13/500 | Train: Loss=1.0986, F1 Score=0.2675 | Val: Loss=1.0974, F1 Score=0.0494
+46.7s 99 Epoch  14/500 | Train: Loss=1.0982, F1 Score=0.1167 | Val: Loss=1.0970, F1 Score=0.0494
+47.1s 100 Epoch  15/500 | Train: Loss=1.1013, F1 Score=0.0331 | Val: Loss=1.0981, F1 Score=0.0494
+47.5s 101 Epoch  16/500 | Train: Loss=1.1035, F1 Score=0.0331 | Val: Loss=1.0988, F1 Score=0.0494
+47.9s 102 Epoch  17/500 | Train: Loss=1.1030, F1 Score=0.0367 | Val: Loss=1.0995, F1 Score=0.0494
+48.2s 103 Epoch  18/500 | Train: Loss=1.1025, F1 Score=0.1668 | Val: Loss=1.0990, F1 Score=0.0494
+48.6s 104 Epoch  19/500 | Train: Loss=1.1014, F1 Score=0.3356 | Val: Loss=1.0987, F1 Score=0.0494
+49.0s 105 Epoch  20/500 | Train: Loss=1.0998, F1 Score=0.2164 | Val: Loss=1.0978, F1 Score=0.0494
+49.4s 106 Epoch  21/500 | Train: Loss=1.0993, F1 Score=0.0990 | Val: Loss=1.0978, F1 Score=0.0494
+49.7s 107 Epoch  22/500 | Train: Loss=1.0993, F1 Score=0.1616 | Val: Loss=1.0987, F1 Score=0.0494
+50.1s 108 Epoch  23/500 | Train: Loss=1.0997, F1 Score=0.4510 | Val: Loss=1.0995, F1 Score=0.0149
+50.5s 109 Epoch  24/500 | Train: Loss=1.0984, F1 Score=0.2128 | Val: Loss=1.1010, F1 Score=0.0149
+50.9s 110 Epoch  25/500 | Train: Loss=1.1008, F1 Score=0.0130 | Val: Loss=1.1026, F1 Score=0.0149
+51.3s 111 Epoch  26/500 | Train: Loss=1.1005, F1 Score=0.0130 | Val: Loss=1.1038, F1 Score=0.0149
+51.7s 112 Epoch  27/500 | Train: Loss=1.0997, F1 Score=0.0130 | Val: Loss=1.1053, F1 Score=0.0149
+52.1s 113 Epoch  28/500 | Train: Loss=1.1031, F1 Score=0.0130 | Val: Loss=1.1072, F1 Score=0.0149
+52.4s 114 Epoch  29/500 | Train: Loss=1.1027, F1 Score=0.0130 | Val: Loss=1.1089, F1 Score=0.0149
+52.8s 115 Epoch  30/500 | Train: Loss=1.1033, F1 Score=0.0130 | Val: Loss=1.1079, F1 Score=0.0149
+53.2s 116 Epoch  31/500 | Train: Loss=1.1032, F1 Score=0.0130 | Val: Loss=1.1061, F1 Score=0.0149
+53.6s 117 Epoch  32/500 | Train: Loss=1.1027, F1 Score=0.0130 | Val: Loss=1.1046, F1 Score=0.0149
+54.0s 118 Epoch  33/500 | Train: Loss=1.1039, F1 Score=0.0130 | Val: Loss=1.1028, F1 Score=0.0149
+54.3s 119 Epoch  34/500 | Train: Loss=1.0995, F1 Score=0.0130 | Val: Loss=1.1012, F1 Score=0.0149
+54.7s 120 Epoch  35/500 | Train: Loss=1.0986, F1 Score=0.0130 | Val: Loss=1.1009, F1 Score=0.0149
+55.1s 121 Epoch  36/500 | Train: Loss=1.0984, F1 Score=0.0130 | Val: Loss=1.1005, F1 Score=0.0149
+55.5s 122 Epoch  37/500 | Train: Loss=1.0989, F1 Score=0.0744 | Val: Loss=1.1001, F1 Score=0.0149
+55.8s 123 Epoch  38/500 | Train: Loss=1.1005, F1 Score=0.3870 | Val: Loss=1.0995, F1 Score=0.6294
+56.2s 124 Epoch  39/500 | Train: Loss=1.0965, F1 Score=0.6203 | Val: Loss=1.0987, F1 Score=0.0494
+56.6s 125 Epoch  40/500 | Train: Loss=1.1005, F1 Score=0.4702 | Val: Loss=1.0978, F1 Score=0.0494
+57.0s 126 Epoch  41/500 | Train: Loss=1.0965, F1 Score=0.1590 | Val: Loss=1.0977, F1 Score=0.0494
+57.4s 127 Epoch  42/500 | Train: Loss=1.1027, F1 Score=0.1001 | Val: Loss=1.0985, F1 Score=0.0494
+57.7s 128 Epoch  43/500 | Train: Loss=1.1019, F1 Score=0.1866 | Val: Loss=1.0990, F1 Score=0.0494
+58.1s 129 Epoch  44/500 | Train: Loss=1.1012, F1 Score=0.3418 | Val: Loss=1.1001, F1 Score=0.0494
+58.5s 130 Epoch  45/500 | Train: Loss=1.1026, F1 Score=0.3964 | Val: Loss=1.1011, F1 Score=0.0494
+58.9s 131 Epoch  46/500 | Train: Loss=1.1028, F1 Score=0.4151 | Val: Loss=1.1006, F1 Score=0.0494
+59.3s 132 Epoch  47/500 | Train: Loss=1.1018, F1 Score=0.4391 | Val: Loss=1.1006, F1 Score=0.6294
+59.7s 133 Epoch  48/500 | Train: Loss=1.0997, F1 Score=0.6269 | Val: Loss=1.1017, F1 Score=0.6294
+60.1s 134 Epoch  49/500 | Train: Loss=1.1001, F1 Score=0.6811 | Val: Loss=1.1020, F1 Score=0.6294
+60.5s 135 Epoch  50/500 | Train: Loss=1.1001, F1 Score=0.6793 | Val: Loss=1.1019, F1 Score=0.6294
+60.9s 136 Epoch  51/500 | Train: Loss=1.0978, F1 Score=0.6544 | Val: Loss=1.1024, F1 Score=0.0149
+61.3s 137 Epoch  52/500 | Train: Loss=1.1009, F1 Score=0.3276 | Val: Loss=1.1031, F1 Score=0.0149
+61.7s 138 Epoch  53/500 | Train: Loss=1.1002, F1 Score=0.2597 | Val: Loss=1.1039, F1 Score=0.0149
+62.1s 139 Epoch  54/500 | Train: Loss=1.0992, F1 Score=0.4578 | Val: Loss=1.1048, F1 Score=0.6294
+62.4s 140 Epoch  55/500 | Train: Loss=1.0997, F1 Score=0.5731 | Val: Loss=1.1054, F1 Score=0.6294
+62.8s 141 Epoch  56/500 | Train: Loss=1.1008, F1 Score=0.4791 | Val: Loss=1.1052, F1 Score=0.0149
+63.2s 142 Epoch  57/500 | Train: Loss=1.0990, F1 Score=0.3315 | Val: Loss=1.1044, F1 Score=0.0149
+63.5s 143 Epoch  58/500 | Train: Loss=1.0995, F1 Score=0.1240 | Val: Loss=1.1031, F1 Score=0.0149
+63.9s 144 Epoch  59/500 | Train: Loss=1.0997, F1 Score=0.0342 | Val: Loss=1.1023, F1 Score=0.0149
+64.3s 145 Epoch  60/500 | Train: Loss=1.1003, F1 Score=0.0231 | Val: Loss=1.1014, F1 Score=0.0149
+64.7s 146 Epoch  61/500 | Train: Loss=1.1000, F1 Score=0.0130 | Val: Loss=1.1015, F1 Score=0.0149
+65.0s 147 Epoch  62/500 | Train: Loss=1.0994, F1 Score=0.0130 | Val: Loss=1.1008, F1 Score=0.0149
+65.4s 148 Epoch  63/500 | Train: Loss=1.0998, F1 Score=0.0130 | Val: Loss=1.1009, F1 Score=0.0149
+65.8s 149 Epoch  64/500 | Train: Loss=1.0987, F1 Score=0.0130 | Val: Loss=1.1014, F1 Score=0.0149
+66.1s 150 Epoch  65/500 | Train: Loss=1.0981, F1 Score=0.0130 | Val: Loss=1.1020, F1 Score=0.0149
+66.5s 151 Epoch  66/500 | Train: Loss=1.1000, F1 Score=0.0130 | Val: Loss=1.1046, F1 Score=0.0149
+66.9s 152 Epoch  67/500 | Train: Loss=1.1009, F1 Score=0.0130 | Val: Loss=1.1068, F1 Score=0.0149
+67.3s 153 Epoch  68/500 | Train: Loss=1.1017, F1 Score=0.0130 | Val: Loss=1.1080, F1 Score=0.0149
+67.6s 154 Epoch  69/500 | Train: Loss=1.1028, F1 Score=0.0130 | Val: Loss=1.1081, F1 Score=0.0149
+68.0s 155 Epoch  70/500 | Train: Loss=1.1022, F1 Score=0.0130 | Val: Loss=1.1066, F1 Score=0.0149
+68.4s 156 Epoch  71/500 | Train: Loss=1.1013, F1 Score=0.0130 | Val: Loss=1.1045, F1 Score=0.0149
+68.8s 157 Epoch  72/500 | Train: Loss=1.1002, F1 Score=0.0165 | Val: Loss=1.1032, F1 Score=0.0149
+69.1s 158 Epoch  73/500 | Train: Loss=1.1011, F1 Score=0.0584 | Val: Loss=1.1027, F1 Score=0.0149
+69.5s 159 Epoch  74/500 | Train: Loss=1.0994, F1 Score=0.2635 | Val: Loss=1.1021, F1 Score=0.6294
+69.9s 160 Epoch  75/500 | Train: Loss=1.0989, F1 Score=0.5268 | Val: Loss=1.1016, F1 Score=0.6294
+70.2s 161 Epoch  76/500 | Train: Loss=1.0992, F1 Score=0.6420 | Val: Loss=1.1010, F1 Score=0.6294
+70.6s 162 Epoch  77/500 | Train: Loss=1.1003, F1 Score=0.6822 | Val: Loss=1.1003, F1 Score=0.6294
+71.0s 163 Epoch  78/500 | Train: Loss=1.0993, F1 Score=0.6844 | Val: Loss=1.0998, F1 Score=0.6294
+71.4s 164 Epoch  79/500 | Train: Loss=1.0989, F1 Score=0.6412 | Val: Loss=1.0997, F1 Score=0.6294
+71.8s 165 Epoch  80/500 | Train: Loss=1.0998, F1 Score=0.5505 | Val: Loss=1.1003, F1 Score=0.6294
+72.2s 166 Epoch  81/500 | Train: Loss=1.1019, F1 Score=0.6236 | Val: Loss=1.1007, F1 Score=0.6294
+72.5s 167 Epoch  82/500 | Train: Loss=1.1001, F1 Score=0.6509 | Val: Loss=1.1003, F1 Score=0.6294
+72.9s 168 Epoch  83/500 | Train: Loss=1.1010, F1 Score=0.6029 | Val: Loss=1.0989, F1 Score=0.0494
+73.3s 169 Epoch  84/500 | Train: Loss=1.0998, F1 Score=0.3981 | Val: Loss=1.0983, F1 Score=0.0494
+73.6s 170 Epoch  85/500 | Train: Loss=1.0985, F1 Score=0.2370 | Val: Loss=1.0983, F1 Score=0.0494
+74.0s 171 Epoch  86/500 | Train: Loss=1.0984, F1 Score=0.2796 | Val: Loss=1.0983, F1 Score=0.0494
+74.4s 172 Epoch  87/500 | Train: Loss=1.0978, F1 Score=0.4010 | Val: Loss=1.0989, F1 Score=0.0494
+74.8s 173 Epoch  88/500 | Train: Loss=1.0989, F1 Score=0.5272 | Val: Loss=1.0998, F1 Score=0.6294
+75.1s 174 Epoch  89/500 | Train: Loss=1.1021, F1 Score=0.5647 | Val: Loss=1.1007, F1 Score=0.6294
+75.5s 175 Epoch  90/500 | Train: Loss=1.0981, F1 Score=0.6742 | Val: Loss=1.1008, F1 Score=0.6294
+75.9s 176 Epoch  91/500 | Train: Loss=1.0997, F1 Score=0.6808 | Val: Loss=1.1010, F1 Score=0.6294
+76.3s 177 Epoch  92/500 | Train: Loss=1.0986, F1 Score=0.6813 | Val: Loss=1.1011, F1 Score=0.6294
+76.7s 178 Epoch  93/500 | Train: Loss=1.1006, F1 Score=0.6865 | Val: Loss=1.1006, F1 Score=0.6294
+77.0s 179 Epoch  94/500 | Train: Loss=1.0988, F1 Score=0.6676 | Val: Loss=1.1003, F1 Score=0.6294
+77.4s 180 Epoch  95/500 | Train: Loss=1.0997, F1 Score=0.6280 | Val: Loss=1.1012, F1 Score=0.6294
+77.8s 181 Epoch  96/500 | Train: Loss=1.0995, F1 Score=0.6206 | Val: Loss=1.1023, F1 Score=0.6294
+78.2s 182 Epoch  97/500 | Train: Loss=1.0977, F1 Score=0.6426 | Val: Loss=1.1037, F1 Score=0.6294
+78.5s 183 Epoch  98/500 | Train: Loss=1.1002, F1 Score=0.6261 | Val: Loss=1.1042, F1 Score=0.6294
+78.9s 184 Epoch  99/500 | Train: Loss=1.1003, F1 Score=0.5535 | Val: Loss=1.1037, F1 Score=0.6294
+79.3s 185 Epoch 100/500 | Train: Loss=1.0997, F1 Score=0.5553 | Val: Loss=1.1024, F1 Score=0.6294
+79.7s 186 Epoch 101/500 | Train: Loss=1.0989, F1 Score=0.5915 | Val: Loss=1.1014, F1 Score=0.6294
+80.1s 187 Epoch 102/500 | Train: Loss=1.0981, F1 Score=0.6189 | Val: Loss=1.1003, F1 Score=0.6294
+80.4s 188 Epoch 103/500 | Train: Loss=1.0976, F1 Score=0.6487 | Val: Loss=1.0997, F1 Score=0.6294
+80.4s 189 Early stopping triggered after 103 epochs.
+80.4s 190 Best model restored from epoch 3 with val_f1 0.6294
+80.4s 191 CPU times: user 10 s, sys: 18.1 s, total: 28.1 s
+80.4s 192 Wall time: 39.5 s
+81.4s 193 Accuracy over the validation set: 0.7400
+81.4s 194 Precision over the validation set: 0.5476
+81.4s 195 Recall over the validation set: 0.7400
+81.4s 196 F1 score over the validation set: 0.6294
+81.6s 197 -------------------------------------------------------------------------------
+81.6s 198 Layer (type)              Output Shape                 Param #
+81.6s 199 ===============================================================================
+81.6s 200 rnn (RNN)                 [[-1, 200, 256], [4, -1, 128]] 140,288
+81.6s 201 classifier (Linear)       [-1, 3]                      771
+81.6s 202 ===============================================================================
+81.6s 203 Total params: 141,059
+81.6s 204 Trainable params: 141,059
+81.6s 205 Non-trainable params: 0
+81.6s 206 -------------------------------------------------------------------------------
+81.7s 207 Training 500 epochs...
+82.1s 208 Epoch   1/500 | Train: Loss=1.1044, F1 Score=0.4167 | Val: Loss=1.0973, F1 Score=0.0494
+82.6s 209 Epoch   2/500 | Train: Loss=1.0931, F1 Score=0.1516 | Val: Loss=1.0958, F1 Score=0.6639
+83.0s 210 Epoch   3/500 | Train: Loss=1.0800, F1 Score=0.7153 | Val: Loss=1.0900, F1 Score=0.3132
+83.5s 211 Epoch   4/500 | Train: Loss=1.0707, F1 Score=0.3108 | Val: Loss=1.0892, F1 Score=0.1267
+83.9s 212 Epoch   5/500 | Train: Loss=1.0722, F1 Score=0.1881 | Val: Loss=1.0769, F1 Score=0.3769
+84.3s 213 Epoch   6/500 | Train: Loss=1.0531, F1 Score=0.3109 | Val: Loss=1.0595, F1 Score=0.6072
+84.8s 214 Epoch   7/500 | Train: Loss=1.0250, F1 Score=0.6919 | Val: Loss=1.0285, F1 Score=0.5714
+85.2s 215 Epoch   8/500 | Train: Loss=0.9987, F1 Score=0.6489 | Val: Loss=1.0216, F1 Score=0.4549
+85.7s 216 Epoch   9/500 | Train: Loss=0.9923, F1 Score=0.5200 | Val: Loss=1.0454, F1 Score=0.7103
+86.1s 217 Epoch  10/500 | Train: Loss=0.9872, F1 Score=0.7497 | Val: Loss=1.0421, F1 Score=0.5796
+86.6s 218 Epoch  11/500 | Train: Loss=0.9823, F1 Score=0.6463 | Val: Loss=1.0433, F1 Score=0.5324
+87.0s 219 Epoch  12/500 | Train: Loss=0.9670, F1 Score=0.6144 | Val: Loss=1.0601, F1 Score=0.7293
+87.5s 220 Epoch  13/500 | Train: Loss=0.9556, F1 Score=0.7685 | Val: Loss=1.0269, F1 Score=0.4662
+87.9s 221 Epoch  14/500 | Train: Loss=0.9620, F1 Score=0.4996 | Val: Loss=0.9987, F1 Score=0.6931
+88.4s 222 Epoch  15/500 | Train: Loss=0.8944, F1 Score=0.7452 | Val: Loss=0.9919, F1 Score=0.6893
+88.8s 223 Epoch  16/500 | Train: Loss=0.8853, F1 Score=0.7404 | Val: Loss=1.0024, F1 Score=0.6907
+89.2s 224 Epoch  17/500 | Train: Loss=0.8831, F1 Score=0.7492 | Val: Loss=1.0066, F1 Score=0.7216
+89.7s 225 Epoch  18/500 | Train: Loss=0.8631, F1 Score=0.7771 | Val: Loss=0.9812, F1 Score=0.6752
+90.1s 226 Epoch  19/500 | Train: Loss=0.8607, F1 Score=0.7145 | Val: Loss=0.9944, F1 Score=0.5371
+90.5s 227 Epoch  20/500 | Train: Loss=0.8799, F1 Score=0.6049 | Val: Loss=1.0038, F1 Score=0.5383
+91.0s 228 Epoch  21/500 | Train: Loss=0.8708, F1 Score=0.6113 | Val: Loss=1.1134, F1 Score=0.7476
+91.5s 229 Epoch  22/500 | Train: Loss=0.8826, F1 Score=0.8173 | Val: Loss=1.0576, F1 Score=0.7454
+91.9s 230 Epoch  23/500 | Train: Loss=0.8543, F1 Score=0.7612 | Val: Loss=1.0635, F1 Score=0.6394
+92.4s 231 Epoch  24/500 | Train: Loss=0.8522, F1 Score=0.7097 | Val: Loss=1.1175, F1 Score=0.7355
+92.8s 232 Epoch  25/500 | Train: Loss=0.8604, F1 Score=0.7896 | Val: Loss=1.1553, F1 Score=0.7720
+93.3s 233 Epoch  26/500 | Train: Loss=0.8833, F1 Score=0.7976 | Val: Loss=1.0969, F1 Score=0.6827
+93.7s 234 Epoch  27/500 | Train: Loss=0.8357, F1 Score=0.7487 | Val: Loss=1.0833, F1 Score=0.6174
+94.1s 235 Epoch  28/500 | Train: Loss=0.8238, F1 Score=0.6861 | Val: Loss=1.0858, F1 Score=0.6100
+94.6s 236 Epoch  29/500 | Train: Loss=0.7965, F1 Score=0.7202 | Val: Loss=1.0891, F1 Score=0.6213
+95.1s 237 Epoch  30/500 | Train: Loss=0.7945, F1 Score=0.7606 | Val: Loss=1.1119, F1 Score=0.7040
+95.5s 238 Epoch  31/500 | Train: Loss=0.7787, F1 Score=0.7948 | Val: Loss=1.0837, F1 Score=0.6260
+96.0s 239 Epoch  32/500 | Train: Loss=0.7776, F1 Score=0.7186 | Val: Loss=1.1090, F1 Score=0.6119
+96.4s 240 Epoch  33/500 | Train: Loss=0.7568, F1 Score=0.7720 | Val: Loss=1.2032, F1 Score=0.7291
+96.9s 241 Epoch  34/500 | Train: Loss=0.7932, F1 Score=0.8087 | Val: Loss=1.1827, F1 Score=0.6534
+97.3s 242 Epoch  35/500 | Train: Loss=0.7759, F1 Score=0.7668 | Val: Loss=1.1878, F1 Score=0.5591
+97.7s 243 Epoch  36/500 | Train: Loss=0.7810, F1 Score=0.6310 | Val: Loss=1.1903, F1 Score=0.5295
+98.2s 244 Epoch  37/500 | Train: Loss=0.7849, F1 Score=0.6341 | Val: Loss=1.1723, F1 Score=0.5129
+98.6s 245 Epoch  38/500 | Train: Loss=0.7601, F1 Score=0.6602 | Val: Loss=1.1702, F1 Score=0.6054
+99.1s 246 Epoch  39/500 | Train: Loss=0.7352, F1 Score=0.7418 | Val: Loss=1.1934, F1 Score=0.6715
+99.5s 247 Epoch  40/500 | Train: Loss=0.7279, F1 Score=0.7760 | Val: Loss=1.1946, F1 Score=0.6782
+99.9s 248 Epoch  41/500 | Train: Loss=0.7123, F1 Score=0.7872 | Val: Loss=1.2856, F1 Score=0.7636
+100.4s 249 Epoch  42/500 | Train: Loss=0.7802, F1 Score=0.8132 | Val: Loss=1.1564, F1 Score=0.5065
+100.9s 250 Epoch  43/500 | Train: Loss=0.7342, F1 Score=0.6138 | Val: Loss=1.2522, F1 Score=0.7374
+101.3s 251 Epoch  44/500 | Train: Loss=0.7394, F1 Score=0.8089 | Val: Loss=1.2012, F1 Score=0.5574
+101.7s 252 Epoch  45/500 | Train: Loss=0.7147, F1 Score=0.6994 | Val: Loss=1.2393, F1 Score=0.4991
+102.2s 253 Epoch  46/500 | Train: Loss=0.7325, F1 Score=0.6228 | Val: Loss=1.2136, F1 Score=0.6749
+102.6s 254 Epoch  47/500 | Train: Loss=0.7102, F1 Score=0.7792 | Val: Loss=1.1878, F1 Score=0.7248
+103.0s 255 Epoch  48/500 | Train: Loss=0.7165, F1 Score=0.8111 | Val: Loss=1.1058, F1 Score=0.6780
+103.5s 256 Epoch  49/500 | Train: Loss=0.6719, F1 Score=0.7677 | Val: Loss=1.1086, F1 Score=0.6819
+103.9s 257 Epoch  50/500 | Train: Loss=0.6500, F1 Score=0.7491 | Val: Loss=1.1549, F1 Score=0.7006
+104.4s 258 Epoch  51/500 | Train: Loss=0.6555, F1 Score=0.7874 | Val: Loss=1.1639, F1 Score=0.6382
+104.8s 259 Epoch  52/500 | Train: Loss=0.6418, F1 Score=0.7177 | Val: Loss=1.2042, F1 Score=0.5523
+105.3s 260 Epoch  53/500 | Train: Loss=0.6913, F1 Score=0.6238 | Val: Loss=1.2483, F1 Score=0.7030
+105.7s 261 Epoch  54/500 | Train: Loss=0.6521, F1 Score=0.7961 | Val: Loss=1.2168, F1 Score=0.6609
+106.1s 262 Epoch  55/500 | Train: Loss=0.6066, F1 Score=0.7598 | Val: Loss=1.2562, F1 Score=0.6853
+106.6s 263 Epoch  56/500 | Train: Loss=0.5882, F1 Score=0.7873 | Val: Loss=1.3634, F1 Score=0.7577
+107.0s 264 Epoch  57/500 | Train: Loss=0.6542, F1 Score=0.8285 | Val: Loss=1.3289, F1 Score=0.5998
+107.5s 265 Epoch  58/500 | Train: Loss=0.6002, F1 Score=0.7217 | Val: Loss=1.3621, F1 Score=0.5883
+107.9s 266 Epoch  59/500 | Train: Loss=0.5913, F1 Score=0.7346 | Val: Loss=1.3956, F1 Score=0.6859
+108.4s 267 Epoch  60/500 | Train: Loss=0.5773, F1 Score=0.8156 | Val: Loss=1.3305, F1 Score=0.5380
+108.8s 268 Epoch  61/500 | Train: Loss=0.5861, F1 Score=0.6994 | Val: Loss=1.3078, F1 Score=0.6030
+109.3s 269 Epoch  62/500 | Train: Loss=0.5516, F1 Score=0.7792 | Val: Loss=1.3817, F1 Score=0.7370
+109.7s 270 Epoch  63/500 | Train: Loss=0.6043, F1 Score=0.8311 | Val: Loss=1.2544, F1 Score=0.7098
+110.1s 271 Epoch  64/500 | Train: Loss=0.5412, F1 Score=0.8071 | Val: Loss=1.1998, F1 Score=0.6941
+110.6s 272 Epoch  65/500 | Train: Loss=0.5366, F1 Score=0.7957 | Val: Loss=1.1980, F1 Score=0.6930
+111.1s 273 Epoch  66/500 | Train: Loss=0.5207, F1 Score=0.8055 | Val: Loss=1.3562, F1 Score=0.7342
+111.5s 274 Epoch  67/500 | Train: Loss=0.5767, F1 Score=0.8395 | Val: Loss=1.2500, F1 Score=0.6964
+112.0s 275 Epoch  68/500 | Train: Loss=0.4864, F1 Score=0.7842 | Val: Loss=1.3529, F1 Score=0.7478
+112.4s 276 Epoch  69/500 | Train: Loss=0.5161, F1 Score=0.8598 | Val: Loss=1.2794, F1 Score=0.5617
+112.8s 277 Epoch  70/500 | Train: Loss=0.5695, F1 Score=0.6737 | Val: Loss=1.3843, F1 Score=0.7085
+113.3s 278 Epoch  71/500 | Train: Loss=0.4919, F1 Score=0.8436 | Val: Loss=1.4506, F1 Score=0.7292
+113.7s 279 Epoch  72/500 | Train: Loss=0.5613, F1 Score=0.8165 | Val: Loss=1.3849, F1 Score=0.5977
+114.2s 280 Epoch  73/500 | Train: Loss=0.6007, F1 Score=0.6694 | Val: Loss=1.3769, F1 Score=0.5548
+114.6s 281 Epoch  74/500 | Train: Loss=0.5867, F1 Score=0.6670 | Val: Loss=1.3745, F1 Score=0.6491
+115.1s 282 Epoch  75/500 | Train: Loss=0.4952, F1 Score=0.8068 | Val: Loss=1.3458, F1 Score=0.6784
+115.5s 283 Epoch  76/500 | Train: Loss=0.4729, F1 Score=0.8323 | Val: Loss=1.3420, F1 Score=0.5545
+115.9s 284 Epoch  77/500 | Train: Loss=0.5192, F1 Score=0.6856 | Val: Loss=1.3344, F1 Score=0.6367
+116.4s 285 Epoch  78/500 | Train: Loss=0.5202, F1 Score=0.7679 | Val: Loss=1.4342, F1 Score=0.7579
+116.8s 286 Epoch  79/500 | Train: Loss=0.5559, F1 Score=0.8440 | Val: Loss=1.3092, F1 Score=0.6848
+117.3s 287 Epoch  80/500 | Train: Loss=0.4459, F1 Score=0.7760 | Val: Loss=1.2663, F1 Score=0.6969
+117.7s 288 Epoch  81/500 | Train: Loss=0.4531, F1 Score=0.7902 | Val: Loss=1.2963, F1 Score=0.7423
+118.1s 289 Epoch  82/500 | Train: Loss=0.5049, F1 Score=0.8172 | Val: Loss=1.3142, F1 Score=0.6992
+118.6s 290 Epoch  83/500 | Train: Loss=0.4829, F1 Score=0.8009 | Val: Loss=1.3175, F1 Score=0.6967
+119.0s 291 Epoch  84/500 | Train: Loss=0.4495, F1 Score=0.8235 | Val: Loss=1.3041, F1 Score=0.6995
+119.5s 292 Epoch  85/500 | Train: Loss=0.4562, F1 Score=0.8236 | Val: Loss=1.3170, F1 Score=0.7675
+119.9s 293 Epoch  86/500 | Train: Loss=0.4423, F1 Score=0.8320 | Val: Loss=1.3311, F1 Score=0.7622
+120.3s 294 Epoch  87/500 | Train: Loss=0.4174, F1 Score=0.8467 | Val: Loss=1.3706, F1 Score=0.7263
+120.8s 295 Epoch  88/500 | Train: Loss=0.4120, F1 Score=0.8274 | Val: Loss=1.3793, F1 Score=0.6235
+121.3s 296 Epoch  89/500 | Train: Loss=0.4727, F1 Score=0.7204 | Val: Loss=1.4999, F1 Score=0.7660
+121.7s 297 Epoch  90/500 | Train: Loss=0.5242, F1 Score=0.8717 | Val: Loss=1.3275, F1 Score=0.6815
+122.2s 298 Epoch  91/500 | Train: Loss=0.4246, F1 Score=0.7723 | Val: Loss=1.3731, F1 Score=0.7300
+122.6s 299 Epoch  92/500 | Train: Loss=0.4142, F1 Score=0.8381 | Val: Loss=1.3815, F1 Score=0.7137
+123.0s 300 Epoch  93/500 | Train: Loss=0.4136, F1 Score=0.8353 | Val: Loss=1.3332, F1 Score=0.6151
+123.5s 301 Epoch  94/500 | Train: Loss=0.4339, F1 Score=0.7384 | Val: Loss=1.4428, F1 Score=0.7132
+123.9s 302 Epoch  95/500 | Train: Loss=0.3937, F1 Score=0.8344 | Val: Loss=1.4985, F1 Score=0.7515
+124.4s 303 Epoch  96/500 | Train: Loss=0.3777, F1 Score=0.8591 | Val: Loss=1.4819, F1 Score=0.6798
+124.8s 304 Epoch  97/500 | Train: Loss=0.3535, F1 Score=0.8095 | Val: Loss=1.5823, F1 Score=0.7664
+125.2s 305 Epoch  98/500 | Train: Loss=0.3834, F1 Score=0.8812 | Val: Loss=1.5529, F1 Score=0.7547
+125.7s 306 Epoch  99/500 | Train: Loss=0.3363, F1 Score=0.8580 | Val: Loss=1.5185, F1 Score=0.7120
+126.1s 307 Epoch 100/500 | Train: Loss=0.3212, F1 Score=0.8470 | Val: Loss=1.5723, F1 Score=0.7601
+126.6s 308 Epoch 101/500 | Train: Loss=0.3343, F1 Score=0.8975 | Val: Loss=1.5426, F1 Score=0.7135
+127.0s 309 Epoch 102/500 | Train: Loss=0.3269, F1 Score=0.8306 | Val: Loss=1.5323, F1 Score=0.7084
+127.4s 310 Epoch 103/500 | Train: Loss=0.3271, F1 Score=0.8431 | Val: Loss=1.4851, F1 Score=0.6223
+127.9s 311 Epoch 104/500 | Train: Loss=0.3525, F1 Score=0.7844 | Val: Loss=1.5171, F1 Score=0.6534
+128.3s 312 Epoch 105/500 | Train: Loss=0.3305, F1 Score=0.8062 | Val: Loss=1.5846, F1 Score=0.7402
+128.8s 313 Epoch 106/500 | Train: Loss=0.2916, F1 Score=0.8663 | Val: Loss=1.6212, F1 Score=0.7166
+129.2s 314 Epoch 107/500 | Train: Loss=0.2834, F1 Score=0.8514 | Val: Loss=1.6306, F1 Score=0.6793
+129.7s 315 Epoch 108/500 | Train: Loss=0.2828, F1 Score=0.8203 | Val: Loss=1.6793, F1 Score=0.7362
+130.1s 316 Epoch 109/500 | Train: Loss=0.2753, F1 Score=0.8742 | Val: Loss=1.6201, F1 Score=0.6198
+130.5s 317 Epoch 110/500 | Train: Loss=0.3211, F1 Score=0.7620 | Val: Loss=1.6194, F1 Score=0.5721
+131.0s 318 Epoch 111/500 | Train: Loss=0.3383, F1 Score=0.7479 | Val: Loss=1.8521, F1 Score=0.7555
+131.5s 319 Epoch 112/500 | Train: Loss=0.2839, F1 Score=0.8961 | Val: Loss=1.9223, F1 Score=0.7700
+131.9s 320 Epoch 113/500 | Train: Loss=0.2801, F1 Score=0.8860 | Val: Loss=1.9226, F1 Score=0.7131
+132.3s 321 Epoch 114/500 | Train: Loss=0.2531, F1 Score=0.8976 | Val: Loss=1.7575, F1 Score=0.6961
+132.8s 322 Epoch 115/500 | Train: Loss=0.3173, F1 Score=0.8658 | Val: Loss=1.6605, F1 Score=0.7044
+133.2s 323 Epoch 116/500 | Train: Loss=0.3243, F1 Score=0.8440 | Val: Loss=1.5990, F1 Score=0.7053
+133.7s 324 Epoch 117/500 | Train: Loss=0.3522, F1 Score=0.8405 | Val: Loss=1.7114, F1 Score=0.7726
+134.1s 325 Epoch 118/500 | Train: Loss=0.3599, F1 Score=0.8769 | Val: Loss=1.5968, F1 Score=0.6503
+134.5s 326 Epoch 119/500 | Train: Loss=0.3479, F1 Score=0.7661 | Val: Loss=1.6241, F1 Score=0.7069
+135.0s 327 Epoch 120/500 | Train: Loss=0.3098, F1 Score=0.8244 | Val: Loss=1.7366, F1 Score=0.7842
+135.4s 328 Epoch 121/500 | Train: Loss=0.4272, F1 Score=0.8524 | Val: Loss=1.5929, F1 Score=0.5307
+135.9s 329 Epoch 122/500 | Train: Loss=0.5220, F1 Score=0.6452 | Val: Loss=1.8034, F1 Score=0.7556
+136.3s 330 Epoch 123/500 | Train: Loss=0.2920, F1 Score=0.8906 | Val: Loss=1.9842, F1 Score=0.7378
+136.8s 331 Epoch 124/500 | Train: Loss=0.3976, F1 Score=0.9002 | Val: Loss=1.7606, F1 Score=0.6547
+137.2s 332 Epoch 125/500 | Train: Loss=0.3458, F1 Score=0.8069 | Val: Loss=1.7472, F1 Score=0.6539
+137.6s 333 Epoch 126/500 | Train: Loss=0.3051, F1 Score=0.8001 | Val: Loss=1.7704, F1 Score=0.6998
+138.1s 334 Epoch 127/500 | Train: Loss=0.3582, F1 Score=0.8012 | Val: Loss=1.7825, F1 Score=0.7023
+138.5s 335 Epoch 128/500 | Train: Loss=0.2985, F1 Score=0.8399 | Val: Loss=1.7648, F1 Score=0.7128
+139.0s 336 Epoch 129/500 | Train: Loss=0.2455, F1 Score=0.8725 | Val: Loss=1.7481, F1 Score=0.6765
+139.4s 337 Epoch 130/500 | Train: Loss=0.2601, F1 Score=0.8393 | Val: Loss=1.8287, F1 Score=0.6641
+139.9s 338 Epoch 131/500 | Train: Loss=0.2689, F1 Score=0.8228 | Val: Loss=1.9545, F1 Score=0.7181
+140.3s 339 Epoch 132/500 | Train: Loss=0.2520, F1 Score=0.8760 | Val: Loss=1.9976, F1 Score=0.7262
+140.8s 340 Epoch 133/500 | Train: Loss=0.2774, F1 Score=0.8623 | Val: Loss=1.8862, F1 Score=0.6773
+141.3s 341 Epoch 134/500 | Train: Loss=0.2475, F1 Score=0.8382 | Val: Loss=1.8400, F1 Score=0.7317
+141.7s 342 Epoch 135/500 | Train: Loss=0.2035, F1 Score=0.8734 | Val: Loss=1.7882, F1 Score=0.7197
+142.2s 343 Epoch 136/500 | Train: Loss=0.2249, F1 Score=0.8634 | Val: Loss=1.8041, F1 Score=0.6764
+142.6s 344 Epoch 137/500 | Train: Loss=0.2105, F1 Score=0.8614 | Val: Loss=1.9148, F1 Score=0.7483
+143.0s 345 Epoch 138/500 | Train: Loss=0.2155, F1 Score=0.9117 | Val: Loss=1.8793, F1 Score=0.7256
+143.5s 346 Epoch 139/500 | Train: Loss=0.2072, F1 Score=0.8566 | Val: Loss=1.9207, F1 Score=0.6639
+143.9s 347 Epoch 140/500 | Train: Loss=0.2456, F1 Score=0.8082 | Val: Loss=2.1299, F1 Score=0.7504
+144.3s 348 Epoch 141/500 | Train: Loss=0.2041, F1 Score=0.9191 | Val: Loss=2.2611, F1 Score=0.7450
+144.8s 349 Epoch 142/500 | Train: Loss=0.2133, F1 Score=0.9349 | Val: Loss=2.0842, F1 Score=0.7322
+145.2s 350 Epoch 143/500 | Train: Loss=0.1681, F1 Score=0.8952 | Val: Loss=1.9902, F1 Score=0.7146
+145.7s 351 Epoch 144/500 | Train: Loss=0.1930, F1 Score=0.8949 | Val: Loss=1.9696, F1 Score=0.7430
+146.1s 352 Epoch 145/500 | Train: Loss=0.1890, F1 Score=0.9036 | Val: Loss=1.9400, F1 Score=0.7250
+146.6s 353 Epoch 146/500 | Train: Loss=0.1607, F1 Score=0.9203 | Val: Loss=2.0355, F1 Score=0.7231
+147.0s 354 Epoch 147/500 | Train: Loss=0.1706, F1 Score=0.9092 | Val: Loss=2.0942, F1 Score=0.7149
+147.4s 355 Epoch 148/500 | Train: Loss=0.1917, F1 Score=0.8501 | Val: Loss=2.1747, F1 Score=0.7121
+147.9s 356 Epoch 149/500 | Train: Loss=0.1681, F1 Score=0.8731 | Val: Loss=2.3543, F1 Score=0.7536
+148.3s 357 Epoch 150/500 | Train: Loss=0.1879, F1 Score=0.9174 | Val: Loss=2.2905, F1 Score=0.7126
+148.8s 358 Epoch 151/500 | Train: Loss=0.1585, F1 Score=0.9283 | Val: Loss=2.1932, F1 Score=0.6910
+149.3s 359 Epoch 152/500 | Train: Loss=0.1485, F1 Score=0.9178 | Val: Loss=2.1898, F1 Score=0.7252
+149.8s 360 Epoch 153/500 | Train: Loss=0.1289, F1 Score=0.9273 | Val: Loss=2.2140, F1 Score=0.7365
+150.3s 361 Epoch 154/500 | Train: Loss=0.1271, F1 Score=0.9468 | Val: Loss=2.1627, F1 Score=0.7219
+150.8s 362 Epoch 155/500 | Train: Loss=0.1219, F1 Score=0.9347 | Val: Loss=2.1210, F1 Score=0.6995
+151.3s 363 Epoch 156/500 | Train: Loss=0.1428, F1 Score=0.9026 | Val: Loss=2.2249, F1 Score=0.7175
+151.7s 364 Epoch 157/500 | Train: Loss=0.1194, F1 Score=0.9448 | Val: Loss=2.3019, F1 Score=0.7175
+152.2s 365 Epoch 158/500 | Train: Loss=0.1188, F1 Score=0.9532 | Val: Loss=2.3145, F1 Score=0.6927
+152.6s 366 Epoch 159/500 | Train: Loss=0.1146, F1 Score=0.9353 | Val: Loss=2.3952, F1 Score=0.7349
+153.1s 367 Epoch 160/500 | Train: Loss=0.1053, F1 Score=0.9505 | Val: Loss=2.5317, F1 Score=0.7513
+153.5s 368 Epoch 161/500 | Train: Loss=0.1509, F1 Score=0.9547 | Val: Loss=2.4482, F1 Score=0.7044
+154.0s 369 Epoch 162/500 | Train: Loss=0.1027, F1 Score=0.9370 | Val: Loss=2.4647, F1 Score=0.7044
+154.4s 370 Epoch 163/500 | Train: Loss=0.1059, F1 Score=0.9350 | Val: Loss=2.5673, F1 Score=0.7614
+154.9s 371 Epoch 164/500 | Train: Loss=0.1226, F1 Score=0.9720 | Val: Loss=2.5097, F1 Score=0.7464
+155.3s 372 Epoch 165/500 | Train: Loss=0.1004, F1 Score=0.9685 | Val: Loss=2.4058, F1 Score=0.7023
+155.8s 373 Epoch 166/500 | Train: Loss=0.1017, F1 Score=0.9220 | Val: Loss=2.3923, F1 Score=0.7097
+156.2s 374 Epoch 167/500 | Train: Loss=0.0885, F1 Score=0.9435 | Val: Loss=2.4673, F1 Score=0.7418
+156.6s 375 Epoch 168/500 | Train: Loss=0.0870, F1 Score=0.9669 | Val: Loss=2.5163, F1 Score=0.7173
+157.1s 376 Epoch 169/500 | Train: Loss=0.0770, F1 Score=0.9552 | Val: Loss=2.5519, F1 Score=0.7072
+157.5s 377 Epoch 170/500 | Train: Loss=0.0842, F1 Score=0.9384 | Val: Loss=2.6387, F1 Score=0.7246
+158.0s 378 Epoch 171/500 | Train: Loss=0.0737, F1 Score=0.9653 | Val: Loss=2.6465, F1 Score=0.7072
+158.4s 379 Epoch 172/500 | Train: Loss=0.0786, F1 Score=0.9418 | Val: Loss=2.6330, F1 Score=0.6699
+158.8s 380 Epoch 173/500 | Train: Loss=0.1227, F1 Score=0.9093 | Val: Loss=2.8213, F1 Score=0.6988
+159.3s 381 Epoch 174/500 | Train: Loss=0.0850, F1 Score=0.9859 | Val: Loss=3.0381, F1 Score=0.7328
+159.8s 382 Epoch 175/500 | Train: Loss=0.1477, F1 Score=0.9746 | Val: Loss=2.7766, F1 Score=0.7014
+160.2s 383 Epoch 176/500 | Train: Loss=0.0942, F1 Score=0.9484 | Val: Loss=2.7860, F1 Score=0.6601
+160.7s 384 Epoch 177/500 | Train: Loss=0.1130, F1 Score=0.9205 | Val: Loss=2.8397, F1 Score=0.7101
+161.1s 385 Epoch 178/500 | Train: Loss=0.0792, F1 Score=0.9686 | Val: Loss=2.8956, F1 Score=0.7304
+161.6s 386 Epoch 179/500 | Train: Loss=0.1127, F1 Score=0.9769 | Val: Loss=2.7110, F1 Score=0.7073
+162.0s 387 Epoch 180/500 | Train: Loss=0.0649, F1 Score=0.9755 | Val: Loss=2.6313, F1 Score=0.6914
+162.5s 388 Epoch 181/500 | Train: Loss=0.0791, F1 Score=0.9502 | Val: Loss=2.8441, F1 Score=0.7097
+162.9s 389 Epoch 182/500 | Train: Loss=0.0775, F1 Score=0.9502 | Val: Loss=2.8960, F1 Score=0.7173
+163.4s 390 Epoch 183/500 | Train: Loss=0.1503, F1 Score=0.9496 | Val: Loss=2.8820, F1 Score=0.7464
+163.8s 391 Epoch 184/500 | Train: Loss=0.1182, F1 Score=0.9463 | Val: Loss=2.8803, F1 Score=0.7208
+164.3s 392 Epoch 185/500 | Train: Loss=0.1531, F1 Score=0.9390 | Val: Loss=2.8284, F1 Score=0.7317
+164.7s 393 Epoch 186/500 | Train: Loss=0.1187, F1 Score=0.9532 | Val: Loss=2.6370, F1 Score=0.6689
+165.1s 394 Epoch 187/500 | Train: Loss=0.1743, F1 Score=0.8615 | Val: Loss=2.5423, F1 Score=0.7317
+165.6s 395 Epoch 188/500 | Train: Loss=0.1524, F1 Score=0.9123 | Val: Loss=2.6959, F1 Score=0.7449
+166.0s 396 Epoch 189/500 | Train: Loss=0.1774, F1 Score=0.9199 | Val: Loss=2.7598, F1 Score=0.6519
+166.5s 397 Epoch 190/500 | Train: Loss=0.2668, F1 Score=0.8074 | Val: Loss=2.8670, F1 Score=0.7213
+166.9s 398 Epoch 191/500 | Train: Loss=0.2048, F1 Score=0.9072 | Val: Loss=2.8865, F1 Score=0.7302
+167.4s 399 Epoch 192/500 | Train: Loss=0.1975, F1 Score=0.9285 | Val: Loss=2.4997, F1 Score=0.6905
+167.8s 400 Epoch 193/500 | Train: Loss=0.1212, F1 Score=0.9155 | Val: Loss=2.3193, F1 Score=0.6881
+168.3s 401 Epoch 194/500 | Train: Loss=0.1748, F1 Score=0.8538 | Val: Loss=2.3988, F1 Score=0.7780
+168.7s 402 Epoch 195/500 | Train: Loss=0.1237, F1 Score=0.9580 | Val: Loss=2.5336, F1 Score=0.7941
+169.1s 403 Epoch 196/500 | Train: Loss=0.1390, F1 Score=0.9662 | Val: Loss=2.4975, F1 Score=0.7176
+169.6s 404 Epoch 197/500 | Train: Loss=0.1224, F1 Score=0.9076 | Val: Loss=2.5687, F1 Score=0.6595
+170.0s 405 Epoch 198/500 | Train: Loss=0.1390, F1 Score=0.8966 | Val: Loss=2.9097, F1 Score=0.7225
+170.5s 406 Epoch 199/500 | Train: Loss=0.0883, F1 Score=0.9685 | Val: Loss=3.1257, F1 Score=0.7207
+171.0s 407 Epoch 200/500 | Train: Loss=0.1529, F1 Score=0.9677 | Val: Loss=2.9506, F1 Score=0.7015
+171.4s 408 Epoch 201/500 | Train: Loss=0.0861, F1 Score=0.9639 | Val: Loss=2.8052, F1 Score=0.6517
+171.9s 409 Epoch 202/500 | Train: Loss=0.1267, F1 Score=0.9034 | Val: Loss=2.8385, F1 Score=0.6852
+172.4s 410 Epoch 203/500 | Train: Loss=0.0968, F1 Score=0.9397 | Val: Loss=2.9692, F1 Score=0.7539
+172.8s 411 Epoch 204/500 | Train: Loss=0.0943, F1 Score=0.9635 | Val: Loss=3.1658, F1 Score=0.7368
+173.3s 412 Epoch 205/500 | Train: Loss=0.0947, F1 Score=0.9733 | Val: Loss=3.1753, F1 Score=0.7253
+173.8s 413 Epoch 206/500 | Train: Loss=0.0686, F1 Score=0.9688 | Val: Loss=3.0920, F1 Score=0.6616
+174.3s 414 Epoch 207/500 | Train: Loss=0.1227, F1 Score=0.8951 | Val: Loss=3.0935, F1 Score=0.7245
+174.7s 415 Epoch 208/500 | Train: Loss=0.0784, F1 Score=0.9419 | Val: Loss=3.0696, F1 Score=0.7628
+175.2s 416 Epoch 209/500 | Train: Loss=0.0646, F1 Score=0.9738 | Val: Loss=3.0124, F1 Score=0.7573
+175.7s 417 Epoch 210/500 | Train: Loss=0.0754, F1 Score=0.9789 | Val: Loss=2.9796, F1 Score=0.7422
+176.3s 418 Epoch 211/500 | Train: Loss=0.0571, F1 Score=0.9671 | Val: Loss=3.0158, F1 Score=0.7046
+176.9s 419 Epoch 212/500 | Train: Loss=0.0696, F1 Score=0.9441 | Val: Loss=3.0478, F1 Score=0.7300
+177.3s 420 Epoch 213/500 | Train: Loss=0.0471, F1 Score=0.9773 | Val: Loss=3.1586, F1 Score=0.7439
+177.8s 421 Epoch 214/500 | Train: Loss=0.0586, F1 Score=0.9858 | Val: Loss=3.0902, F1 Score=0.7490
+178.3s 422 Epoch 215/500 | Train: Loss=0.0399, F1 Score=0.9876 | Val: Loss=3.0280, F1 Score=0.7194
+178.7s 423 Epoch 216/500 | Train: Loss=0.0526, F1 Score=0.9721 | Val: Loss=3.0640, F1 Score=0.7132
+179.2s 424 Epoch 217/500 | Train: Loss=0.0503, F1 Score=0.9739 | Val: Loss=3.1265, F1 Score=0.7280
+179.7s 425 Epoch 218/500 | Train: Loss=0.0474, F1 Score=0.9790 | Val: Loss=3.1499, F1 Score=0.7280
+180.2s 426 Epoch 219/500 | Train: Loss=0.0457, F1 Score=0.9860 | Val: Loss=3.1086, F1 Score=0.7417
+180.6s 427 Epoch 220/500 | Train: Loss=0.0413, F1 Score=0.9807 | Val: Loss=3.0903, F1 Score=0.7194
+181.1s 428 Epoch 221/500 | Train: Loss=0.0416, F1 Score=0.9704 | Val: Loss=3.1077, F1 Score=0.7267
+181.6s 429 Epoch 222/500 | Train: Loss=0.0342, F1 Score=0.9860 | Val: Loss=3.1625, F1 Score=0.7292
+182.0s 430 Epoch 223/500 | Train: Loss=0.0359, F1 Score=0.9860 | Val: Loss=3.2263, F1 Score=0.7220
+182.5s 431 Epoch 224/500 | Train: Loss=0.0310, F1 Score=0.9929 | Val: Loss=3.2508, F1 Score=0.7245
+183.0s 432 Epoch 225/500 | Train: Loss=0.0292, F1 Score=0.9929 | Val: Loss=3.2611, F1 Score=0.6954
+183.4s 433 Epoch 226/500 | Train: Loss=0.0306, F1 Score=0.9860 | Val: Loss=3.2860, F1 Score=0.7069
+183.9s 434 Epoch 227/500 | Train: Loss=0.0334, F1 Score=0.9929 | Val: Loss=3.3183, F1 Score=0.6924
+184.3s 435 Epoch 228/500 | Train: Loss=0.0276, F1 Score=0.9929 | Val: Loss=3.3450, F1 Score=0.6996
+184.8s 436 Epoch 229/500 | Train: Loss=0.0290, F1 Score=0.9947 | Val: Loss=3.3172, F1 Score=0.7073
+185.3s 437 Epoch 230/500 | Train: Loss=0.0237, F1 Score=0.9965 | Val: Loss=3.2484, F1 Score=0.7117
+185.8s 438 Epoch 231/500 | Train: Loss=0.0243, F1 Score=0.9929 | Val: Loss=3.1826, F1 Score=0.7191
+186.2s 439 Epoch 232/500 | Train: Loss=0.0268, F1 Score=0.9876 | Val: Loss=3.1572, F1 Score=0.7345
+186.7s 440 Epoch 233/500 | Train: Loss=0.0265, F1 Score=0.9947 | Val: Loss=3.1354, F1 Score=0.7345
+187.2s 441 Epoch 234/500 | Train: Loss=0.0261, F1 Score=0.9894 | Val: Loss=3.1458, F1 Score=0.7490
+187.6s 442 Epoch 235/500 | Train: Loss=0.0303, F1 Score=0.9860 | Val: Loss=3.1612, F1 Score=0.7490
+188.1s 443 Epoch 236/500 | Train: Loss=0.0241, F1 Score=0.9982 | Val: Loss=3.1985, F1 Score=0.7414
+188.5s 444 Epoch 237/500 | Train: Loss=0.0217, F1 Score=0.9929 | Val: Loss=3.2798, F1 Score=0.7293
+189.0s 445 Epoch 238/500 | Train: Loss=0.0224, F1 Score=0.9929 | Val: Loss=3.3393, F1 Score=0.7512
+189.4s 446 Epoch 239/500 | Train: Loss=0.0224, F1 Score=0.9965 | Val: Loss=3.3770, F1 Score=0.7321
+189.9s 447 Epoch 240/500 | Train: Loss=0.0215, F1 Score=0.9982 | Val: Loss=3.3758, F1 Score=0.7137
+190.4s 448 Epoch 241/500 | Train: Loss=0.0203, F1 Score=0.9982 | Val: Loss=3.3332, F1 Score=0.7037
+190.8s 449 Epoch 242/500 | Train: Loss=0.0220, F1 Score=0.9947 | Val: Loss=3.2988, F1 Score=0.7037
+191.3s 450 Epoch 243/500 | Train: Loss=0.0225, F1 Score=0.9912 | Val: Loss=3.3027, F1 Score=0.6967
+191.8s 451 Epoch 244/500 | Train: Loss=0.0173, F1 Score=0.9982 | Val: Loss=3.3371, F1 Score=0.7062
+192.2s 452 Epoch 245/500 | Train: Loss=0.0199, F1 Score=0.9982 | Val: Loss=3.3747, F1 Score=0.7309
+192.7s 453 Epoch 246/500 | Train: Loss=0.0243, F1 Score=0.9947 | Val: Loss=3.3152, F1 Score=0.7206
+193.1s 454 Epoch 247/500 | Train: Loss=0.0177, F1 Score=0.9965 | Val: Loss=3.2558, F1 Score=0.7082
+193.6s 455 Epoch 248/500 | Train: Loss=0.0193, F1 Score=0.9929 | Val: Loss=3.2739, F1 Score=0.7217
+194.0s 456 Epoch 249/500 | Train: Loss=0.0163, F1 Score=0.9965 | Val: Loss=3.3303, F1 Score=0.7246
+194.5s 457 Epoch 250/500 | Train: Loss=0.0141, F1 Score=1.0000 | Val: Loss=3.3790, F1 Score=0.7365
+194.9s 458 Epoch 251/500 | Train: Loss=0.0175, F1 Score=0.9964 | Val: Loss=3.3958, F1 Score=0.7365
+195.4s 459 Epoch 252/500 | Train: Loss=0.0152, F1 Score=0.9982 | Val: Loss=3.4117, F1 Score=0.7222
+195.9s 460 Epoch 253/500 | Train: Loss=0.0137, F1 Score=1.0000 | Val: Loss=3.4317, F1 Score=0.7101
+196.3s 461 Epoch 254/500 | Train: Loss=0.0158, F1 Score=0.9965 | Val: Loss=3.4524, F1 Score=0.7027
+196.8s 462 Epoch 255/500 | Train: Loss=0.0123, F1 Score=1.0000 | Val: Loss=3.4852, F1 Score=0.7320
+197.2s 463 Epoch 256/500 | Train: Loss=0.0145, F1 Score=1.0000 | Val: Loss=3.5052, F1 Score=0.7320
+197.7s 464 Epoch 257/500 | Train: Loss=0.0135, F1 Score=1.0000 | Val: Loss=3.5184, F1 Score=0.7320
+198.1s 465 Epoch 258/500 | Train: Loss=0.0124, F1 Score=1.0000 | Val: Loss=3.5451, F1 Score=0.7308
+198.6s 466 Epoch 259/500 | Train: Loss=0.0142, F1 Score=0.9982 | Val: Loss=3.5692, F1 Score=0.7175
+199.0s 467 Epoch 260/500 | Train: Loss=0.0110, F1 Score=1.0000 | Val: Loss=3.5892, F1 Score=0.7038
+199.5s 468 Epoch 261/500 | Train: Loss=0.0124, F1 Score=1.0000 | Val: Loss=3.5910, F1 Score=0.7038
+199.9s 469 Epoch 262/500 | Train: Loss=0.0118, F1 Score=1.0000 | Val: Loss=3.5927, F1 Score=0.7175
+200.4s 470 Epoch 263/500 | Train: Loss=0.0114, F1 Score=1.0000 | Val: Loss=3.6016, F1 Score=0.7101
+200.9s 471 Epoch 264/500 | Train: Loss=0.0113, F1 Score=1.0000 | Val: Loss=3.6060, F1 Score=0.6996
+201.4s 472 Epoch 265/500 | Train: Loss=0.0101, F1 Score=1.0000 | Val: Loss=3.6114, F1 Score=0.7066
+201.8s 473 Epoch 266/500 | Train: Loss=0.0110, F1 Score=1.0000 | Val: Loss=3.6333, F1 Score=0.7066
+202.3s 474 Epoch 267/500 | Train: Loss=0.0118, F1 Score=1.0000 | Val: Loss=3.6560, F1 Score=0.7136
+202.8s 475 Epoch 268/500 | Train: Loss=0.0104, F1 Score=1.0000 | Val: Loss=3.6652, F1 Score=0.7066
+203.3s 476 Epoch 269/500 | Train: Loss=0.0098, F1 Score=1.0000 | Val: Loss=3.6684, F1 Score=0.6995
+203.7s 477 Epoch 270/500 | Train: Loss=0.0109, F1 Score=0.9982 | Val: Loss=3.6909, F1 Score=0.7099
+204.2s 478 Epoch 271/500 | Train: Loss=0.0099, F1 Score=1.0000 | Val: Loss=3.7133, F1 Score=0.7317
+204.6s 479 Epoch 272/500 | Train: Loss=0.0097, F1 Score=1.0000 | Val: Loss=3.7267, F1 Score=0.7390
+205.1s 480 Epoch 273/500 | Train: Loss=0.0094, F1 Score=1.0000 | Val: Loss=3.7251, F1 Score=0.7317
+205.5s 481 Epoch 274/500 | Train: Loss=0.0101, F1 Score=1.0000 | Val: Loss=3.7011, F1 Score=0.7317
+206.0s 482 Epoch 275/500 | Train: Loss=0.0083, F1 Score=1.0000 | Val: Loss=3.6726, F1 Score=0.7175
+206.4s 483 Epoch 276/500 | Train: Loss=0.0091, F1 Score=0.9982 | Val: Loss=3.6728, F1 Score=0.7246
+206.9s 484 Epoch 277/500 | Train: Loss=0.0084, F1 Score=1.0000 | Val: Loss=3.6938, F1 Score=0.7180
+207.3s 485 Epoch 278/500 | Train: Loss=0.0076, F1 Score=1.0000 | Val: Loss=3.7053, F1 Score=0.7390
+207.8s 486 Epoch 279/500 | Train: Loss=0.0087, F1 Score=1.0000 | Val: Loss=3.6877, F1 Score=0.7462
+208.2s 487 Epoch 280/500 | Train: Loss=0.0077, F1 Score=1.0000 | Val: Loss=3.6696, F1 Score=0.7317
+208.7s 488 Epoch 281/500 | Train: Loss=0.0080, F1 Score=1.0000 | Val: Loss=3.6451, F1 Score=0.7175
+209.1s 489 Epoch 282/500 | Train: Loss=0.0074, F1 Score=1.0000 | Val: Loss=3.6352, F1 Score=0.7101
+209.6s 490 Epoch 283/500 | Train: Loss=0.0087, F1 Score=1.0000 | Val: Loss=3.6614, F1 Score=0.7101
+210.0s 491 Epoch 284/500 | Train: Loss=0.0068, F1 Score=1.0000 | Val: Loss=3.7056, F1 Score=0.7378
+210.5s 492 Epoch 285/500 | Train: Loss=0.0058, F1 Score=1.0000 | Val: Loss=3.7433, F1 Score=0.7454
+210.9s 493 Epoch 286/500 | Train: Loss=0.0072, F1 Score=1.0000 | Val: Loss=3.7568, F1 Score=0.7378
+211.4s 494 Epoch 287/500 | Train: Loss=0.0064, F1 Score=1.0000 | Val: Loss=3.7493, F1 Score=0.7302
+211.9s 495 Epoch 288/500 | Train: Loss=0.0071, F1 Score=1.0000 | Val: Loss=3.7308, F1 Score=0.7027
+212.3s 496 Epoch 289/500 | Train: Loss=0.0065, F1 Score=1.0000 | Val: Loss=3.7280, F1 Score=0.6905
+212.8s 497 Epoch 290/500 | Train: Loss=0.0064, F1 Score=1.0000 | Val: Loss=3.7454, F1 Score=0.6973
+213.2s 498 Epoch 291/500 | Train: Loss=0.0061, F1 Score=1.0000 | Val: Loss=3.7635, F1 Score=0.7327
+213.7s 499 Epoch 292/500 | Train: Loss=0.0070, F1 Score=1.0000 | Val: Loss=3.7583, F1 Score=0.7186
+214.1s 500 Epoch 293/500 | Train: Loss=0.0062, F1 Score=1.0000 | Val: Loss=3.7364, F1 Score=0.6973
+214.5s 501 Epoch 294/500 | Train: Loss=0.0063, F1 Score=1.0000 | Val: Loss=3.7103, F1 Score=0.6973
+215.0s 502 Epoch 295/500 | Train: Loss=0.0062, F1 Score=1.0000 | Val: Loss=3.6922, F1 Score=0.7027
+215.0s 503 Early stopping triggered after 295 epochs.
+215.0s 504 Best model restored from epoch 195 with val_f1 0.7941
+215.0s 505 CPU times: user 47.7 s, sys: 53.3 s, total: 1min 40s
+215.0s 506 Wall time: 2min 13s
+216.0s 507 Accuracy over the validation set: 0.8100
+216.0s 508 Precision over the validation set: 0.7913
+216.0s 509 Recall over the validation set: 0.8100
+216.0s 510 F1 score over the validation set: 0.7941
+216.3s 511 -------------------------------------------------------------------------------
+216.3s 512 Layer (type)              Output Shape                 Param #
+216.3s 513 ===============================================================================
+216.3s 514 rnn (LSTM)                [[-1, 200, 128], [2, -1, 128]] 215,040
+216.3s 515 classifier (Linear)       [-1, 3]                      387
+216.3s 516 ===============================================================================
+216.3s 517 Total params: 215,427
+216.3s 518 Trainable params: 215,427
+216.3s 519 Non-trainable params: 0
+216.3s 520 -------------------------------------------------------------------------------
+216.3s 521 Training 500 epochs...
+216.8s 522 Epoch   1/500 | Train: Loss=1.1002, F1 Score=0.6822 | Val: Loss=1.0995, F1 Score=0.6294
+217.3s 523 Epoch   2/500 | Train: Loss=1.0992, F1 Score=0.6822 | Val: Loss=1.0988, F1 Score=0.6294
+217.7s 524 Epoch   3/500 | Train: Loss=1.0990, F1 Score=0.5121 | Val: Loss=1.0986, F1 Score=0.0149
+218.2s 525 Epoch   4/500 | Train: Loss=1.0987, F1 Score=0.0763 | Val: Loss=1.0992, F1 Score=0.6294
+218.7s 526 Epoch   5/500 | Train: Loss=1.0987, F1 Score=0.6502 | Val: Loss=1.0994, F1 Score=0.6294
+219.1s 527 Epoch   6/500 | Train: Loss=1.0986, F1 Score=0.6822 | Val: Loss=1.0993, F1 Score=0.6294
+219.6s 528 Epoch   7/500 | Train: Loss=1.0986, F1 Score=0.6822 | Val: Loss=1.0992, F1 Score=0.6294
+220.0s 529 Epoch   8/500 | Train: Loss=1.0987, F1 Score=0.6822 | Val: Loss=1.0999, F1 Score=0.6294
+220.5s 530 Epoch   9/500 | Train: Loss=1.0986, F1 Score=0.6822 | Val: Loss=1.1006, F1 Score=0.6294
+221.0s 531 Epoch  10/500 | Train: Loss=1.0988, F1 Score=0.6822 | Val: Loss=1.1009, F1 Score=0.6294
+221.5s 532 Epoch  11/500 | Train: Loss=1.0990, F1 Score=0.6822 | Val: Loss=1.1012, F1 Score=0.6294
+222.0s 533 Epoch  12/500 | Train: Loss=1.0992, F1 Score=0.6822 | Val: Loss=1.1014, F1 Score=0.6294
+222.4s 534 Epoch  13/500 | Train: Loss=1.0996, F1 Score=0.6822 | Val: Loss=1.1021, F1 Score=0.6294
+222.9s 535 Epoch  14/500 | Train: Loss=1.1000, F1 Score=0.6822 | Val: Loss=1.1015, F1 Score=0.6294
+223.4s 536 Epoch  15/500 | Train: Loss=1.1000, F1 Score=0.6822 | Val: Loss=1.1018, F1 Score=0.6294
+223.8s 537 Epoch  16/500 | Train: Loss=1.1001, F1 Score=0.6822 | Val: Loss=1.1019, F1 Score=0.6294
+224.3s 538 Epoch  17/500 | Train: Loss=1.1004, F1 Score=0.6822 | Val: Loss=1.1019, F1 Score=0.6294
+224.8s 539 Epoch  18/500 | Train: Loss=1.1005, F1 Score=0.6822 | Val: Loss=1.1024, F1 Score=0.6294
+225.2s 540 Epoch  19/500 | Train: Loss=1.1006, F1 Score=0.6822 | Val: Loss=1.1017, F1 Score=0.6294
+225.7s 541 Epoch  20/500 | Train: Loss=1.1007, F1 Score=0.6822 | Val: Loss=1.1014, F1 Score=0.6294
+226.1s 542 Epoch  21/500 | Train: Loss=1.1003, F1 Score=0.6822 | Val: Loss=1.1000, F1 Score=0.6294
+226.6s 543 Epoch  22/500 | Train: Loss=1.0999, F1 Score=0.6794 | Val: Loss=1.0989, F1 Score=0.0494
+227.1s 544 Epoch  23/500 | Train: Loss=1.0997, F1 Score=0.0331 | Val: Loss=1.0976, F1 Score=0.0494
+227.5s 545 Epoch  24/500 | Train: Loss=1.0988, F1 Score=0.0331 | Val: Loss=1.0974, F1 Score=0.0494
+228.0s 546 Epoch  25/500 | Train: Loss=1.0990, F1 Score=0.0331 | Val: Loss=1.0971, F1 Score=0.0494
+228.5s 547 Epoch  26/500 | Train: Loss=1.0988, F1 Score=0.0331 | Val: Loss=1.0976, F1 Score=0.0494
+228.9s 548 Epoch  27/500 | Train: Loss=1.0985, F1 Score=0.0331 | Val: Loss=1.0981, F1 Score=0.0494
+229.4s 549 Epoch  28/500 | Train: Loss=1.0985, F1 Score=0.0471 | Val: Loss=1.0989, F1 Score=0.0149
+229.9s 550 Epoch  29/500 | Train: Loss=1.0985, F1 Score=0.4062 | Val: Loss=1.0994, F1 Score=0.0149
+230.3s 551 Epoch  30/500 | Train: Loss=1.0988, F1 Score=0.0130 | Val: Loss=1.0997, F1 Score=0.0149
+230.9s 552 Epoch  31/500 | Train: Loss=1.0986, F1 Score=0.0130 | Val: Loss=1.1006, F1 Score=0.0149
+231.3s 553 Epoch  32/500 | Train: Loss=1.0988, F1 Score=0.0130 | Val: Loss=1.1016, F1 Score=0.0149
+231.8s 554 Epoch  33/500 | Train: Loss=1.0991, F1 Score=0.0130 | Val: Loss=1.1016, F1 Score=0.0149
+232.3s 555 Epoch  34/500 | Train: Loss=1.0993, F1 Score=0.0130 | Val: Loss=1.1024, F1 Score=0.0149
+232.7s 556 Epoch  35/500 | Train: Loss=1.0996, F1 Score=0.0130 | Val: Loss=1.1031, F1 Score=0.0149
+233.2s 557 Epoch  36/500 | Train: Loss=1.0997, F1 Score=0.0130 | Val: Loss=1.1032, F1 Score=0.0149
+233.7s 558 Epoch  37/500 | Train: Loss=1.0997, F1 Score=0.0130 | Val: Loss=1.1027, F1 Score=0.0149
+234.1s 559 Epoch  38/500 | Train: Loss=1.0992, F1 Score=0.0130 | Val: Loss=1.1019, F1 Score=0.0149
+234.6s 560 Epoch  39/500 | Train: Loss=1.0990, F1 Score=0.0510 | Val: Loss=1.1016, F1 Score=0.6294
+235.1s 561 Epoch  40/500 | Train: Loss=1.0989, F1 Score=0.6822 | Val: Loss=1.1011, F1 Score=0.6294
+235.5s 562 Epoch  41/500 | Train: Loss=1.0990, F1 Score=0.6822 | Val: Loss=1.1014, F1 Score=0.6294
+236.0s 563 Epoch  42/500 | Train: Loss=1.0989, F1 Score=0.6822 | Val: Loss=1.1012, F1 Score=0.6294
+236.5s 564 Epoch  43/500 | Train: Loss=1.0988, F1 Score=0.6822 | Val: Loss=1.1010, F1 Score=0.6294
+236.9s 565 Epoch  44/500 | Train: Loss=1.0987, F1 Score=0.6822 | Val: Loss=1.1012, F1 Score=0.6294
+237.4s 566 Epoch  45/500 | Train: Loss=1.0991, F1 Score=0.6822 | Val: Loss=1.1006, F1 Score=0.6294
+237.8s 567 Epoch  46/500 | Train: Loss=1.0987, F1 Score=0.6822 | Val: Loss=1.1011, F1 Score=0.6294
+238.3s 568 Epoch  47/500 | Train: Loss=1.0994, F1 Score=0.6822 | Val: Loss=1.1010, F1 Score=0.6294
+238.8s 569 Epoch  48/500 | Train: Loss=1.0996, F1 Score=0.6822 | Val: Loss=1.1008, F1 Score=0.6294
+239.2s 570 Epoch  49/500 | Train: Loss=1.0997, F1 Score=0.6822 | Val: Loss=1.1006, F1 Score=0.6294
+239.7s 571 Epoch  50/500 | Train: Loss=1.0998, F1 Score=0.6822 | Val: Loss=1.1006, F1 Score=0.6294
+240.1s 572 Epoch  51/500 | Train: Loss=1.0997, F1 Score=0.6822 | Val: Loss=1.1000, F1 Score=0.6294
+240.6s 573 Epoch  52/500 | Train: Loss=1.0997, F1 Score=0.6804 | Val: Loss=1.0993, F1 Score=0.0494
+241.1s 574 Epoch  53/500 | Train: Loss=1.0995, F1 Score=0.0367 | Val: Loss=1.0988, F1 Score=0.0494
+241.6s 575 Epoch  54/500 | Train: Loss=1.1002, F1 Score=0.0331 | Val: Loss=1.0981, F1 Score=0.0494
+242.0s 576 Epoch  55/500 | Train: Loss=1.1003, F1 Score=0.0331 | Val: Loss=1.0973, F1 Score=0.0494
+242.5s 577 Epoch  56/500 | Train: Loss=1.1007, F1 Score=0.0331 | Val: Loss=1.0972, F1 Score=0.0494
+243.0s 578 Epoch  57/500 | Train: Loss=1.1005, F1 Score=0.0331 | Val: Loss=1.0975, F1 Score=0.0494
+243.4s 579 Epoch  58/500 | Train: Loss=1.1007, F1 Score=0.0331 | Val: Loss=1.0973, F1 Score=0.0494
+243.9s 580 Epoch  59/500 | Train: Loss=1.1005, F1 Score=0.0331 | Val: Loss=1.0972, F1 Score=0.0494
+244.3s 581 Epoch  60/500 | Train: Loss=1.1005, F1 Score=0.0331 | Val: Loss=1.0966, F1 Score=0.0494
+244.8s 582 Epoch  61/500 | Train: Loss=1.1003, F1 Score=0.0331 | Val: Loss=1.0969, F1 Score=0.0494
+245.3s 583 Epoch  62/500 | Train: Loss=1.1000, F1 Score=0.0331 | Val: Loss=1.0965, F1 Score=0.0494
+245.7s 584 Epoch  63/500 | Train: Loss=1.0999, F1 Score=0.0331 | Val: Loss=1.0962, F1 Score=0.0494
+246.2s 585 Epoch  64/500 | Train: Loss=1.0999, F1 Score=0.0331 | Val: Loss=1.0964, F1 Score=0.0494
+246.7s 586 Epoch  65/500 | Train: Loss=1.0995, F1 Score=0.0331 | Val: Loss=1.0969, F1 Score=0.0494
+247.1s 587 Epoch  66/500 | Train: Loss=1.0992, F1 Score=0.0331 | Val: Loss=1.0969, F1 Score=0.0494
+247.6s 588 Epoch  67/500 | Train: Loss=1.0990, F1 Score=0.0331 | Val: Loss=1.0969, F1 Score=0.0494
+248.0s 589 Epoch  68/500 | Train: Loss=1.0993, F1 Score=0.0331 | Val: Loss=1.0971, F1 Score=0.0494
+248.5s 590 Epoch  69/500 | Train: Loss=1.0991, F1 Score=0.0331 | Val: Loss=1.0973, F1 Score=0.0494
+249.0s 591 Epoch  70/500 | Train: Loss=1.0989, F1 Score=0.0331 | Val: Loss=1.0975, F1 Score=0.0494
+249.4s 592 Epoch  71/500 | Train: Loss=1.0990, F1 Score=0.0331 | Val: Loss=1.0977, F1 Score=0.0494
+249.9s 593 Epoch  72/500 | Train: Loss=1.0990, F1 Score=0.0331 | Val: Loss=1.0978, F1 Score=0.0494
+250.3s 594 Epoch  73/500 | Train: Loss=1.0988, F1 Score=0.0331 | Val: Loss=1.0980, F1 Score=0.0494
+250.8s 595 Epoch  74/500 | Train: Loss=1.0988, F1 Score=0.0331 | Val: Loss=1.0983, F1 Score=0.0494
+251.3s 596 Epoch  75/500 | Train: Loss=1.0987, F1 Score=0.0331 | Val: Loss=1.0984, F1 Score=0.0494
+251.8s 597 Epoch  76/500 | Train: Loss=1.0989, F1 Score=0.0331 | Val: Loss=1.0984, F1 Score=0.0494
+252.2s 598 Epoch  77/500 | Train: Loss=1.0988, F1 Score=0.0331 | Val: Loss=1.0984, F1 Score=0.0494
+252.7s 599 Epoch  78/500 | Train: Loss=1.0989, F1 Score=0.0331 | Val: Loss=1.0982, F1 Score=0.0494
+253.2s 600 Epoch  79/500 | Train: Loss=1.0987, F1 Score=0.0331 | Val: Loss=1.0977, F1 Score=0.0494
+253.6s 601 Epoch  80/500 | Train: Loss=1.0988, F1 Score=0.0331 | Val: Loss=1.0980, F1 Score=0.0494
+254.1s 602 Epoch  81/500 | Train: Loss=1.0986, F1 Score=0.0331 | Val: Loss=1.0978, F1 Score=0.0494
+254.5s 603 Epoch  82/500 | Train: Loss=1.0987, F1 Score=0.0331 | Val: Loss=1.0982, F1 Score=0.0494
+255.0s 604 Epoch  83/500 | Train: Loss=1.0986, F1 Score=0.0331 | Val: Loss=1.0976, F1 Score=0.0494
+255.5s 605 Epoch  84/500 | Train: Loss=1.0988, F1 Score=0.0331 | Val: Loss=1.0975, F1 Score=0.0494
+255.9s 606 Epoch  85/500 | Train: Loss=1.0987, F1 Score=0.0331 | Val: Loss=1.0975, F1 Score=0.0494
+256.4s 607 Epoch  86/500 | Train: Loss=1.0987, F1 Score=0.0331 | Val: Loss=1.0975, F1 Score=0.0494
+256.8s 608 Epoch  87/500 | Train: Loss=1.0987, F1 Score=0.0331 | Val: Loss=1.0976, F1 Score=0.0494
+257.3s 609 Epoch  88/500 | Train: Loss=1.0986, F1 Score=0.0331 | Val: Loss=1.0982, F1 Score=0.0494
+257.8s 610 Epoch  89/500 | Train: Loss=1.0986, F1 Score=0.0331 | Val: Loss=1.0984, F1 Score=0.0494
+258.2s 611 Epoch  90/500 | Train: Loss=1.0985, F1 Score=0.0331 | Val: Loss=1.0985, F1 Score=0.0494
+258.7s 612 Epoch  91/500 | Train: Loss=1.0985, F1 Score=0.0331 | Val: Loss=1.0986, F1 Score=0.0494
+259.1s 613 Epoch  92/500 | Train: Loss=1.0987, F1 Score=0.0714 | Val: Loss=1.0986, F1 Score=0.6294
+259.6s 614 Epoch  93/500 | Train: Loss=1.0987, F1 Score=0.6432 | Val: Loss=1.0987, F1 Score=0.6294
+260.1s 615 Epoch  94/500 | Train: Loss=1.0988, F1 Score=0.6802 | Val: Loss=1.0990, F1 Score=0.6294
+260.5s 616 Epoch  95/500 | Train: Loss=1.0989, F1 Score=0.6901 | Val: Loss=1.0989, F1 Score=0.6294
+261.0s 617 Epoch  96/500 | Train: Loss=1.0988, F1 Score=0.6827 | Val: Loss=1.0988, F1 Score=0.6294
+261.5s 618 Epoch  97/500 | Train: Loss=1.0989, F1 Score=0.6074 | Val: Loss=1.0985, F1 Score=0.0494
+262.0s 619 Epoch  98/500 | Train: Loss=1.0989, F1 Score=0.0650 | Val: Loss=1.0986, F1 Score=0.0494
+262.4s 620 Epoch  99/500 | Train: Loss=1.0991, F1 Score=0.0331 | Val: Loss=1.0982, F1 Score=0.0494
+262.9s 621 Epoch 100/500 | Train: Loss=1.0990, F1 Score=0.0331 | Val: Loss=1.0974, F1 Score=0.0494
+263.4s 622 Epoch 101/500 | Train: Loss=1.0988, F1 Score=0.0331 | Val: Loss=1.0972, F1 Score=0.0494
+263.4s 623 Early stopping triggered after 101 epochs.
+263.4s 624 Best model restored from epoch 1 with val_f1 0.6294
+263.4s 625 CPU times: user 17.5 s, sys: 18.3 s, total: 35.8 s
+263.4s 626 Wall time: 47 s
+264.4s 627 Accuracy over the validation set: 0.7400
+264.4s 628 Precision over the validation set: 0.5476
+264.4s 629 Recall over the validation set: 0.7400
+264.4s 630 F1 score over the validation set: 0.6294
+264.7s 631 -------------------------------------------------------------------------------
+264.7s 632 Layer (type)              Output Shape                 Param #
+264.7s 633 ===============================================================================
+264.7s 634 rnn (LSTM)                [[-1, 200, 256], [4, -1, 128]] 561,152
+264.7s 635 classifier (Linear)       [-1, 3]                      771
+264.7s 636 ===============================================================================
+264.7s 637 Total params: 561,923
+264.7s 638 Trainable params: 561,923
+264.7s 639 Non-trainable params: 0
+264.7s 640 -------------------------------------------------------------------------------
+264.8s 641 Training 500 epochs...
+265.5s 642 Epoch   1/500 | Train: Loss=1.0997, F1 Score=0.0505 | Val: Loss=1.0984, F1 Score=0.6520
+266.1s 643 Epoch   2/500 | Train: Loss=1.0945, F1 Score=0.6864 | Val: Loss=1.1011, F1 Score=0.6520
+266.7s 644 Epoch   3/500 | Train: Loss=1.0961, F1 Score=0.6914 | Val: Loss=1.1037, F1 Score=0.6725
+267.3s 645 Epoch   4/500 | Train: Loss=1.0983, F1 Score=0.7138 | Val: Loss=1.1026, F1 Score=0.6790
+267.9s 646 Epoch   5/500 | Train: Loss=1.0956, F1 Score=0.7304 | Val: Loss=1.0997, F1 Score=0.6766
+268.6s 647 Epoch   6/500 | Train: Loss=1.0912, F1 Score=0.7237 | Val: Loss=1.0870, F1 Score=0.7278
+269.2s 648 Epoch   7/500 | Train: Loss=1.0796, F1 Score=0.7363 | Val: Loss=1.0699, F1 Score=0.6537
+269.8s 649 Epoch   8/500 | Train: Loss=1.0654, F1 Score=0.6926 | Val: Loss=1.0522, F1 Score=0.7100
+270.4s 650 Epoch   9/500 | Train: Loss=1.0465, F1 Score=0.7425 | Val: Loss=1.0297, F1 Score=0.7248
+271.1s 651 Epoch  10/500 | Train: Loss=1.0150, F1 Score=0.7377 | Val: Loss=1.0317, F1 Score=0.4216
+271.7s 652 Epoch  11/500 | Train: Loss=1.0464, F1 Score=0.3973 | Val: Loss=1.0468, F1 Score=0.3734
+272.3s 653 Epoch  12/500 | Train: Loss=1.0605, F1 Score=0.3669 | Val: Loss=1.0068, F1 Score=0.4866
+273.0s 654 Epoch  13/500 | Train: Loss=1.0018, F1 Score=0.5676 | Val: Loss=1.0537, F1 Score=0.7051
+273.6s 655 Epoch  14/500 | Train: Loss=1.0188, F1 Score=0.7140 | Val: Loss=1.0078, F1 Score=0.6228
+274.2s 656 Epoch  15/500 | Train: Loss=0.9828, F1 Score=0.6656 | Val: Loss=1.0204, F1 Score=0.4167
+274.8s 657 Epoch  16/500 | Train: Loss=1.0143, F1 Score=0.4239 | Val: Loss=1.0314, F1 Score=0.3456
+275.4s 658 Epoch  17/500 | Train: Loss=1.0307, F1 Score=0.3422 | Val: Loss=1.0200, F1 Score=0.4095
+276.1s 659 Epoch  18/500 | Train: Loss=1.0143, F1 Score=0.4088 | Val: Loss=0.9986, F1 Score=0.5878
+276.7s 660 Epoch  19/500 | Train: Loss=0.9749, F1 Score=0.6667 | Val: Loss=1.0239, F1 Score=0.7139
+277.3s 661 Epoch  20/500 | Train: Loss=0.9827, F1 Score=0.7661 | Val: Loss=1.0793, F1 Score=0.7084
+277.9s 662 Epoch  21/500 | Train: Loss=1.0209, F1 Score=0.7826 | Val: Loss=0.9914, F1 Score=0.7354
+278.5s 663 Epoch  22/500 | Train: Loss=0.9521, F1 Score=0.7918 | Val: Loss=0.9553, F1 Score=0.5843
+279.1s 664 Epoch  23/500 | Train: Loss=0.9368, F1 Score=0.6372 | Val: Loss=0.9482, F1 Score=0.5381
+279.7s 665 Epoch  24/500 | Train: Loss=0.9411, F1 Score=0.5136 | Val: Loss=0.9383, F1 Score=0.5659
+280.4s 666 Epoch  25/500 | Train: Loss=0.9246, F1 Score=0.6120 | Val: Loss=0.9769, F1 Score=0.7399
+281.0s 667 Epoch  26/500 | Train: Loss=0.9185, F1 Score=0.7684 | Val: Loss=1.0486, F1 Score=0.7504
+281.7s 668 Epoch  27/500 | Train: Loss=0.9831, F1 Score=0.7596 | Val: Loss=0.9977, F1 Score=0.7399
+282.3s 669 Epoch  28/500 | Train: Loss=0.9443, F1 Score=0.7536 | Val: Loss=0.9754, F1 Score=0.5935
+282.9s 670 Epoch  29/500 | Train: Loss=0.9444, F1 Score=0.6561 | Val: Loss=0.9675, F1 Score=0.5761
+283.5s 671 Epoch  30/500 | Train: Loss=0.9465, F1 Score=0.6174 | Val: Loss=0.9551, F1 Score=0.6885
+284.1s 672 Epoch  31/500 | Train: Loss=0.9159, F1 Score=0.7476 | Val: Loss=0.9674, F1 Score=0.7511
+284.7s 673 Epoch  32/500 | Train: Loss=0.9072, F1 Score=0.7985 | Val: Loss=0.9862, F1 Score=0.7020
+285.4s 674 Epoch  33/500 | Train: Loss=0.9121, F1 Score=0.7567 | Val: Loss=0.9648, F1 Score=0.6886
+286.0s 675 Epoch  34/500 | Train: Loss=0.9092, F1 Score=0.7049 | Val: Loss=0.9593, F1 Score=0.6103
+286.6s 676 Epoch  35/500 | Train: Loss=0.9055, F1 Score=0.6704 | Val: Loss=1.0382, F1 Score=0.7000
+287.2s 677 Epoch  36/500 | Train: Loss=0.9181, F1 Score=0.7402 | Val: Loss=0.9949, F1 Score=0.7111
+287.8s 678 Epoch  37/500 | Train: Loss=0.8893, F1 Score=0.7643 | Val: Loss=0.9473, F1 Score=0.6873
+288.4s 679 Epoch  38/500 | Train: Loss=0.8643, F1 Score=0.7941 | Val: Loss=0.9451, F1 Score=0.6913
+289.1s 680 Epoch  39/500 | Train: Loss=0.8563, F1 Score=0.7853 | Val: Loss=0.9212, F1 Score=0.6479
+289.7s 681 Epoch  40/500 | Train: Loss=0.8580, F1 Score=0.7235 | Val: Loss=0.9620, F1 Score=0.7463
+290.3s 682 Epoch  41/500 | Train: Loss=0.8514, F1 Score=0.7909 | Val: Loss=0.9746, F1 Score=0.7322
+291.0s 683 Epoch  42/500 | Train: Loss=0.8456, F1 Score=0.8005 | Val: Loss=0.9128, F1 Score=0.6425
+291.6s 684 Epoch  43/500 | Train: Loss=0.8563, F1 Score=0.6463 | Val: Loss=0.9067, F1 Score=0.7254
+292.2s 685 Epoch  44/500 | Train: Loss=0.8036, F1 Score=0.7701 | Val: Loss=0.9344, F1 Score=0.7491
+292.8s 686 Epoch  45/500 | Train: Loss=0.7961, F1 Score=0.8036 | Val: Loss=0.8654, F1 Score=0.7296
+293.5s 687 Epoch  46/500 | Train: Loss=0.7713, F1 Score=0.7729 | Val: Loss=0.9197, F1 Score=0.8001
+294.1s 688 Epoch  47/500 | Train: Loss=0.7740, F1 Score=0.8098 | Val: Loss=0.9102, F1 Score=0.6671
+294.7s 689 Epoch  48/500 | Train: Loss=0.7929, F1 Score=0.7181 | Val: Loss=1.0478, F1 Score=0.7851
+295.4s 690 Epoch  49/500 | Train: Loss=0.7976, F1 Score=0.8165 | Val: Loss=1.0059, F1 Score=0.6494
+296.0s 691 Epoch  50/500 | Train: Loss=0.8571, F1 Score=0.6381 | Val: Loss=1.1662, F1 Score=0.7646
+296.6s 692 Epoch  51/500 | Train: Loss=0.9013, F1 Score=0.7905 | Val: Loss=1.2100, F1 Score=0.7835
+297.2s 693 Epoch  52/500 | Train: Loss=0.9142, F1 Score=0.8183 | Val: Loss=0.8710, F1 Score=0.8045
+297.8s 694 Epoch  53/500 | Train: Loss=0.7358, F1 Score=0.8117 | Val: Loss=0.9156, F1 Score=0.7148
+298.5s 695 Epoch  54/500 | Train: Loss=0.7791, F1 Score=0.7579 | Val: Loss=0.9752, F1 Score=0.7635
+299.1s 696 Epoch  55/500 | Train: Loss=0.8015, F1 Score=0.8128 | Val: Loss=0.9369, F1 Score=0.7946
+299.7s 697 Epoch  56/500 | Train: Loss=0.7669, F1 Score=0.8228 | Val: Loss=0.8755, F1 Score=0.7839
+300.3s 698 Epoch  57/500 | Train: Loss=0.7801, F1 Score=0.7997 | Val: Loss=0.8827, F1 Score=0.7920
+301.0s 699 Epoch  58/500 | Train: Loss=0.7743, F1 Score=0.8099 | Val: Loss=0.9050, F1 Score=0.7732
+301.6s 700 Epoch  59/500 | Train: Loss=0.7273, F1 Score=0.8189 | Val: Loss=0.9972, F1 Score=0.7378
+302.3s 701 Epoch  60/500 | Train: Loss=0.7590, F1 Score=0.8245 | Val: Loss=1.1024, F1 Score=0.7362
+302.9s 702 Epoch  61/500 | Train: Loss=0.8062, F1 Score=0.8190 | Val: Loss=0.9059, F1 Score=0.7847
+303.5s 703 Epoch  62/500 | Train: Loss=0.7162, F1 Score=0.8069 | Val: Loss=0.9184, F1 Score=0.7309
+304.2s 704 Epoch  63/500 | Train: Loss=0.8035, F1 Score=0.7488 | Val: Loss=0.8816, F1 Score=0.7590
+304.8s 705 Epoch  64/500 | Train: Loss=0.7691, F1 Score=0.7930 | Val: Loss=0.9397, F1 Score=0.7630
+305.5s 706 Epoch  65/500 | Train: Loss=0.7736, F1 Score=0.8201 | Val: Loss=0.8640, F1 Score=0.7554
+306.1s 707 Epoch  66/500 | Train: Loss=0.7333, F1 Score=0.7164 | Val: Loss=0.9163, F1 Score=0.6774
+306.7s 708 Epoch  67/500 | Train: Loss=0.7744, F1 Score=0.6721 | Val: Loss=0.9535, F1 Score=0.7689
+307.3s 709 Epoch  68/500 | Train: Loss=0.7533, F1 Score=0.7838 | Val: Loss=0.9347, F1 Score=0.7973
+308.0s 710 Epoch  69/500 | Train: Loss=0.7123, F1 Score=0.8191 | Val: Loss=0.8506, F1 Score=0.8102
+308.6s 711 Epoch  70/500 | Train: Loss=0.6808, F1 Score=0.8213 | Val: Loss=0.8431, F1 Score=0.7697
+309.2s 712 Epoch  71/500 | Train: Loss=0.6924, F1 Score=0.8005 | Val: Loss=0.8387, F1 Score=0.7614
+309.9s 713 Epoch  72/500 | Train: Loss=0.6830, F1 Score=0.7981 | Val: Loss=0.8228, F1 Score=0.7705
+310.5s 714 Epoch  73/500 | Train: Loss=0.6787, F1 Score=0.8182 | Val: Loss=0.8802, F1 Score=0.7585
+311.2s 715 Epoch  74/500 | Train: Loss=0.6807, F1 Score=0.8291 | Val: Loss=0.9303, F1 Score=0.7818
+311.8s 716 Epoch  75/500 | Train: Loss=0.6771, F1 Score=0.8362 | Val: Loss=0.9349, F1 Score=0.7857
+312.4s 717 Epoch  76/500 | Train: Loss=0.6696, F1 Score=0.8222 | Val: Loss=0.9015, F1 Score=0.7553
+313.1s 718 Epoch  77/500 | Train: Loss=0.6645, F1 Score=0.7796 | Val: Loss=0.8951, F1 Score=0.7265
+313.7s 719 Epoch  78/500 | Train: Loss=0.6629, F1 Score=0.7817 | Val: Loss=1.1366, F1 Score=0.8195
+314.4s 720 Epoch  79/500 | Train: Loss=0.7007, F1 Score=0.8472 | Val: Loss=1.0183, F1 Score=0.8045
+315.0s 721 Epoch  80/500 | Train: Loss=0.6456, F1 Score=0.8491 | Val: Loss=0.8274, F1 Score=0.6925
+315.6s 722 Epoch  81/500 | Train: Loss=0.7031, F1 Score=0.6468 | Val: Loss=0.8387, F1 Score=0.7004
+316.3s 723 Epoch  82/500 | Train: Loss=0.6885, F1 Score=0.6833 | Val: Loss=1.0228, F1 Score=0.7792
+316.9s 724 Epoch  83/500 | Train: Loss=0.7308, F1 Score=0.8302 | Val: Loss=0.9232, F1 Score=0.7635
+317.5s 725 Epoch  84/500 | Train: Loss=0.6408, F1 Score=0.8104 | Val: Loss=0.9698, F1 Score=0.7120
+318.1s 726 Epoch  85/500 | Train: Loss=0.6994, F1 Score=0.7571 | Val: Loss=1.0157, F1 Score=0.7047
+318.8s 727 Epoch  86/500 | Train: Loss=0.7139, F1 Score=0.7408 | Val: Loss=1.0882, F1 Score=0.7475
+319.4s 728 Epoch  87/500 | Train: Loss=0.6769, F1 Score=0.7816 | Val: Loss=1.1357, F1 Score=0.7738
+320.0s 729 Epoch  88/500 | Train: Loss=0.6422, F1 Score=0.8401 | Val: Loss=0.9491, F1 Score=0.6979
+320.7s 730 Epoch  89/500 | Train: Loss=0.6278, F1 Score=0.7557 | Val: Loss=1.2524, F1 Score=0.7507
+321.3s 731 Epoch  90/500 | Train: Loss=0.6917, F1 Score=0.8226 | Val: Loss=0.9304, F1 Score=0.6657
+321.9s 732 Epoch  91/500 | Train: Loss=0.6866, F1 Score=0.6271 | Val: Loss=0.9373, F1 Score=0.7450
+322.5s 733 Epoch  92/500 | Train: Loss=0.6475, F1 Score=0.7637 | Val: Loss=1.1040, F1 Score=0.7653
+323.2s 734 Epoch  93/500 | Train: Loss=0.6612, F1 Score=0.8507 | Val: Loss=1.0999, F1 Score=0.7743
+323.8s 735 Epoch  94/500 | Train: Loss=0.6654, F1 Score=0.8506 | Val: Loss=0.9712, F1 Score=0.7847
+324.4s 736 Epoch  95/500 | Train: Loss=0.6266, F1 Score=0.8291 | Val: Loss=0.9407, F1 Score=0.7694
+325.1s 737 Epoch  96/500 | Train: Loss=0.6269, F1 Score=0.7910 | Val: Loss=0.9414, F1 Score=0.7826
+325.8s 738 Epoch  97/500 | Train: Loss=0.5988, F1 Score=0.8287 | Val: Loss=1.0233, F1 Score=0.7932
+326.3s 739 Epoch  98/500 | Train: Loss=0.5940, F1 Score=0.8427 | Val: Loss=0.9541, F1 Score=0.7917
+327.0s 740 Epoch  99/500 | Train: Loss=0.5867, F1 Score=0.8395 | Val: Loss=1.0454, F1 Score=0.7773
+327.6s 741 Epoch 100/500 | Train: Loss=0.5761, F1 Score=0.8262 | Val: Loss=1.2327, F1 Score=0.7732
+328.2s 742 Epoch 101/500 | Train: Loss=0.6079, F1 Score=0.8458 | Val: Loss=1.1051, F1 Score=0.7885
+328.8s 743 Epoch 102/500 | Train: Loss=0.5794, F1 Score=0.8437 | Val: Loss=0.9189, F1 Score=0.8050
+329.5s 744 Epoch 103/500 | Train: Loss=0.5787, F1 Score=0.8275 | Val: Loss=0.9975, F1 Score=0.8261
+330.1s 745 Epoch 104/500 | Train: Loss=0.6418, F1 Score=0.8481 | Val: Loss=0.9198, F1 Score=0.7923
+330.8s 746 Epoch 105/500 | Train: Loss=0.6330, F1 Score=0.8376 | Val: Loss=0.8031, F1 Score=0.7761
+331.4s 747 Epoch 106/500 | Train: Loss=0.6476, F1 Score=0.7570 | Val: Loss=0.8608, F1 Score=0.7612
+332.0s 748 Epoch 107/500 | Train: Loss=0.5767, F1 Score=0.8280 | Val: Loss=1.0165, F1 Score=0.7746
+332.7s 749 Epoch 108/500 | Train: Loss=0.5922, F1 Score=0.8461 | Val: Loss=0.8105, F1 Score=0.7256
+333.3s 750 Epoch 109/500 | Train: Loss=0.6384, F1 Score=0.6574 | Val: Loss=0.8811, F1 Score=0.6286
+333.9s 751 Epoch 110/500 | Train: Loss=0.6831, F1 Score=0.6047 | Val: Loss=0.9982, F1 Score=0.7926
+334.5s 752 Epoch 111/500 | Train: Loss=0.5527, F1 Score=0.8389 | Val: Loss=1.1917, F1 Score=0.8151
+335.2s 753 Epoch 112/500 | Train: Loss=0.6246, F1 Score=0.8417 | Val: Loss=0.8828, F1 Score=0.7649
+335.8s 754 Epoch 113/500 | Train: Loss=0.6039, F1 Score=0.8048 | Val: Loss=0.8504, F1 Score=0.7832
+336.4s 755 Epoch 114/500 | Train: Loss=0.5631, F1 Score=0.8312 | Val: Loss=0.9569, F1 Score=0.7912
+337.0s 756 Epoch 115/500 | Train: Loss=0.5239, F1 Score=0.8603 | Val: Loss=1.0292, F1 Score=0.7700
+337.7s 757 Epoch 116/500 | Train: Loss=0.5546, F1 Score=0.8572 | Val: Loss=1.0416, F1 Score=0.7372
+338.3s 758 Epoch 117/500 | Train: Loss=0.5635, F1 Score=0.8421 | Val: Loss=0.9007, F1 Score=0.7733
+338.9s 759 Epoch 118/500 | Train: Loss=0.5413, F1 Score=0.8099 | Val: Loss=0.9188, F1 Score=0.7681
+339.6s 760 Epoch 119/500 | Train: Loss=0.5069, F1 Score=0.8407 | Val: Loss=1.0627, F1 Score=0.8052
+340.2s 761 Epoch 120/500 | Train: Loss=0.5062, F1 Score=0.8560 | Val: Loss=1.0095, F1 Score=0.7861
+340.9s 762 Epoch 121/500 | Train: Loss=0.5138, F1 Score=0.8355 | Val: Loss=0.9069, F1 Score=0.7959
+341.5s 763 Epoch 122/500 | Train: Loss=0.5128, F1 Score=0.8272 | Val: Loss=0.9672, F1 Score=0.7956
+342.1s 764 Epoch 123/500 | Train: Loss=0.4939, F1 Score=0.8409 | Val: Loss=0.8909, F1 Score=0.8150
+342.7s 765 Epoch 124/500 | Train: Loss=0.4937, F1 Score=0.8231 | Val: Loss=1.1623, F1 Score=0.8041
+343.3s 766 Epoch 125/500 | Train: Loss=0.5104, F1 Score=0.8557 | Val: Loss=0.9213, F1 Score=0.7648
+344.0s 767 Epoch 126/500 | Train: Loss=0.4669, F1 Score=0.8378 | Val: Loss=0.9758, F1 Score=0.7519
+344.6s 768 Epoch 127/500 | Train: Loss=0.5018, F1 Score=0.8243 | Val: Loss=1.1005, F1 Score=0.7469
+345.2s 769 Epoch 128/500 | Train: Loss=0.5085, F1 Score=0.8169 | Val: Loss=1.1976, F1 Score=0.7952
+345.8s 770 Epoch 129/500 | Train: Loss=0.5208, F1 Score=0.8361 | Val: Loss=0.9206, F1 Score=0.7699
+346.5s 771 Epoch 130/500 | Train: Loss=0.4725, F1 Score=0.7961 | Val: Loss=0.8229, F1 Score=0.7788
+347.1s 772 Epoch 131/500 | Train: Loss=0.4716, F1 Score=0.7869 | Val: Loss=1.5208, F1 Score=0.8240
+347.7s 773 Epoch 132/500 | Train: Loss=0.5581, F1 Score=0.8649 | Val: Loss=1.0080, F1 Score=0.7955
+348.4s 774 Epoch 133/500 | Train: Loss=0.4391, F1 Score=0.8303 | Val: Loss=1.3035, F1 Score=0.8009
+349.0s 775 Epoch 134/500 | Train: Loss=0.4465, F1 Score=0.8711 | Val: Loss=1.1542, F1 Score=0.7986
+349.6s 776 Epoch 135/500 | Train: Loss=0.4111, F1 Score=0.8529 | Val: Loss=1.1909, F1 Score=0.7935
+350.2s 777 Epoch 136/500 | Train: Loss=0.4051, F1 Score=0.8593 | Val: Loss=1.1003, F1 Score=0.7848
+350.9s 778 Epoch 137/500 | Train: Loss=0.4163, F1 Score=0.8523 | Val: Loss=1.6742, F1 Score=0.8064
+351.5s 779 Epoch 138/500 | Train: Loss=0.5444, F1 Score=0.8782 | Val: Loss=1.1047, F1 Score=0.6142
+352.1s 780 Epoch 139/500 | Train: Loss=0.8122, F1 Score=0.5703 | Val: Loss=1.0205, F1 Score=0.6197
+352.7s 781 Epoch 140/500 | Train: Loss=0.6782, F1 Score=0.6764 | Val: Loss=1.1804, F1 Score=0.7744
+353.4s 782 Epoch 141/500 | Train: Loss=0.6758, F1 Score=0.8512 | Val: Loss=1.1535, F1 Score=0.7904
+354.0s 783 Epoch 142/500 | Train: Loss=0.6191, F1 Score=0.8287 | Val: Loss=1.2167, F1 Score=0.7158
+354.6s 784 Epoch 143/500 | Train: Loss=0.7448, F1 Score=0.7298 | Val: Loss=1.2215, F1 Score=0.7365
+355.2s 785 Epoch 144/500 | Train: Loss=0.6493, F1 Score=0.7763 | Val: Loss=1.0630, F1 Score=0.7926
+355.9s 786 Epoch 145/500 | Train: Loss=0.6415, F1 Score=0.8380 | Val: Loss=1.0048, F1 Score=0.8008
+356.4s 787 Epoch 146/500 | Train: Loss=0.6581, F1 Score=0.8498 | Val: Loss=0.8999, F1 Score=0.7773
+357.1s 788 Epoch 147/500 | Train: Loss=0.6198, F1 Score=0.8306 | Val: Loss=0.8261, F1 Score=0.7645
+357.7s 789 Epoch 148/500 | Train: Loss=0.5810, F1 Score=0.7844 | Val: Loss=0.9087, F1 Score=0.7577
+358.3s 790 Epoch 149/500 | Train: Loss=0.5502, F1 Score=0.8060 | Val: Loss=1.1077, F1 Score=0.7714
+358.9s 791 Epoch 150/500 | Train: Loss=0.5384, F1 Score=0.8575 | Val: Loss=1.0353, F1 Score=0.8000
+359.5s 792 Epoch 151/500 | Train: Loss=0.4867, F1 Score=0.8553 | Val: Loss=0.9437, F1 Score=0.7531
+360.1s 793 Epoch 152/500 | Train: Loss=0.5113, F1 Score=0.7912 | Val: Loss=0.9805, F1 Score=0.8046
+360.8s 794 Epoch 153/500 | Train: Loss=0.4743, F1 Score=0.8570 | Val: Loss=1.2553, F1 Score=0.7743
+361.5s 795 Epoch 154/500 | Train: Loss=0.5474, F1 Score=0.8719 | Val: Loss=1.2756, F1 Score=0.7743
+362.1s 796 Epoch 155/500 | Train: Loss=0.5363, F1 Score=0.8761 | Val: Loss=0.9821, F1 Score=0.7561
+362.7s 797 Epoch 156/500 | Train: Loss=0.4716, F1 Score=0.7964 | Val: Loss=1.0058, F1 Score=0.7375
+363.3s 798 Epoch 157/500 | Train: Loss=0.5118, F1 Score=0.8025 | Val: Loss=1.2444, F1 Score=0.7826
+363.9s 799 Epoch 158/500 | Train: Loss=0.4788, F1 Score=0.8738 | Val: Loss=1.4039, F1 Score=0.7579
+364.5s 800 Epoch 159/500 | Train: Loss=0.4548, F1 Score=0.8845 | Val: Loss=1.1841, F1 Score=0.8140
+365.1s 801 Epoch 160/500 | Train: Loss=0.4081, F1 Score=0.8644 | Val: Loss=1.1267, F1 Score=0.7943
+365.8s 802 Epoch 161/500 | Train: Loss=0.4066, F1 Score=0.8505 | Val: Loss=1.3415, F1 Score=0.7788
+366.4s 803 Epoch 162/500 | Train: Loss=0.3913, F1 Score=0.8723 | Val: Loss=1.4429, F1 Score=0.7763
+367.0s 804 Epoch 163/500 | Train: Loss=0.5179, F1 Score=0.8558 | Val: Loss=1.2541, F1 Score=0.7258
+367.6s 805 Epoch 164/500 | Train: Loss=0.4383, F1 Score=0.8482 | Val: Loss=1.3593, F1 Score=0.7362
+368.2s 806 Epoch 165/500 | Train: Loss=0.6079, F1 Score=0.8476 | Val: Loss=1.0745, F1 Score=0.7666
+368.8s 807 Epoch 166/500 | Train: Loss=0.5218, F1 Score=0.8266 | Val: Loss=1.3259, F1 Score=0.8034
+369.5s 808 Epoch 167/500 | Train: Loss=0.5386, F1 Score=0.8426 | Val: Loss=1.1951, F1 Score=0.7706
+370.1s 809 Epoch 168/500 | Train: Loss=0.5282, F1 Score=0.8062 | Val: Loss=1.0342, F1 Score=0.6850
+370.8s 810 Epoch 169/500 | Train: Loss=0.5736, F1 Score=0.7421 | Val: Loss=1.0882, F1 Score=0.7674
+371.4s 811 Epoch 170/500 | Train: Loss=0.5410, F1 Score=0.8438 | Val: Loss=1.2593, F1 Score=0.7772
+372.0s 812 Epoch 171/500 | Train: Loss=0.5797, F1 Score=0.8630 | Val: Loss=0.9992, F1 Score=0.7685
+372.6s 813 Epoch 172/500 | Train: Loss=0.4982, F1 Score=0.8414 | Val: Loss=0.9267, F1 Score=0.7231
+373.2s 814 Epoch 173/500 | Train: Loss=0.5250, F1 Score=0.7530 | Val: Loss=1.0121, F1 Score=0.7667
+373.9s 815 Epoch 174/500 | Train: Loss=0.4444, F1 Score=0.8621 | Val: Loss=1.3862, F1 Score=0.7950
+374.5s 816 Epoch 175/500 | Train: Loss=0.5422, F1 Score=0.8634 | Val: Loss=0.9270, F1 Score=0.8033
+375.1s 817 Epoch 176/500 | Train: Loss=0.4159, F1 Score=0.8567 | Val: Loss=0.8302, F1 Score=0.7759
+375.7s 818 Epoch 177/500 | Train: Loss=0.4685, F1 Score=0.8085 | Val: Loss=1.1674, F1 Score=0.8238
+376.3s 819 Epoch 178/500 | Train: Loss=0.4521, F1 Score=0.8748 | Val: Loss=1.0531, F1 Score=0.8293
+376.9s 820 Epoch 179/500 | Train: Loss=0.4096, F1 Score=0.8771 | Val: Loss=0.9384, F1 Score=0.8014
+377.6s 821 Epoch 180/500 | Train: Loss=0.4254, F1 Score=0.8366 | Val: Loss=1.1138, F1 Score=0.7795
+378.2s 822 Epoch 181/500 | Train: Loss=0.4281, F1 Score=0.8848 | Val: Loss=1.2235, F1 Score=0.7952
+378.8s 823 Epoch 182/500 | Train: Loss=0.4082, F1 Score=0.8892 | Val: Loss=1.0633, F1 Score=0.8099
+379.4s 824 Epoch 183/500 | Train: Loss=0.3673, F1 Score=0.8981 | Val: Loss=1.0151, F1 Score=0.8194
+380.0s 825 Epoch 184/500 | Train: Loss=0.3499, F1 Score=0.8979 | Val: Loss=0.9647, F1 Score=0.8219
+380.7s 826 Epoch 185/500 | Train: Loss=0.3585, F1 Score=0.8909 | Val: Loss=1.0197, F1 Score=0.8311
+381.3s 827 Epoch 186/500 | Train: Loss=0.3332, F1 Score=0.8946 | Val: Loss=1.2366, F1 Score=0.8562
+381.9s 828 Epoch 187/500 | Train: Loss=0.3587, F1 Score=0.9043 | Val: Loss=1.0636, F1 Score=0.8235
+382.5s 829 Epoch 188/500 | Train: Loss=0.3196, F1 Score=0.8919 | Val: Loss=1.0328, F1 Score=0.8085
+383.1s 830 Epoch 189/500 | Train: Loss=0.3051, F1 Score=0.8877 | Val: Loss=1.2694, F1 Score=0.8311
+383.8s 831 Epoch 190/500 | Train: Loss=0.3169, F1 Score=0.8990 | Val: Loss=0.7972, F1 Score=0.7372
+384.4s 832 Epoch 191/500 | Train: Loss=0.5619, F1 Score=0.7245 | Val: Loss=0.8063, F1 Score=0.7518
+385.0s 833 Epoch 192/500 | Train: Loss=0.4913, F1 Score=0.7505 | Val: Loss=1.3706, F1 Score=0.7981
+385.6s 834 Epoch 193/500 | Train: Loss=0.4065, F1 Score=0.8973 | Val: Loss=1.4081, F1 Score=0.8238
+386.3s 835 Epoch 194/500 | Train: Loss=0.4155, F1 Score=0.9022 | Val: Loss=0.9257, F1 Score=0.8311
+386.9s 836 Epoch 195/500 | Train: Loss=0.3108, F1 Score=0.9037 | Val: Loss=0.7986, F1 Score=0.8113
+387.5s 837 Epoch 196/500 | Train: Loss=0.3845, F1 Score=0.8122 | Val: Loss=0.9221, F1 Score=0.7800
+388.1s 838 Epoch 197/500 | Train: Loss=0.3268, F1 Score=0.8673 | Val: Loss=1.2098, F1 Score=0.8342
+388.7s 839 Epoch 198/500 | Train: Loss=0.3639, F1 Score=0.8979 | Val: Loss=1.0624, F1 Score=0.8162
+389.3s 840 Epoch 199/500 | Train: Loss=0.3084, F1 Score=0.8975 | Val: Loss=0.8590, F1 Score=0.7614
+389.9s 841 Epoch 200/500 | Train: Loss=0.4106, F1 Score=0.7813 | Val: Loss=1.0774, F1 Score=0.7946
+390.6s 842 Epoch 201/500 | Train: Loss=0.3098, F1 Score=0.8703 | Val: Loss=1.6515, F1 Score=0.7877
+391.2s 843 Epoch 202/500 | Train: Loss=0.4074, F1 Score=0.8954 | Val: Loss=1.2061, F1 Score=0.7984
+391.8s 844 Epoch 203/500 | Train: Loss=0.4876, F1 Score=0.8850 | Val: Loss=1.1331, F1 Score=0.8198
+392.4s 845 Epoch 204/500 | Train: Loss=0.5446, F1 Score=0.8823 | Val: Loss=1.2315, F1 Score=0.8125
+393.0s 846 Epoch 205/500 | Train: Loss=0.5080, F1 Score=0.8934 | Val: Loss=1.1636, F1 Score=0.8092
+393.6s 847 Epoch 206/500 | Train: Loss=0.4695, F1 Score=0.8888 | Val: Loss=1.0946, F1 Score=0.7996
+394.2s 848 Epoch 207/500 | Train: Loss=0.4326, F1 Score=0.8875 | Val: Loss=0.9680, F1 Score=0.7906
+394.9s 849 Epoch 208/500 | Train: Loss=0.4288, F1 Score=0.8728 | Val: Loss=0.9399, F1 Score=0.7748
+395.5s 850 Epoch 209/500 | Train: Loss=0.4266, F1 Score=0.8329 | Val: Loss=1.0141, F1 Score=0.8071
+396.1s 851 Epoch 210/500 | Train: Loss=0.5024, F1 Score=0.8393 | Val: Loss=0.9426, F1 Score=0.7794
+396.7s 852 Epoch 211/500 | Train: Loss=0.4987, F1 Score=0.8129 | Val: Loss=0.8766, F1 Score=0.7396
+397.3s 853 Epoch 212/500 | Train: Loss=0.5013, F1 Score=0.7707 | Val: Loss=1.5500, F1 Score=0.7941
+398.0s 854 Epoch 213/500 | Train: Loss=0.5158, F1 Score=0.8677 | Val: Loss=0.9712, F1 Score=0.7394
+398.6s 855 Epoch 214/500 | Train: Loss=0.4883, F1 Score=0.7955 | Val: Loss=0.9242, F1 Score=0.6906
+399.2s 856 Epoch 215/500 | Train: Loss=0.5217, F1 Score=0.7496 | Val: Loss=0.9800, F1 Score=0.7707
+399.8s 857 Epoch 216/500 | Train: Loss=0.4965, F1 Score=0.8681 | Val: Loss=1.1029, F1 Score=0.7818
+400.4s 858 Epoch 217/500 | Train: Loss=0.5071, F1 Score=0.8789 | Val: Loss=0.9400, F1 Score=0.8322
+401.1s 859 Epoch 218/500 | Train: Loss=0.4606, F1 Score=0.8805 | Val: Loss=0.8340, F1 Score=0.8037
+401.7s 860 Epoch 219/500 | Train: Loss=0.4991, F1 Score=0.8103 | Val: Loss=0.8609, F1 Score=0.8254
+402.3s 861 Epoch 220/500 | Train: Loss=0.4678, F1 Score=0.8341 | Val: Loss=1.1481, F1 Score=0.7911
+403.0s 862 Epoch 221/500 | Train: Loss=0.4544, F1 Score=0.8844 | Val: Loss=1.2087, F1 Score=0.7911
+403.6s 863 Epoch 222/500 | Train: Loss=0.4490, F1 Score=0.8855 | Val: Loss=0.9142, F1 Score=0.8268
+404.2s 864 Epoch 223/500 | Train: Loss=0.4143, F1 Score=0.8461 | Val: Loss=0.8718, F1 Score=0.8315
+404.8s 865 Epoch 224/500 | Train: Loss=0.4222, F1 Score=0.8175 | Val: Loss=0.9653, F1 Score=0.8129
+405.4s 866 Epoch 225/500 | Train: Loss=0.3770, F1 Score=0.8742 | Val: Loss=1.1445, F1 Score=0.8083
+406.1s 867 Epoch 226/500 | Train: Loss=0.3847, F1 Score=0.9031 | Val: Loss=1.3542, F1 Score=0.8038
+406.7s 868 Epoch 227/500 | Train: Loss=0.4041, F1 Score=0.9022 | Val: Loss=1.2453, F1 Score=0.8300
+407.3s 869 Epoch 228/500 | Train: Loss=0.3774, F1 Score=0.9012 | Val: Loss=1.2323, F1 Score=0.8125
+407.9s 870 Epoch 229/500 | Train: Loss=0.3472, F1 Score=0.8914 | Val: Loss=1.3753, F1 Score=0.7945
+408.5s 871 Epoch 230/500 | Train: Loss=0.3341, F1 Score=0.9054 | Val: Loss=1.4588, F1 Score=0.7761
+409.1s 872 Epoch 231/500 | Train: Loss=0.3748, F1 Score=0.8960 | Val: Loss=1.3749, F1 Score=0.7864
+409.8s 873 Epoch 232/500 | Train: Loss=0.3530, F1 Score=0.8817 | Val: Loss=1.2574, F1 Score=0.8220
+410.4s 874 Epoch 233/500 | Train: Loss=0.3430, F1 Score=0.9011 | Val: Loss=1.0520, F1 Score=0.8302
+411.1s 875 Epoch 234/500 | Train: Loss=0.3195, F1 Score=0.8858 | Val: Loss=1.1394, F1 Score=0.8283
+411.7s 876 Epoch 235/500 | Train: Loss=0.3230, F1 Score=0.8674 | Val: Loss=1.3525, F1 Score=0.8240
+412.3s 877 Epoch 236/500 | Train: Loss=0.3710, F1 Score=0.8918 | Val: Loss=1.3323, F1 Score=0.8313
+412.9s 878 Epoch 237/500 | Train: Loss=0.3477, F1 Score=0.9010 | Val: Loss=1.1568, F1 Score=0.8365
+413.5s 879 Epoch 238/500 | Train: Loss=0.3119, F1 Score=0.8936 | Val: Loss=1.1910, F1 Score=0.8407
+414.2s 880 Epoch 239/500 | Train: Loss=0.2800, F1 Score=0.9171 | Val: Loss=1.5215, F1 Score=0.8128
+414.8s 881 Epoch 240/500 | Train: Loss=0.3219, F1 Score=0.9231 | Val: Loss=1.4616, F1 Score=0.8038
+415.4s 882 Epoch 241/500 | Train: Loss=0.2685, F1 Score=0.9361 | Val: Loss=1.2610, F1 Score=0.7849
+416.0s 883 Epoch 242/500 | Train: Loss=0.2803, F1 Score=0.8925 | Val: Loss=1.3732, F1 Score=0.8334
+416.7s 884 Epoch 243/500 | Train: Loss=0.2380, F1 Score=0.9297 | Val: Loss=1.7109, F1 Score=0.8092
+417.3s 885 Epoch 244/500 | Train: Loss=0.2935, F1 Score=0.9385 | Val: Loss=1.2681, F1 Score=0.7642
+417.9s 886 Epoch 245/500 | Train: Loss=0.2935, F1 Score=0.8795 | Val: Loss=1.1933, F1 Score=0.7302
+418.5s 887 Epoch 246/500 | Train: Loss=0.3467, F1 Score=0.8167 | Val: Loss=1.8422, F1 Score=0.7828
+419.2s 888 Epoch 247/500 | Train: Loss=0.3601, F1 Score=0.9267 | Val: Loss=1.8011, F1 Score=0.7963
+419.8s 889 Epoch 248/500 | Train: Loss=0.3261, F1 Score=0.9312 | Val: Loss=1.2639, F1 Score=0.8064
+420.4s 890 Epoch 249/500 | Train: Loss=0.3349, F1 Score=0.8878 | Val: Loss=1.3118, F1 Score=0.7718
+421.1s 891 Epoch 250/500 | Train: Loss=0.3183, F1 Score=0.8673 | Val: Loss=1.4825, F1 Score=0.8108
+421.7s 892 Epoch 251/500 | Train: Loss=0.2676, F1 Score=0.9238 | Val: Loss=1.8377, F1 Score=0.7741
+422.3s 893 Epoch 252/500 | Train: Loss=0.4133, F1 Score=0.9032 | Val: Loss=1.4085, F1 Score=0.7719
+423.0s 894 Epoch 253/500 | Train: Loss=0.2793, F1 Score=0.8874 | Val: Loss=1.2855, F1 Score=0.7724
+423.6s 895 Epoch 254/500 | Train: Loss=0.4415, F1 Score=0.8331 | Val: Loss=1.4145, F1 Score=0.7806
+424.2s 896 Epoch 255/500 | Train: Loss=0.4022, F1 Score=0.8586 | Val: Loss=1.5741, F1 Score=0.8038
+424.9s 897 Epoch 256/500 | Train: Loss=0.3700, F1 Score=0.8896 | Val: Loss=1.3803, F1 Score=0.7830
+425.5s 898 Epoch 257/500 | Train: Loss=0.3894, F1 Score=0.8678 | Val: Loss=1.2460, F1 Score=0.7402
+426.1s 899 Epoch 258/500 | Train: Loss=0.3684, F1 Score=0.8466 | Val: Loss=1.2173, F1 Score=0.7429
+426.7s 900 Epoch 259/500 | Train: Loss=0.3294, F1 Score=0.8535 | Val: Loss=1.3610, F1 Score=0.7668
+427.4s 901 Epoch 260/500 | Train: Loss=0.3039, F1 Score=0.8897 | Val: Loss=1.5545, F1 Score=0.7981
+428.0s 902 Epoch 261/500 | Train: Loss=0.3195, F1 Score=0.9190 | Val: Loss=1.5445, F1 Score=0.7893
+428.6s 903 Epoch 262/500 | Train: Loss=0.3147, F1 Score=0.9201 | Val: Loss=1.2079, F1 Score=0.7681
+429.2s 904 Epoch 263/500 | Train: Loss=0.2892, F1 Score=0.8820 | Val: Loss=1.3228, F1 Score=0.8088
+429.9s 905 Epoch 264/500 | Train: Loss=0.2868, F1 Score=0.8811 | Val: Loss=1.5745, F1 Score=0.8136
+430.5s 906 Epoch 265/500 | Train: Loss=0.3203, F1 Score=0.8855 | Val: Loss=1.6106, F1 Score=0.8063
+431.2s 907 Epoch 266/500 | Train: Loss=0.3434, F1 Score=0.8731 | Val: Loss=1.7365, F1 Score=0.8081
+431.8s 908 Epoch 267/500 | Train: Loss=0.2812, F1 Score=0.9013 | Val: Loss=1.5042, F1 Score=0.7916
+432.4s 909 Epoch 268/500 | Train: Loss=0.2983, F1 Score=0.8948 | Val: Loss=1.8364, F1 Score=0.7915
+433.1s 910 Epoch 269/500 | Train: Loss=0.3144, F1 Score=0.9218 | Val: Loss=2.0739, F1 Score=0.7936
+433.7s 911 Epoch 270/500 | Train: Loss=0.3585, F1 Score=0.9202 | Val: Loss=1.6795, F1 Score=0.7923
+434.3s 912 Epoch 271/500 | Train: Loss=0.2460, F1 Score=0.9312 | Val: Loss=1.3939, F1 Score=0.7752
+434.9s 913 Epoch 272/500 | Train: Loss=0.2616, F1 Score=0.8960 | Val: Loss=1.4574, F1 Score=0.8114
+435.6s 914 Epoch 273/500 | Train: Loss=0.2468, F1 Score=0.9131 | Val: Loss=1.6069, F1 Score=0.7669
+436.2s 915 Epoch 274/500 | Train: Loss=0.2460, F1 Score=0.9298 | Val: Loss=1.5714, F1 Score=0.7810
+436.8s 916 Epoch 275/500 | Train: Loss=0.2419, F1 Score=0.9395 | Val: Loss=1.2875, F1 Score=0.7742
+437.5s 917 Epoch 276/500 | Train: Loss=0.2640, F1 Score=0.8906 | Val: Loss=1.2257, F1 Score=0.7286
+438.1s 918 Epoch 277/500 | Train: Loss=0.3496, F1 Score=0.7921 | Val: Loss=1.4697, F1 Score=0.7491
+438.7s 919 Epoch 278/500 | Train: Loss=0.2626, F1 Score=0.8949 | Val: Loss=1.7475, F1 Score=0.7776
+439.3s 920 Epoch 279/500 | Train: Loss=0.2758, F1 Score=0.9326 | Val: Loss=1.5671, F1 Score=0.7898
+440.0s 921 Epoch 280/500 | Train: Loss=0.2097, F1 Score=0.9332 | Val: Loss=1.2734, F1 Score=0.7784
+440.6s 922 Epoch 281/500 | Train: Loss=0.2708, F1 Score=0.8918 | Val: Loss=1.5674, F1 Score=0.7864
+441.2s 923 Epoch 282/500 | Train: Loss=0.2253, F1 Score=0.9312 | Val: Loss=2.1082, F1 Score=0.7852
+441.8s 924 Epoch 283/500 | Train: Loss=0.2946, F1 Score=0.9343 | Val: Loss=1.7209, F1 Score=0.8057
+442.5s 925 Epoch 284/500 | Train: Loss=0.1898, F1 Score=0.9286 | Val: Loss=1.4845, F1 Score=0.7583
+443.1s 926 Epoch 285/500 | Train: Loss=0.2397, F1 Score=0.8778 | Val: Loss=1.6445, F1 Score=0.7783
+443.7s 927 Epoch 286/500 | Train: Loss=0.2032, F1 Score=0.9040 | Val: Loss=2.0443, F1 Score=0.7920
+443.7s 928 Early stopping triggered after 286 epochs.
+443.7s 929 Best model restored from epoch 186 with val_f1 0.8562
+443.7s 930 CPU times: user 1min 34s, sys: 53.1 s, total: 2min 27s
+443.7s 931 Wall time: 2min 58s
+444.8s 932 Accuracy over the validation set: 0.8600
+444.8s 933 Precision over the validation set: 0.8579
+444.8s 934 Recall over the validation set: 0.8600
+444.8s 935 F1 score over the validation set: 0.8562
+445.2s 936 -------------------------------------------------------------------------------
+445.2s 937 Layer (type)              Output Shape                 Param #
+445.2s 938 ===============================================================================
+445.2s 939 rnn (GRU)                 [[-1, 200, 128], [2, -1, 128]] 161,280
+445.2s 940 classifier (Linear)       [-1, 3]                      387
+445.2s 941 ===============================================================================
+445.2s 942 Total params: 161,667
+445.2s 943 Trainable params: 161,667
+445.2s 944 Non-trainable params: 0
+445.2s 945 -------------------------------------------------------------------------------
+445.3s 946 Training 500 epochs...
+445.7s 947 Epoch   1/500 | Train: Loss=1.1023, F1 Score=0.0197 | Val: Loss=1.0997, F1 Score=0.0149
+446.2s 948 Epoch   2/500 | Train: Loss=1.0992, F1 Score=0.0130 | Val: Loss=1.1024, F1 Score=0.0149
+446.6s 949 Epoch   3/500 | Train: Loss=1.0999, F1 Score=0.0130 | Val: Loss=1.1016, F1 Score=0.0149
+447.0s 950 Epoch   4/500 | Train: Loss=1.0991, F1 Score=0.0480 | Val: Loss=1.1017, F1 Score=0.6294
+447.4s 951 Epoch   5/500 | Train: Loss=1.0984, F1 Score=0.6822 | Val: Loss=1.1031, F1 Score=0.6294
+447.8s 952 Epoch   6/500 | Train: Loss=1.0999, F1 Score=0.6822 | Val: Loss=1.1044, F1 Score=0.6294
+448.3s 953 Epoch   7/500 | Train: Loss=1.1001, F1 Score=0.6822 | Val: Loss=1.1038, F1 Score=0.6294
+448.7s 954 Epoch   8/500 | Train: Loss=1.0997, F1 Score=0.6822 | Val: Loss=1.1009, F1 Score=0.6294
+449.1s 955 Epoch   9/500 | Train: Loss=1.0993, F1 Score=0.6813 | Val: Loss=1.0989, F1 Score=0.6294
+449.5s 956 Epoch  10/500 | Train: Loss=1.0990, F1 Score=0.5486 | Val: Loss=1.0974, F1 Score=0.0494
+449.9s 957 Epoch  11/500 | Train: Loss=1.0987, F1 Score=0.0335 | Val: Loss=1.0960, F1 Score=0.0494
+450.3s 958 Epoch  12/500 | Train: Loss=1.0991, F1 Score=0.0331 | Val: Loss=1.0949, F1 Score=0.0494
+450.8s 959 Epoch  13/500 | Train: Loss=1.0995, F1 Score=0.0331 | Val: Loss=1.0946, F1 Score=0.0494
+451.2s 960 Epoch  14/500 | Train: Loss=1.1011, F1 Score=0.0331 | Val: Loss=1.0944, F1 Score=0.0494
+451.6s 961 Epoch  15/500 | Train: Loss=1.0998, F1 Score=0.0331 | Val: Loss=1.0956, F1 Score=0.0494
+452.1s 962 Epoch  16/500 | Train: Loss=1.0990, F1 Score=0.0331 | Val: Loss=1.0974, F1 Score=0.0494
+452.5s 963 Epoch  17/500 | Train: Loss=1.0992, F1 Score=0.0363 | Val: Loss=1.0994, F1 Score=0.6294
+452.9s 964 Epoch  18/500 | Train: Loss=1.0988, F1 Score=0.6667 | Val: Loss=1.1007, F1 Score=0.6294
+453.3s 965 Epoch  19/500 | Train: Loss=1.0985, F1 Score=0.6822 | Val: Loss=1.1021, F1 Score=0.6294
+453.7s 966 Epoch  20/500 | Train: Loss=1.0994, F1 Score=0.6822 | Val: Loss=1.1026, F1 Score=0.6294
+454.1s 967 Epoch  21/500 | Train: Loss=1.0990, F1 Score=0.6822 | Val: Loss=1.1038, F1 Score=0.6294
+454.5s 968 Epoch  22/500 | Train: Loss=1.0992, F1 Score=0.6822 | Val: Loss=1.1047, F1 Score=0.6294
+455.0s 969 Epoch  23/500 | Train: Loss=1.1000, F1 Score=0.6822 | Val: Loss=1.1045, F1 Score=0.6294
+455.4s 970 Epoch  24/500 | Train: Loss=1.0995, F1 Score=0.6822 | Val: Loss=1.1038, F1 Score=0.6294
+455.4s 971 Early stopping triggered after 24 epochs.
+455.4s 972 Best model restored from epoch 4 with val_f1 0.6294
+455.4s 973 CPU times: user 2.96 s, sys: 4.36 s, total: 7.32 s
+455.4s 974 Wall time: 10.1 s
+456.5s 975 Accuracy over the validation set: 0.7400
+456.5s 976 Precision over the validation set: 0.5476
+456.5s 977 Recall over the validation set: 0.7400
+456.5s 978 F1 score over the validation set: 0.6294
+456.9s 979 -------------------------------------------------------------------------------
+456.9s 980 Layer (type)              Output Shape                 Param #
+456.9s 981 ===============================================================================
+456.9s 982 rnn (GRU)                 [[-1, 200, 256], [4, -1, 128]] 420,864
+456.9s 983 classifier (Linear)       [-1, 3]                      771
+456.9s 984 ===============================================================================
+456.9s 985 Total params: 421,635
+456.9s 986 Trainable params: 421,635
+456.9s 987 Non-trainable params: 0
+456.9s 988 -------------------------------------------------------------------------------
+457.0s 989 Training 500 epochs...
+457.5s 990 Epoch   1/500 | Train: Loss=1.1024, F1 Score=0.0685 | Val: Loss=1.1166, F1 Score=0.0149
+458.0s 991 Epoch   2/500 | Train: Loss=1.1036, F1 Score=0.2544 | Val: Loss=1.1163, F1 Score=0.6294
+458.5s 992 Epoch   3/500 | Train: Loss=1.0948, F1 Score=0.6943 | Val: Loss=1.1036, F1 Score=0.6294
+459.0s 993 Epoch   4/500 | Train: Loss=1.0813, F1 Score=0.7127 | Val: Loss=1.0793, F1 Score=0.4681
+459.5s 994 Epoch   5/500 | Train: Loss=1.0717, F1 Score=0.4493 | Val: Loss=1.0748, F1 Score=0.0514
+460.1s 995 Epoch   6/500 | Train: Loss=1.0722, F1 Score=0.0646 | Val: Loss=1.0727, F1 Score=0.0936
+460.6s 996 Epoch   7/500 | Train: Loss=1.0662, F1 Score=0.0754 | Val: Loss=1.0651, F1 Score=0.4226
+461.1s 997 Epoch   8/500 | Train: Loss=1.0489, F1 Score=0.3930 | Val: Loss=1.0750, F1 Score=0.7012
+461.6s 998 Epoch   9/500 | Train: Loss=1.0372, F1 Score=0.7261 | Val: Loss=1.1079, F1 Score=0.6938
+462.1s 999 Epoch  10/500 | Train: Loss=1.0489, F1 Score=0.7222 | Val: Loss=1.0842, F1 Score=0.6962
+462.6s 1000 Epoch  11/500 | Train: Loss=1.0336, F1 Score=0.7222 | Val: Loss=1.0474, F1 Score=0.6816
+463.1s 1001 Epoch  12/500 | Train: Loss=0.9997, F1 Score=0.7224 | Val: Loss=1.0318, F1 Score=0.6789
+463.6s 1002 Epoch  13/500 | Train: Loss=0.9765, F1 Score=0.7602 | Val: Loss=1.0381, F1 Score=0.7230
+464.2s 1003 Epoch  14/500 | Train: Loss=0.9755, F1 Score=0.7768 | Val: Loss=1.0035, F1 Score=0.5858
+464.7s 1004 Epoch  15/500 | Train: Loss=0.9577, F1 Score=0.6241 | Val: Loss=0.9887, F1 Score=0.5141
+465.3s 1005 Epoch  16/500 | Train: Loss=0.9452, F1 Score=0.5791 | Val: Loss=1.0041, F1 Score=0.6670
+465.8s 1006 Epoch  17/500 | Train: Loss=0.9212, F1 Score=0.7511 | Val: Loss=0.9751, F1 Score=0.5903
+466.3s 1007 Epoch  18/500 | Train: Loss=0.9253, F1 Score=0.6259 | Val: Loss=0.9769, F1 Score=0.5178
+466.8s 1008 Epoch  19/500 | Train: Loss=0.9439, F1 Score=0.5622 | Val: Loss=0.9998, F1 Score=0.7120
+467.3s 1009 Epoch  20/500 | Train: Loss=0.9144, F1 Score=0.7766 | Val: Loss=1.0080, F1 Score=0.7057
+467.8s 1010 Epoch  21/500 | Train: Loss=0.9105, F1 Score=0.7777 | Val: Loss=0.9672, F1 Score=0.5417
+468.3s 1011 Epoch  22/500 | Train: Loss=0.9240, F1 Score=0.6083 | Val: Loss=0.9701, F1 Score=0.6319
+468.8s 1012 Epoch  23/500 | Train: Loss=0.8918, F1 Score=0.7341 | Val: Loss=1.0380, F1 Score=0.7231
+469.3s 1013 Epoch  24/500 | Train: Loss=0.9083, F1 Score=0.7838 | Val: Loss=0.9972, F1 Score=0.6829
+469.9s 1014 Epoch  25/500 | Train: Loss=0.8808, F1 Score=0.7730 | Val: Loss=0.9723, F1 Score=0.6297
+470.4s 1015 Epoch  26/500 | Train: Loss=0.8730, F1 Score=0.7073 | Val: Loss=0.9696, F1 Score=0.5928
+471.0s 1016 Epoch  27/500 | Train: Loss=0.8672, F1 Score=0.7032 | Val: Loss=1.0286, F1 Score=0.6938
+471.5s 1017 Epoch  28/500 | Train: Loss=0.8740, F1 Score=0.7749 | Val: Loss=0.9942, F1 Score=0.6409
+472.1s 1018 Epoch  29/500 | Train: Loss=0.8447, F1 Score=0.7116 | Val: Loss=0.9890, F1 Score=0.4710
+472.6s 1019 Epoch  30/500 | Train: Loss=0.8971, F1 Score=0.4574 | Val: Loss=0.9791, F1 Score=0.4977
+473.1s 1020 Epoch  31/500 | Train: Loss=0.8647, F1 Score=0.5735 | Val: Loss=1.0665, F1 Score=0.6894
+473.6s 1021 Epoch  32/500 | Train: Loss=0.8532, F1 Score=0.7649 | Val: Loss=1.0345, F1 Score=0.6795
+474.2s 1022 Epoch  33/500 | Train: Loss=0.8350, F1 Score=0.7692 | Val: Loss=0.9796, F1 Score=0.5551
+474.7s 1023 Epoch  34/500 | Train: Loss=0.8248, F1 Score=0.6500 | Val: Loss=0.9845, F1 Score=0.5336
+475.2s 1024 Epoch  35/500 | Train: Loss=0.8235, F1 Score=0.6221 | Val: Loss=1.0095, F1 Score=0.6576
+475.7s 1025 Epoch  36/500 | Train: Loss=0.7992, F1 Score=0.7731 | Val: Loss=1.0800, F1 Score=0.6913
+476.3s 1026 Epoch  37/500 | Train: Loss=0.8247, F1 Score=0.7762 | Val: Loss=1.0463, F1 Score=0.5397
+476.8s 1027 Epoch  38/500 | Train: Loss=0.8197, F1 Score=0.6489 | Val: Loss=1.0321, F1 Score=0.4799
+477.3s 1028 Epoch  39/500 | Train: Loss=0.8338, F1 Score=0.5287 | Val: Loss=0.9925, F1 Score=0.5712
+477.8s 1029 Epoch  40/500 | Train: Loss=0.8042, F1 Score=0.6622 | Val: Loss=1.0284, F1 Score=0.6939
+478.3s 1030 Epoch  41/500 | Train: Loss=0.7771, F1 Score=0.8011 | Val: Loss=1.0544, F1 Score=0.7282
+478.8s 1031 Epoch  42/500 | Train: Loss=0.8514, F1 Score=0.7964 | Val: Loss=1.0165, F1 Score=0.7331
+479.4s 1032 Epoch  43/500 | Train: Loss=0.8382, F1 Score=0.7944 | Val: Loss=0.9260, F1 Score=0.6315
+479.9s 1033 Epoch  44/500 | Train: Loss=0.8069, F1 Score=0.6961 | Val: Loss=0.9331, F1 Score=0.5875
+480.4s 1034 Epoch  45/500 | Train: Loss=0.7945, F1 Score=0.6523 | Val: Loss=1.1416, F1 Score=0.6655
+480.9s 1035 Epoch  46/500 | Train: Loss=0.9123, F1 Score=0.7724 | Val: Loss=0.9584, F1 Score=0.6454
+481.5s 1036 Epoch  47/500 | Train: Loss=0.7757, F1 Score=0.7648 | Val: Loss=0.9352, F1 Score=0.5762
+482.0s 1037 Epoch  48/500 | Train: Loss=0.7838, F1 Score=0.6825 | Val: Loss=0.9551, F1 Score=0.5971
+482.5s 1038 Epoch  49/500 | Train: Loss=0.8137, F1 Score=0.7053 | Val: Loss=0.9713, F1 Score=0.6435
+483.0s 1039 Epoch  50/500 | Train: Loss=0.8165, F1 Score=0.7807 | Val: Loss=0.9814, F1 Score=0.7300
+483.5s 1040 Epoch  51/500 | Train: Loss=0.7970, F1 Score=0.8062 | Val: Loss=0.9903, F1 Score=0.7424
+484.0s 1041 Epoch  52/500 | Train: Loss=0.7730, F1 Score=0.8075 | Val: Loss=0.9893, F1 Score=0.6919
+484.6s 1042 Epoch  53/500 | Train: Loss=0.7691, F1 Score=0.7812 | Val: Loss=0.9810, F1 Score=0.6765
+485.1s 1043 Epoch  54/500 | Train: Loss=0.7534, F1 Score=0.7883 | Val: Loss=0.9497, F1 Score=0.7079
+485.6s 1044 Epoch  55/500 | Train: Loss=0.7279, F1 Score=0.7988 | Val: Loss=0.9071, F1 Score=0.6918
+486.1s 1045 Epoch  56/500 | Train: Loss=0.7200, F1 Score=0.7605 | Val: Loss=0.8814, F1 Score=0.6345
+486.6s 1046 Epoch  57/500 | Train: Loss=0.7258, F1 Score=0.7143 | Val: Loss=0.8838, F1 Score=0.6302
+487.2s 1047 Epoch  58/500 | Train: Loss=0.7303, F1 Score=0.6831 | Val: Loss=0.9857, F1 Score=0.7287
+487.7s 1048 Epoch  59/500 | Train: Loss=0.7389, F1 Score=0.7874 | Val: Loss=0.9242, F1 Score=0.7392
+488.2s 1049 Epoch  60/500 | Train: Loss=0.7051, F1 Score=0.7656 | Val: Loss=0.9224, F1 Score=0.7018
+488.7s 1050 Epoch  61/500 | Train: Loss=0.7189, F1 Score=0.7507 | Val: Loss=0.9631, F1 Score=0.7413
+489.2s 1051 Epoch  62/500 | Train: Loss=0.7403, F1 Score=0.8140 | Val: Loss=0.9258, F1 Score=0.7210
+489.7s 1052 Epoch  63/500 | Train: Loss=0.7248, F1 Score=0.8047 | Val: Loss=0.9068, F1 Score=0.6643
+490.3s 1053 Epoch  64/500 | Train: Loss=0.7277, F1 Score=0.7144 | Val: Loss=0.9189, F1 Score=0.6998
+490.8s 1054 Epoch  65/500 | Train: Loss=0.6987, F1 Score=0.7671 | Val: Loss=0.9786, F1 Score=0.7311
+491.3s 1055 Epoch  66/500 | Train: Loss=0.7082, F1 Score=0.8195 | Val: Loss=0.9214, F1 Score=0.7567
+491.9s 1056 Epoch  67/500 | Train: Loss=0.6937, F1 Score=0.8133 | Val: Loss=0.8862, F1 Score=0.6069
+492.4s 1057 Epoch  68/500 | Train: Loss=0.7190, F1 Score=0.6493 | Val: Loss=0.8852, F1 Score=0.5899
+492.9s 1058 Epoch  69/500 | Train: Loss=0.7058, F1 Score=0.6650 | Val: Loss=0.9080, F1 Score=0.6982
+493.4s 1059 Epoch  70/500 | Train: Loss=0.6792, F1 Score=0.7592 | Val: Loss=0.9259, F1 Score=0.7562
+493.9s 1060 Epoch  71/500 | Train: Loss=0.6553, F1 Score=0.8277 | Val: Loss=0.9534, F1 Score=0.7980
+494.4s 1061 Epoch  72/500 | Train: Loss=0.7224, F1 Score=0.8302 | Val: Loss=0.9495, F1 Score=0.7931
+494.9s 1062 Epoch  73/500 | Train: Loss=0.7440, F1 Score=0.8221 | Val: Loss=0.8970, F1 Score=0.7795
+495.4s 1063 Epoch  74/500 | Train: Loss=0.6832, F1 Score=0.8075 | Val: Loss=0.9413, F1 Score=0.7574
+496.0s 1064 Epoch  75/500 | Train: Loss=0.6268, F1 Score=0.8401 | Val: Loss=0.9575, F1 Score=0.7738
+496.5s 1065 Epoch  76/500 | Train: Loss=0.6592, F1 Score=0.8211 | Val: Loss=0.9104, F1 Score=0.7905
+497.0s 1066 Epoch  77/500 | Train: Loss=0.6304, F1 Score=0.8085 | Val: Loss=0.7991, F1 Score=0.6977
+497.5s 1067 Epoch  78/500 | Train: Loss=0.6643, F1 Score=0.6570 | Val: Loss=0.8069, F1 Score=0.6032
+498.0s 1068 Epoch  79/500 | Train: Loss=0.6791, F1 Score=0.6295 | Val: Loss=0.9746, F1 Score=0.7696
+498.5s 1069 Epoch  80/500 | Train: Loss=0.6345, F1 Score=0.8379 | Val: Loss=0.9561, F1 Score=0.7720
+499.0s 1070 Epoch  81/500 | Train: Loss=0.6261, F1 Score=0.8241 | Val: Loss=0.8947, F1 Score=0.6967
+499.5s 1071 Epoch  82/500 | Train: Loss=0.6859, F1 Score=0.6897 | Val: Loss=0.9146, F1 Score=0.7205
+500.0s 1072 Epoch  83/500 | Train: Loss=0.6466, F1 Score=0.7918 | Val: Loss=0.9976, F1 Score=0.7973
+500.6s 1073 Epoch  84/500 | Train: Loss=0.6626, F1 Score=0.8273 | Val: Loss=0.9924, F1 Score=0.7659
+501.1s 1074 Epoch  85/500 | Train: Loss=0.6928, F1 Score=0.8252 | Val: Loss=0.9611, F1 Score=0.7851
+501.6s 1075 Epoch  86/500 | Train: Loss=0.6845, F1 Score=0.8357 | Val: Loss=0.9532, F1 Score=0.7765
+502.1s 1076 Epoch  87/500 | Train: Loss=0.6384, F1 Score=0.8497 | Val: Loss=0.9569, F1 Score=0.7686
+502.6s 1077 Epoch  88/500 | Train: Loss=0.6000, F1 Score=0.8425 | Val: Loss=0.8844, F1 Score=0.7976
+503.1s 1078 Epoch  89/500 | Train: Loss=0.5974, F1 Score=0.8063 | Val: Loss=0.9213, F1 Score=0.7983
+503.6s 1079 Epoch  90/500 | Train: Loss=0.5787, F1 Score=0.8097 | Val: Loss=1.5689, F1 Score=0.7871
+504.2s 1080 Epoch  91/500 | Train: Loss=0.8453, F1 Score=0.8457 | Val: Loss=1.5689, F1 Score=0.7871
+504.7s 1081 Epoch  92/500 | Train: Loss=0.8056, F1 Score=0.8392 | Val: Loss=0.8459, F1 Score=0.6664
+505.2s 1082 Epoch  93/500 | Train: Loss=0.7355, F1 Score=0.5286 | Val: Loss=0.8312, F1 Score=0.7053
+505.7s 1083 Epoch  94/500 | Train: Loss=0.6827, F1 Score=0.5815 | Val: Loss=0.9547, F1 Score=0.7715
+506.2s 1084 Epoch  95/500 | Train: Loss=0.5955, F1 Score=0.8274 | Val: Loss=1.1344, F1 Score=0.7549
+506.7s 1085 Epoch  96/500 | Train: Loss=0.6644, F1 Score=0.8281 | Val: Loss=0.9247, F1 Score=0.7780
+507.2s 1086 Epoch  97/500 | Train: Loss=0.6256, F1 Score=0.7787 | Val: Loss=0.8375, F1 Score=0.7731
+507.7s 1087 Epoch  98/500 | Train: Loss=0.5872, F1 Score=0.7875 | Val: Loss=0.8405, F1 Score=0.7900
+508.2s 1088 Epoch  99/500 | Train: Loss=0.5881, F1 Score=0.8128 | Val: Loss=0.9381, F1 Score=0.8070
+508.7s 1089 Epoch 100/500 | Train: Loss=0.5855, F1 Score=0.8530 | Val: Loss=1.0780, F1 Score=0.8243
+509.2s 1090 Epoch 101/500 | Train: Loss=0.6171, F1 Score=0.8577 | Val: Loss=1.0040, F1 Score=0.8157
+509.7s 1091 Epoch 102/500 | Train: Loss=0.5758, F1 Score=0.8526 | Val: Loss=0.9269, F1 Score=0.7897
+510.2s 1092 Epoch 103/500 | Train: Loss=0.5470, F1 Score=0.8332 | Val: Loss=0.9186, F1 Score=0.7982
+510.7s 1093 Epoch 104/500 | Train: Loss=0.5360, F1 Score=0.8431 | Val: Loss=0.9611, F1 Score=0.7972
+511.3s 1094 Epoch 105/500 | Train: Loss=0.5185, F1 Score=0.8525 | Val: Loss=0.9995, F1 Score=0.8077
+511.8s 1095 Epoch 106/500 | Train: Loss=0.5027, F1 Score=0.8539 | Val: Loss=1.1675, F1 Score=0.8197
+512.3s 1096 Epoch 107/500 | Train: Loss=0.5287, F1 Score=0.8681 | Val: Loss=1.0607, F1 Score=0.8377
+512.8s 1097 Epoch 108/500 | Train: Loss=0.4990, F1 Score=0.8637 | Val: Loss=1.0471, F1 Score=0.7971
+513.3s 1098 Epoch 109/500 | Train: Loss=0.5297, F1 Score=0.8279 | Val: Loss=1.0205, F1 Score=0.8039
+513.8s 1099 Epoch 110/500 | Train: Loss=0.4654, F1 Score=0.8566 | Val: Loss=0.9763, F1 Score=0.8137
+514.3s 1100 Epoch 111/500 | Train: Loss=0.4712, F1 Score=0.8581 | Val: Loss=0.9055, F1 Score=0.8117
+514.8s 1101 Epoch 112/500 | Train: Loss=0.5044, F1 Score=0.8449 | Val: Loss=1.0745, F1 Score=0.7678
+515.3s 1102 Epoch 113/500 | Train: Loss=0.5342, F1 Score=0.8138 | Val: Loss=1.3425, F1 Score=0.7138
+515.8s 1103 Epoch 114/500 | Train: Loss=0.6084, F1 Score=0.7822 | Val: Loss=1.0365, F1 Score=0.6857
+516.3s 1104 Epoch 115/500 | Train: Loss=0.6171, F1 Score=0.6874 | Val: Loss=0.9425, F1 Score=0.6744
+516.8s 1105 Epoch 116/500 | Train: Loss=0.6037, F1 Score=0.6442 | Val: Loss=0.9384, F1 Score=0.8040
+517.4s 1106 Epoch 117/500 | Train: Loss=0.4882, F1 Score=0.8459 | Val: Loss=1.0184, F1 Score=0.8222
+517.9s 1107 Epoch 118/500 | Train: Loss=0.5058, F1 Score=0.8686 | Val: Loss=0.9110, F1 Score=0.7751
+518.4s 1108 Epoch 119/500 | Train: Loss=0.5659, F1 Score=0.7981 | Val: Loss=1.0324, F1 Score=0.7663
+518.9s 1109 Epoch 120/500 | Train: Loss=0.4984, F1 Score=0.8398 | Val: Loss=1.1463, F1 Score=0.7617
+519.4s 1110 Epoch 121/500 | Train: Loss=0.5306, F1 Score=0.8267 | Val: Loss=1.0716, F1 Score=0.7605
+519.9s 1111 Epoch 122/500 | Train: Loss=0.4893, F1 Score=0.8204 | Val: Loss=1.0225, F1 Score=0.8060
+520.4s 1112 Epoch 123/500 | Train: Loss=0.4484, F1 Score=0.8472 | Val: Loss=1.0163, F1 Score=0.8061
+521.0s 1113 Epoch 124/500 | Train: Loss=0.4203, F1 Score=0.8715 | Val: Loss=1.0211, F1 Score=0.8030
+521.5s 1114 Epoch 125/500 | Train: Loss=0.4365, F1 Score=0.8668 | Val: Loss=0.8201, F1 Score=0.7533
+522.0s 1115 Epoch 126/500 | Train: Loss=0.5604, F1 Score=0.7113 | Val: Loss=1.1347, F1 Score=0.7496
+522.5s 1116 Epoch 127/500 | Train: Loss=0.4839, F1 Score=0.7916 | Val: Loss=1.5010, F1 Score=0.8132
+522.5s 1117 Early stopping triggered after 127 epochs.
+522.5s 1118 Best model restored from epoch 107 with val_f1 0.8377
+522.5s 1119 CPU times: user 26.8 s, sys: 23.9 s, total: 50.8 s
+522.5s 1120 Wall time: 1min 5s
+523.7s 1121 Accuracy over the validation set: 0.8400
+523.7s 1122 Precision over the validation set: 0.8365
+523.7s 1123 Recall over the validation set: 0.8400
+523.7s 1124 F1 score over the validation set: 0.8377
+524.7s 1125 Split 1/5
+524.7s 1126 Training set shape: (92960, 35)
+524.7s 1127 Validation set shape: (6400, 35)
+524.7s 1128 Test set shape: (6400, 35)
+525.8s 1129 Training sequences shape: (581, 200, 32)
+525.8s 1130 Validation sequences shape: (40, 200, 32)
+525.8s 1131 Test sequences shape: (40, 200, 32)
+525.8s 1132 Training 500 epochs...
+526.6s 1133 Epoch   1/500 | Train: Loss=1.1007, F1 Score=0.0858 | Val: Loss=1.1340, F1 Score=0.0391
+532.9s 1134 Epoch  10/500 | Train: Loss=0.9849, F1 Score=0.7579 | Val: Loss=0.9940, F1 Score=0.6434
+539.9s 1135 Epoch  20/500 | Train: Loss=0.9375, F1 Score=0.5508 | Val: Loss=1.0330, F1 Score=0.7342
+546.9s 1136 Epoch  30/500 | Train: Loss=0.8267, F1 Score=0.8210 | Val: Loss=1.0243, F1 Score=0.6783
+554.0s 1137 Epoch  40/500 | Train: Loss=0.7803, F1 Score=0.7423 | Val: Loss=0.8880, F1 Score=0.7485
+561.0s 1138 Epoch  50/500 | Train: Loss=0.7900, F1 Score=0.7183 | Val: Loss=0.9634, F1 Score=0.6909
+567.9s 1139 Epoch  60/500 | Train: Loss=0.6568, F1 Score=0.8085 | Val: Loss=1.0408, F1 Score=0.5279
+574.8s 1140 Epoch  70/500 | Train: Loss=0.6313, F1 Score=0.8513 | Val: Loss=1.1772, F1 Score=0.5300
+581.7s 1141 Epoch  80/500 | Train: Loss=0.5975, F1 Score=0.8162 | Val: Loss=0.9138, F1 Score=0.5272
+588.6s 1142 Epoch  90/500 | Train: Loss=0.6102, F1 Score=0.8577 | Val: Loss=1.5090, F1 Score=0.6673
+595.6s 1143 Epoch 100/500 | Train: Loss=0.5104, F1 Score=0.8544 | Val: Loss=1.2053, F1 Score=0.6847
+602.5s 1144 Epoch 110/500 | Train: Loss=0.4788, F1 Score=0.8303 | Val: Loss=1.2559, F1 Score=0.4659
+609.4s 1145 Epoch 120/500 | Train: Loss=0.4389, F1 Score=0.8156 | Val: Loss=1.3756, F1 Score=0.7083
+616.3s 1146 Epoch 130/500 | Train: Loss=0.3352, F1 Score=0.8860 | Val: Loss=1.7415, F1 Score=0.6066
+623.2s 1147 Epoch 140/500 | Train: Loss=0.2884, F1 Score=0.9128 | Val: Loss=2.1971, F1 Score=0.6725
+630.2s 1148 Epoch 150/500 | Train: Loss=0.2779, F1 Score=0.9183 | Val: Loss=2.2576, F1 Score=0.3314
+637.1s 1149 Epoch 160/500 | Train: Loss=0.5081, F1 Score=0.8416 | Val: Loss=1.2296, F1 Score=0.5968
+644.0s 1150 Epoch 170/500 | Train: Loss=0.3280, F1 Score=0.8357 | Val: Loss=1.7834, F1 Score=0.6412
+651.0s 1151 Epoch 180/500 | Train: Loss=0.2560, F1 Score=0.8757 | Val: Loss=1.8279, F1 Score=0.5847
+656.8s 1152 Early stopping triggered after 188 epochs.
+656.8s 1153 Best model restored from epoch 38 with val_f1 0.8030
+656.8s 1154 Split 2/5
+656.8s 1155 Training set shape: (92960, 35)
+656.8s 1156 Validation set shape: (6400, 35)
+656.8s 1157 Test set shape: (6400, 35)
+657.9s 1158 Training sequences shape: (581, 200, 32)
+657.9s 1159 Validation sequences shape: (40, 200, 32)
+657.9s 1160 Test sequences shape: (40, 200, 32)
+657.9s 1161 Training 500 epochs...
+658.6s 1162 Epoch   1/500 | Train: Loss=1.0979, F1 Score=0.0316 | Val: Loss=1.0803, F1 Score=0.0391
+665.1s 1163 Epoch  10/500 | Train: Loss=1.0314, F1 Score=0.7565 | Val: Loss=0.9561, F1 Score=0.7533
+672.0s 1164 Epoch  20/500 | Train: Loss=0.9325, F1 Score=0.6725 | Val: Loss=0.8258, F1 Score=0.6652
+679.0s 1165 Epoch  30/500 | Train: Loss=0.8941, F1 Score=0.7140 | Val: Loss=0.7487, F1 Score=0.8378
+685.9s 1166 Epoch  40/500 | Train: Loss=0.8326, F1 Score=0.6612 | Val: Loss=0.7296, F1 Score=0.8010
+692.9s 1167 Epoch  50/500 | Train: Loss=0.7820, F1 Score=0.8032 | Val: Loss=1.0029, F1 Score=0.7681
+700.0s 1168 Epoch  60/500 | Train: Loss=0.7460, F1 Score=0.8187 | Val: Loss=0.8452, F1 Score=0.7826
+706.8s 1169 Epoch  70/500 | Train: Loss=0.7218, F1 Score=0.8134 | Val: Loss=1.0842, F1 Score=0.8116
+713.8s 1170 Epoch  80/500 | Train: Loss=0.6894, F1 Score=0.8090 | Val: Loss=1.0346, F1 Score=0.7473
+720.8s 1171 Epoch  90/500 | Train: Loss=0.6481, F1 Score=0.7863 | Val: Loss=0.8054, F1 Score=0.7484
+727.8s 1172 Epoch 100/500 | Train: Loss=0.6657, F1 Score=0.8401 | Val: Loss=1.0826, F1 Score=0.7868
+734.8s 1173 Epoch 110/500 | Train: Loss=0.5223, F1 Score=0.8595 | Val: Loss=1.0295, F1 Score=0.6623
+741.7s 1174 Epoch 120/500 | Train: Loss=0.6029, F1 Score=0.7980 | Val: Loss=1.3898, F1 Score=0.8250
+748.7s 1175 Epoch 130/500 | Train: Loss=0.4010, F1 Score=0.8606 | Val: Loss=1.2004, F1 Score=0.7347
+755.7s 1176 Epoch 140/500 | Train: Loss=0.4262, F1 Score=0.8676 | Val: Loss=1.1936, F1 Score=0.7138
+762.7s 1177 Epoch 150/500 | Train: Loss=0.3963, F1 Score=0.8425 | Val: Loss=1.3216, F1 Score=0.7875
+769.8s 1178 Epoch 160/500 | Train: Loss=0.3567, F1 Score=0.8068 | Val: Loss=1.7192, F1 Score=0.7497
+776.8s 1179 Epoch 170/500 | Train: Loss=0.3135, F1 Score=0.8375 | Val: Loss=1.6812, F1 Score=0.6958
+781.2s 1180 Early stopping triggered after 176 epochs.
+781.2s 1181 Best model restored from epoch 26 with val_f1 0.8391
+781.2s 1182 Split 3/5
+781.2s 1183 Training set shape: (92960, 35)
+781.2s 1184 Validation set shape: (6400, 35)
+781.2s 1185 Test set shape: (6400, 35)
+782.3s 1186 Training sequences shape: (581, 200, 32)
+782.3s 1187 Validation sequences shape: (40, 200, 32)
+782.3s 1188 Test sequences shape: (40, 200, 32)
+782.3s 1189 Training 500 epochs...
+783.1s 1190 Epoch   1/500 | Train: Loss=1.0992, F1 Score=0.0334 | Val: Loss=1.1282, F1 Score=0.0182
+789.4s 1191 Epoch  10/500 | Train: Loss=0.9755, F1 Score=0.7553 | Val: Loss=1.0280, F1 Score=0.5536
+796.5s 1192 Epoch  20/500 | Train: Loss=1.0228, F1 Score=0.2722 | Val: Loss=1.0958, F1 Score=0.0988
+803.6s 1193 Epoch  30/500 | Train: Loss=0.8591, F1 Score=0.7878 | Val: Loss=0.9342, F1 Score=0.7795
+810.6s 1194 Epoch  40/500 | Train: Loss=0.7848, F1 Score=0.7720 | Val: Loss=1.0053, F1 Score=0.5919
+817.6s 1195 Epoch  50/500 | Train: Loss=0.7530, F1 Score=0.8084 | Val: Loss=0.8942, F1 Score=0.7128
+824.8s 1196 Epoch  60/500 | Train: Loss=0.6852, F1 Score=0.7556 | Val: Loss=0.7803, F1 Score=0.5689
+831.8s 1197 Epoch  70/500 | Train: Loss=0.7088, F1 Score=0.8004 | Val: Loss=0.8831, F1 Score=0.7143
+839.0s 1198 Epoch  80/500 | Train: Loss=0.5517, F1 Score=0.8220 | Val: Loss=0.9782, F1 Score=0.7531
+846.4s 1199 Epoch  90/500 | Train: Loss=0.7798, F1 Score=0.8270 | Val: Loss=0.6106, F1 Score=0.8050
+853.5s 1200 Epoch 100/500 | Train: Loss=0.4955, F1 Score=0.8253 | Val: Loss=0.8852, F1 Score=0.7467
+860.8s 1201 Epoch 110/500 | Train: Loss=0.5263, F1 Score=0.8765 | Val: Loss=1.1594, F1 Score=0.7795
+867.9s 1202 Epoch 120/500 | Train: Loss=0.3874, F1 Score=0.8771 | Val: Loss=1.0178, F1 Score=0.6994
+875.3s 1203 Epoch 130/500 | Train: Loss=0.4764, F1 Score=0.7943 | Val: Loss=0.8567, F1 Score=0.8148
+882.3s 1204 Epoch 140/500 | Train: Loss=0.3891, F1 Score=0.8584 | Val: Loss=1.1575, F1 Score=0.6726
+889.4s 1205 Epoch 150/500 | Train: Loss=0.3024, F1 Score=0.9156 | Val: Loss=0.8045, F1 Score=0.8059
+896.6s 1206 Epoch 160/500 | Train: Loss=0.2618, F1 Score=0.8772 | Val: Loss=0.9240, F1 Score=0.8281
+903.8s 1207 Epoch 170/500 | Train: Loss=0.3315, F1 Score=0.9195 | Val: Loss=2.0639, F1 Score=0.6697
+911.1s 1208 Epoch 180/500 | Train: Loss=0.3362, F1 Score=0.8488 | Val: Loss=1.0167, F1 Score=0.8192
+918.2s 1209 Epoch 190/500 | Train: Loss=0.3112, F1 Score=0.8327 | Val: Loss=1.1624, F1 Score=0.7692
+925.4s 1210 Epoch 200/500 | Train: Loss=0.2726, F1 Score=0.8703 | Val: Loss=1.3189, F1 Score=0.7645
+932.5s 1211 Epoch 210/500 | Train: Loss=0.2131, F1 Score=0.8375 | Val: Loss=1.5576, F1 Score=0.8391
+939.5s 1212 Epoch 220/500 | Train: Loss=0.1839, F1 Score=0.8912 | Val: Loss=0.7508, F1 Score=0.7511
+946.7s 1213 Epoch 230/500 | Train: Loss=0.0895, F1 Score=0.9412 | Val: Loss=1.7358, F1 Score=0.8190
+953.7s 1214 Epoch 240/500 | Train: Loss=0.2082, F1 Score=0.9055 | Val: Loss=1.3549, F1 Score=0.7698
+960.8s 1215 Epoch 250/500 | Train: Loss=0.2027, F1 Score=0.9407 | Val: Loss=1.4534, F1 Score=0.7207
+967.9s 1216 Epoch 260/500 | Train: Loss=0.1152, F1 Score=0.9391 | Val: Loss=1.9282, F1 Score=0.8059
+974.9s 1217 Epoch 270/500 | Train: Loss=0.0643, F1 Score=0.9799 | Val: Loss=1.7304, F1 Score=0.7875
+982.1s 1218 Epoch 280/500 | Train: Loss=0.0566, F1 Score=0.9797 | Val: Loss=2.0672, F1 Score=0.8250
+989.1s 1219 Epoch 290/500 | Train: Loss=0.1050, F1 Score=0.9485 | Val: Loss=1.5050, F1 Score=0.7968
+996.3s 1220 Epoch 300/500 | Train: Loss=0.0441, F1 Score=0.9847 | Val: Loss=1.9699, F1 Score=0.8472
+1003.5s 1221 Epoch 310/500 | Train: Loss=0.0907, F1 Score=0.9631 | Val: Loss=2.0712, F1 Score=0.8456
+1010.8s 1222 Epoch 320/500 | Train: Loss=0.1171, F1 Score=0.9355 | Val: Loss=1.7141, F1 Score=0.7538
+1018.0s 1223 Epoch 330/500 | Train: Loss=0.1345, F1 Score=0.9451 | Val: Loss=1.1522, F1 Score=0.8250
+1025.1s 1224 Epoch 340/500 | Train: Loss=0.0427, F1 Score=0.9748 | Val: Loss=1.6787, F1 Score=0.8270
+1032.2s 1225 Epoch 350/500 | Train: Loss=0.0190, F1 Score=0.9898 | Val: Loss=2.0754, F1 Score=0.8069
+1039.3s 1226 Epoch 360/500 | Train: Loss=0.0082, F1 Score=0.9983 | Val: Loss=2.5343, F1 Score=0.7921
+1046.4s 1227 Epoch 370/500 | Train: Loss=0.0052, F1 Score=0.9983 | Val: Loss=2.6535, F1 Score=0.8250
+1053.6s 1228 Epoch 380/500 | Train: Loss=0.0069, F1 Score=0.9966 | Val: Loss=2.8249, F1 Score=0.7874
+1060.5s 1229 Epoch 390/500 | Train: Loss=0.0131, F1 Score=0.9949 | Val: Loss=2.4159, F1 Score=0.8250
+1064.2s 1230 Early stopping triggered after 395 epochs.
+1064.2s 1231 Best model restored from epoch 245 with val_f1 0.8692
+1064.2s 1232 Split 4/5
+1064.2s 1233 Training set shape: (92960, 35)
+1064.2s 1234 Validation set shape: (6400, 35)
+1064.2s 1235 Test set shape: (6400, 35)
+1065.4s 1236 Training sequences shape: (581, 200, 32)
+1065.4s 1237 Validation sequences shape: (40, 200, 32)
+1065.4s 1238 Test sequences shape: (40, 200, 32)
+1065.4s 1239 Training 500 epochs...
+1066.1s 1240 Epoch   1/500 | Train: Loss=1.0994, F1 Score=0.0325 | Val: Loss=1.0804, F1 Score=0.0278
+1072.5s 1241 Epoch  10/500 | Train: Loss=0.9685, F1 Score=0.7823 | Val: Loss=1.0668, F1 Score=0.4794
+1079.6s 1242 Epoch  20/500 | Train: Loss=0.9118, F1 Score=0.5349 | Val: Loss=0.9124, F1 Score=0.8634
+1086.7s 1243 Epoch  30/500 | Train: Loss=0.8035, F1 Score=0.8058 | Val: Loss=1.0083, F1 Score=0.5649
+1093.7s 1244 Epoch  40/500 | Train: Loss=0.7146, F1 Score=0.7621 | Val: Loss=1.1445, F1 Score=0.3457
+1100.8s 1245 Epoch  50/500 | Train: Loss=0.7213, F1 Score=0.7345 | Val: Loss=0.9953, F1 Score=0.4845
+1107.9s 1246 Epoch  60/500 | Train: Loss=0.7867, F1 Score=0.7968 | Val: Loss=0.9856, F1 Score=0.8206
+1115.1s 1247 Epoch  70/500 | Train: Loss=0.6700, F1 Score=0.7256 | Val: Loss=1.2251, F1 Score=0.7886
+1122.3s 1248 Epoch  80/500 | Train: Loss=0.5615, F1 Score=0.8053 | Val: Loss=0.8139, F1 Score=0.7554
+1129.2s 1249 Epoch  90/500 | Train: Loss=0.6799, F1 Score=0.5166 | Val: Loss=1.0698, F1 Score=0.4681
+1136.3s 1250 Epoch 100/500 | Train: Loss=0.5649, F1 Score=0.7740 | Val: Loss=1.0269, F1 Score=0.7593
+1143.3s 1251 Epoch 110/500 | Train: Loss=0.5104, F1 Score=0.8641 | Val: Loss=1.3672, F1 Score=0.6819
+1150.3s 1252 Epoch 120/500 | Train: Loss=0.5865, F1 Score=0.8639 | Val: Loss=1.0609, F1 Score=0.7523
+1157.5s 1253 Epoch 130/500 | Train: Loss=0.4791, F1 Score=0.8664 | Val: Loss=1.0023, F1 Score=0.7641
+1164.5s 1254 Epoch 140/500 | Train: Loss=0.3763, F1 Score=0.9065 | Val: Loss=0.6907, F1 Score=0.7242
+1171.5s 1255 Epoch 150/500 | Train: Loss=0.5087, F1 Score=0.8414 | Val: Loss=1.7087, F1 Score=0.8210
+1178.6s 1256 Epoch 160/500 | Train: Loss=0.4222, F1 Score=0.7413 | Val: Loss=0.9317, F1 Score=0.6763
+1185.6s 1257 Epoch 170/500 | Train: Loss=0.2460, F1 Score=0.9078 | Val: Loss=1.0769, F1 Score=0.7879
+1192.7s 1258 Epoch 180/500 | Train: Loss=0.2475, F1 Score=0.8721 | Val: Loss=0.9385, F1 Score=0.6553
+1199.7s 1259 Epoch 190/500 | Train: Loss=0.2276, F1 Score=0.9004 | Val: Loss=1.1009, F1 Score=0.8833
+1206.7s 1260 Epoch 200/500 | Train: Loss=0.1741, F1 Score=0.9246 | Val: Loss=1.5319, F1 Score=0.7685
+1213.8s 1261 Epoch 210/500 | Train: Loss=0.1691, F1 Score=0.9414 | Val: Loss=1.2853, F1 Score=0.6833
+1220.9s 1262 Epoch 220/500 | Train: Loss=0.1309, F1 Score=0.9450 | Val: Loss=1.2956, F1 Score=0.7996
+1228.2s 1263 Epoch 230/500 | Train: Loss=0.3685, F1 Score=0.7634 | Val: Loss=0.8305, F1 Score=0.6844
+1235.4s 1264 Epoch 240/500 | Train: Loss=0.1920, F1 Score=0.9000 | Val: Loss=1.1430, F1 Score=0.7649
+1242.6s 1265 Epoch 250/500 | Train: Loss=0.1695, F1 Score=0.8877 | Val: Loss=0.7867, F1 Score=0.8129
+1249.7s 1266 Epoch 260/500 | Train: Loss=0.1301, F1 Score=0.9386 | Val: Loss=0.9295, F1 Score=0.8216
+1256.9s 1267 Epoch 270/500 | Train: Loss=0.2805, F1 Score=0.9183 | Val: Loss=0.7633, F1 Score=0.7251
+1264.1s 1268 Epoch 280/500 | Train: Loss=0.1538, F1 Score=0.9368 | Val: Loss=1.6305, F1 Score=0.7291
+1271.0s 1269 Epoch 290/500 | Train: Loss=0.1099, F1 Score=0.9584 | Val: Loss=1.0300, F1 Score=0.8699
+1278.3s 1270 Epoch 300/500 | Train: Loss=0.3142, F1 Score=0.8632 | Val: Loss=1.1206, F1 Score=0.6208
+1285.4s 1271 Epoch 310/500 | Train: Loss=0.2649, F1 Score=0.8714 | Val: Loss=0.9172, F1 Score=0.8477
+1292.6s 1272 Epoch 320/500 | Train: Loss=0.2370, F1 Score=0.7907 | Val: Loss=0.6162, F1 Score=0.7804
+1299.7s 1273 Epoch 330/500 | Train: Loss=0.1540, F1 Score=0.9432 | Val: Loss=0.8053, F1 Score=0.8880
+1301.3s 1274 Early stopping triggered after 332 epochs.
+1301.3s 1275 Best model restored from epoch 182 with val_f1 0.9078
+1301.3s 1276 Split 5/5
+1301.3s 1277 Training set shape: (92960, 35)
+1301.3s 1278 Validation set shape: (6400, 35)
+1301.3s 1279 Test set shape: (6400, 35)
+1302.5s 1280 Training sequences shape: (581, 200, 32)
+1302.5s 1281 Validation sequences shape: (40, 200, 32)
+1302.5s 1282 Test sequences shape: (40, 200, 32)
+1302.5s 1283 Training 500 epochs...
+1303.2s 1284 Epoch   1/500 | Train: Loss=1.0989, F1 Score=0.0142 | Val: Loss=1.1240, F1 Score=0.0105
+1309.6s 1285 Epoch  10/500 | Train: Loss=0.9770, F1 Score=0.7176 | Val: Loss=1.0353, F1 Score=0.7470
+1316.7s 1286 Epoch  20/500 | Train: Loss=1.0187, F1 Score=0.7400 | Val: Loss=0.9703, F1 Score=0.8134
+1323.9s 1287 Epoch  30/500 | Train: Loss=0.8537, F1 Score=0.7951 | Val: Loss=0.9974, F1 Score=0.6798
+1331.2s 1288 Epoch  40/500 | Train: Loss=0.8189, F1 Score=0.8112 | Val: Loss=0.9933, F1 Score=0.8271
+1338.0s 1289 Epoch  50/500 | Train: Loss=0.7997, F1 Score=0.7561 | Val: Loss=1.0614, F1 Score=0.6407
+1345.2s 1290 Epoch  60/500 | Train: Loss=0.7624, F1 Score=0.8272 | Val: Loss=1.2095, F1 Score=0.4925
+1352.2s 1291 Epoch  70/500 | Train: Loss=0.7783, F1 Score=0.7833 | Val: Loss=0.9724, F1 Score=0.6600
+1359.3s 1292 Epoch  80/500 | Train: Loss=0.7479, F1 Score=0.7977 | Val: Loss=1.0096, F1 Score=0.7800
+1366.4s 1293 Epoch  90/500 | Train: Loss=0.6624, F1 Score=0.8402 | Val: Loss=1.0042, F1 Score=0.8102
+1373.5s 1294 Epoch 100/500 | Train: Loss=0.5994, F1 Score=0.7623 | Val: Loss=0.9785, F1 Score=0.8241
+1380.7s 1295 Epoch 110/500 | Train: Loss=0.6120, F1 Score=0.6756 | Val: Loss=0.9153, F1 Score=0.7771
+1387.8s 1296 Epoch 120/500 | Train: Loss=0.5986, F1 Score=0.8083 | Val: Loss=1.0253, F1 Score=0.5358
+1394.9s 1297 Epoch 130/500 | Train: Loss=0.4358, F1 Score=0.8699 | Val: Loss=1.2773, F1 Score=0.8544
+1402.2s 1298 Epoch 140/500 | Train: Loss=0.4982, F1 Score=0.8535 | Val: Loss=1.1572, F1 Score=0.4455
+1409.2s 1299 Epoch 150/500 | Train: Loss=0.5972, F1 Score=0.8197 | Val: Loss=1.3453, F1 Score=0.6950
+1416.3s 1300 Epoch 160/500 | Train: Loss=0.4483, F1 Score=0.8522 | Val: Loss=1.0639, F1 Score=0.7014
+1423.4s 1301 Epoch 170/500 | Train: Loss=0.4764, F1 Score=0.8548 | Val: Loss=0.8084, F1 Score=0.8041
+1430.4s 1302 Epoch 180/500 | Train: Loss=0.7426, F1 Score=0.8343 | Val: Loss=1.0868, F1 Score=0.8021
+1437.5s 1303 Epoch 190/500 | Train: Loss=0.6211, F1 Score=0.7987 | Val: Loss=1.1301, F1 Score=0.7113
+1444.5s 1304 Epoch 200/500 | Train: Loss=0.5842, F1 Score=0.8529 | Val: Loss=0.9871, F1 Score=0.8116
+1451.6s 1305 Epoch 210/500 | Train: Loss=0.5330, F1 Score=0.8642 | Val: Loss=1.3526, F1 Score=0.5533
+1458.7s 1306 Epoch 220/500 | Train: Loss=0.4266, F1 Score=0.8738 | Val: Loss=0.8396, F1 Score=0.7451
+1465.8s 1307 Epoch 230/500 | Train: Loss=0.3259, F1 Score=0.8661 | Val: Loss=0.8318, F1 Score=0.8102
+1473.0s 1308 Epoch 240/500 | Train: Loss=0.5235, F1 Score=0.7571 | Val: Loss=1.3097, F1 Score=0.6811
+1480.0s 1309 Epoch 250/500 | Train: Loss=0.3772, F1 Score=0.8060 | Val: Loss=0.9376, F1 Score=0.8153
+1487.0s 1310 Epoch 260/500 | Train: Loss=0.3460, F1 Score=0.8745 | Val: Loss=0.8750, F1 Score=0.8375
+1494.2s 1311 Epoch 270/500 | Train: Loss=0.3246, F1 Score=0.8788 | Val: Loss=1.2175, F1 Score=0.7344
+1501.2s 1312 Epoch 280/500 | Train: Loss=0.2673, F1 Score=0.9138 | Val: Loss=1.4738, F1 Score=0.6855
+1508.4s 1313 Epoch 290/500 | Train: Loss=0.3500, F1 Score=0.8822 | Val: Loss=0.9709, F1 Score=0.7407
+1515.3s 1314 Epoch 300/500 | Train: Loss=0.2298, F1 Score=0.8831 | Val: Loss=0.9610, F1 Score=0.8650
+1522.4s 1315 Epoch 310/500 | Train: Loss=0.3174, F1 Score=0.8122 | Val: Loss=1.0122, F1 Score=0.8078
+1529.4s 1316 Epoch 320/500 | Train: Loss=0.4446, F1 Score=0.7692 | Val: Loss=1.1300, F1 Score=0.8085
+1536.6s 1317 Epoch 330/500 | Train: Loss=0.2712, F1 Score=0.8885 | Val: Loss=1.0673, F1 Score=0.7960
+1543.8s 1318 Epoch 340/500 | Train: Loss=0.2733, F1 Score=0.8904 | Val: Loss=1.1790, F1 Score=0.7289
+1550.8s 1319 Epoch 350/500 | Train: Loss=0.2661, F1 Score=0.9241 | Val: Loss=1.6710, F1 Score=0.8027
+1557.9s 1320 Epoch 360/500 | Train: Loss=0.1499, F1 Score=0.9199 | Val: Loss=1.4057, F1 Score=0.8429
+1565.0s 1321 Epoch 370/500 | Train: Loss=0.1190, F1 Score=0.9160 | Val: Loss=1.5315, F1 Score=0.8628
+1572.2s 1322 Epoch 380/500 | Train: Loss=0.1857, F1 Score=0.9302 | Val: Loss=1.0417, F1 Score=0.7967
+1579.4s 1323 Epoch 390/500 | Train: Loss=0.1292, F1 Score=0.9192 | Val: Loss=1.2217, F1 Score=0.8534
+1586.4s 1324 Epoch 400/500 | Train: Loss=0.0903, F1 Score=0.9587 | Val: Loss=1.6150, F1 Score=0.7776
+1593.4s 1325 Epoch 410/500 | Train: Loss=0.1135, F1 Score=0.9156 | Val: Loss=1.5653, F1 Score=0.8628
+1600.4s 1326 Epoch 420/500 | Train: Loss=0.3444, F1 Score=0.9352 | Val: Loss=1.6152, F1 Score=0.7085
+1607.5s 1327 Epoch 430/500 | Train: Loss=0.2040, F1 Score=0.9110 | Val: Loss=0.5706, F1 Score=0.8294
+1614.6s 1328 Epoch 440/500 | Train: Loss=0.1214, F1 Score=0.9222 | Val: Loss=0.9343, F1 Score=0.8731
+1621.8s 1329 Epoch 450/500 | Train: Loss=0.1079, F1 Score=0.9438 | Val: Loss=1.6417, F1 Score=0.8102
+1628.9s 1330 Epoch 460/500 | Train: Loss=0.0851, F1 Score=0.9628 | Val: Loss=1.4427, F1 Score=0.8429
+1636.1s 1331 Epoch 470/500 | Train: Loss=0.1653, F1 Score=0.9220 | Val: Loss=0.8509, F1 Score=0.8352
+1643.5s 1332 Epoch 480/500 | Train: Loss=0.4032, F1 Score=0.9152 | Val: Loss=1.3103, F1 Score=0.7960
+1650.7s 1333 Epoch 490/500 | Train: Loss=0.1040, F1 Score=0.9429 | Val: Loss=1.4688, F1 Score=0.8514
+1657.8s 1334 Epoch 500/500 | Train: Loss=0.0660, F1 Score=0.9460 | Val: Loss=1.4376, F1 Score=0.8503
+1657.8s 1335 Best model restored from epoch 439 with val_f1 0.9117
+1657.8s 1336 Best score: 0.8661±0.0413
+1657.8s 1337 CPU times: user 9min 54s, sys: 5min 48s, total: 15min 43s
+1657.8s 1338 Wall time: 18min 53s
+1659.3s 1339 
+1659.3s 1340 Configuration 1/6:
+1659.3s 1341 window_size: 50
+1659.3s 1342 stride: 25
+1660.5s 1343 Training 500 epochs...
+1878.5s 1344 Early stopping triggered after 231 epochs.
+1878.5s 1345 Best model restored from epoch 81 with val_f1 0.8561
+1879.5s 1346 Training 500 epochs...
+2122.3s 1347 Early stopping triggered after 258 epochs.
+2122.3s 1348 Best model restored from epoch 108 with val_f1 0.9497
+2123.4s 1349 Training 500 epochs...
+2594.5s 1350 Best model restored from epoch 430 with val_f1 0.9183
+2595.6s 1351 Training 500 epochs...
+2903.5s 1352 Early stopping triggered after 324 epochs.
+2903.5s 1353 Best model restored from epoch 174 with val_f1 0.9380
+2904.6s 1354 Training 500 epochs...
+3203.5s 1355 Early stopping triggered after 315 epochs.
+3203.5s 1356 Best model restored from epoch 165 with val_f1 0.9286
+3203.5s 1357 NEW BEST SCORE!
+3203.5s 1358 F1 Score: 0.9181±0.0327
+3203.5s 1359 
+3203.5s 1360 Configuration 2/6:
+3203.5s 1361 window_size: 50
+3203.5s 1362 stride: 50
+3204.6s 1363 Training 500 epochs...
+3553.2s 1364 Early stopping triggered after 498 epochs.
+3553.2s 1365 Best model restored from epoch 348 with val_f1 0.8176
+3554.3s 1366 Training 500 epochs...
+3807.0s 1367 Early stopping triggered after 358 epochs.
+3807.0s 1368 Best model restored from epoch 208 with val_f1 0.9233
+3808.1s 1369 Training 500 epochs...
+4001.6s 1370 Early stopping triggered after 278 epochs.
+4001.6s 1371 Best model restored from epoch 128 with val_f1 0.8991
+4002.7s 1372 Training 500 epochs...
+4221.7s 1373 Early stopping triggered after 317 epochs.
+4221.7s 1374 Best model restored from epoch 167 with val_f1 0.9277
+4222.8s 1375 Training 500 epochs...
+4457.4s 1376 Early stopping triggered after 343 epochs.
+4457.4s 1377 Best model restored from epoch 193 with val_f1 0.9049
+4457.4s 1378 F1 Score: 0.8945±0.0399
+4457.4s 1379 
+4457.4s 1380 Configuration 3/6:
+4457.4s 1381 window_size: 100
+4457.4s 1382 stride: 25
+4458.5s 1383 Training 500 epochs...
+4694.1s 1384 Early stopping triggered after 199 epochs.
+4694.1s 1385 Best model restored from epoch 49 with val_f1 0.8382
+4695.1s 1386 Training 500 epochs...
+5109.9s 1387 Early stopping triggered after 354 epochs.
+5109.9s 1388 Best model restored from epoch 204 with val_f1 0.9448
+5111.0s 1389 Training 500 epochs...
+5701.0s 1390 Best model restored from epoch 394 with val_f1 0.9489
+5702.1s 1391 Training 500 epochs...
+5942.9s 1392 Early stopping triggered after 204 epochs.
+5942.9s 1393 Best model restored from epoch 54 with val_f1 0.8927
+5944.0s 1394 Training 500 epochs...
+6384.0s 1395 Early stopping triggered after 375 epochs.
+6384.0s 1396 Best model restored from epoch 225 with val_f1 0.9187
+6384.0s 1397 F1 Score: 0.9087±0.0406
+6384.0s 1398 
+6384.0s 1399 Configuration 4/6:
+6384.0s 1400 window_size: 100
+6384.0s 1401 stride: 50
+6385.1s 1402 Training 500 epochs...
+6651.7s 1403 Early stopping triggered after 315 epochs.
+6651.7s 1404 Best model restored from epoch 165 with val_f1 0.8361
+6652.7s 1405 Training 500 epochs...
+6982.3s 1406 Early stopping triggered after 387 epochs.
+6982.3s 1407 Best model restored from epoch 237 with val_f1 0.9222
+6983.3s 1408 Training 500 epochs...
+7414.3s 1409 Best model restored from epoch 372 with val_f1 0.9414
+7415.4s 1410 Training 500 epochs...
+7766.1s 1411 Early stopping triggered after 404 epochs.
+7766.1s 1412 Best model restored from epoch 254 with val_f1 0.9281
+7767.2s 1413 Training 500 epochs...
+8120.9s 1414 Early stopping triggered after 406 epochs.
+8120.9s 1415 Best model restored from epoch 256 with val_f1 0.8861
+8120.9s 1416 F1 Score: 0.9028±0.0380
+8120.9s 1417 
+8120.9s 1418 Configuration 5/6:
+8120.9s 1419 window_size: 200
+8120.9s 1420 stride: 25
+8122.0s 1421 Training 500 epochs...
+8255.2s 1422 Early stopping triggered after 183 epochs.
+8255.2s 1423 Best model restored from epoch 33 with val_f1 0.8030
+8256.3s 1424 Training 500 epochs...
+8378.1s 1425 Early stopping triggered after 167 epochs.
+8378.1s 1426 Best model restored from epoch 17 with val_f1 0.8916
+8379.2s 1427 Training 500 epochs...
+8714.1s 1428 Early stopping triggered after 459 epochs.
+8714.1s 1429 Best model restored from epoch 309 with val_f1 0.8895
+8715.1s 1430 Training 500 epochs...
+8892.3s 1431 Early stopping triggered after 245 epochs.
+8892.3s 1432 Best model restored from epoch 95 with val_f1 0.8750
+8893.4s 1433 Training 500 epochs...
+9162.9s 1434 Early stopping triggered after 372 epochs.
+9162.9s 1435 Best model restored from epoch 222 with val_f1 0.9148
+9162.9s 1436 F1 Score: 0.8748±0.0381
+9162.9s 1437 
+9162.9s 1438 Configuration 6/6:
+9162.9s 1439 window_size: 200
+9162.9s 1440 stride: 50
+9164.0s 1441 Training 500 epochs...
+9312.3s 1442 Early stopping triggered after 204 epochs.
+9312.3s 1443 Best model restored from epoch 54 with val_f1 0.8011
+9313.4s 1444 Training 500 epochs...
+9432.5s 1445 Early stopping triggered after 164 epochs.
+9432.5s 1446 Best model restored from epoch 14 with val_f1 0.8575
+9433.6s 1447 Training 500 epochs...
+9794.1s 1448 Best model restored from epoch 400 with val_f1 0.9453
+9795.2s 1449 Training 500 epochs...
+9974.8s 1450 Early stopping triggered after 248 epochs.
+9974.8s 1451 Best model restored from epoch 98 with val_f1 0.8775
+9975.9s 1452 Training 500 epochs...
+10132.5s 1453 Early stopping triggered after 216 epochs.
+10132.5s 1454 Best model restored from epoch 66 with val_f1 0.8750
+10132.5s 1455 F1 Score: 0.8713±0.0461
+10132.9s 1456 
+10132.9s 1457 Configuration 1/6:
+10132.9s 1458 batch_size: 32
+10132.9s 1459 learning_rate: 0.0001
+10134.1s 1460 Training 500 epochs...
+10939.1s 1461 Early stopping triggered after 340 epochs.
+10939.1s 1462 Best model restored from epoch 190 with val_f1 0.8660
+10940.2s 1463 Training 500 epochs...
+12117.9s 1464 Best model restored from epoch 352 with val_f1 0.9343
+12119.0s 1465 Training 500 epochs...
+12666.1s 1466 Early stopping triggered after 229 epochs.
+12666.1s 1467 Best model restored from epoch 79 with val_f1 0.9055
+12667.2s 1468 Training 500 epochs...
+13858.9s 1469 Best model restored from epoch 488 with val_f1 0.9248
+13860.0s 1470 Training 500 epochs...
+15086.5s 1471 Best model restored from epoch 491 with val_f1 0.9674
+15086.5s 1472 NEW BEST SCORE!
+15086.5s 1473 F1 Score: 0.9196±0.0335
+15086.5s 1474 
+15086.5s 1475 Configuration 2/6:
+15086.5s 1476 batch_size: 32
+15086.5s 1477 learning_rate: 0.0003
+15087.7s 1478 Training 500 epochs...
+15761.2s 1479 Early stopping triggered after 271 epochs.
+15761.2s 1480 Best model restored from epoch 121 with val_f1 0.8473
+15762.3s 1481 Training 500 epochs...
+16541.2s 1482 Early stopping triggered after 328 epochs.
+16541.2s 1483 Best model restored from epoch 178 with val_f1 0.9427
+16542.3s 1484 Training 500 epochs...
+17486.1s 1485 Early stopping triggered after 391 epochs.
+17486.1s 1486 Best model restored from epoch 241 with val_f1 0.9414
+17487.2s 1487 Training 500 epochs...
+18370.6s 1488 Early stopping triggered after 369 epochs.
+18370.6s 1489 Best model restored from epoch 219 with val_f1 0.9305
+18371.7s 1490 Training 500 epochs...
+19074.6s 1491 Early stopping triggered after 296 epochs.
+19074.6s 1492 Best model restored from epoch 146 with val_f1 0.9571
+19074.6s 1493 NEW BEST SCORE!
+19074.6s 1494 F1 Score: 0.9238±0.0392
+19074.6s 1495 
+19074.6s 1496 Configuration 3/6:
+19074.6s 1497 batch_size: 32
+19074.6s 1498 learning_rate: 0.001
+19075.7s 1499 Training 500 epochs...
+19645.8s 1500 Early stopping triggered after 240 epochs.
+19645.8s 1501 Best model restored from epoch 90 with val_f1 0.8520
+19646.9s 1502 Training 500 epochs...
+20339.3s 1503 Early stopping triggered after 291 epochs.
+20339.3s 1504 Best model restored from epoch 141 with val_f1 0.9352
+20340.4s 1505 Training 500 epochs...
+21249.3s 1506 Early stopping triggered after 382 epochs.
+21249.3s 1507 Best model restored from epoch 232 with val_f1 0.9299
+21250.4s 1508 Training 500 epochs...
+22238.0s 1509 Early stopping triggered after 417 epochs.
+22238.0s 1510 Best model restored from epoch 267 with val_f1 0.9438
+22239.1s 1511 Training 500 epochs...
+22885.0s 1512 Early stopping triggered after 272 epochs.
+22885.0s 1513 Best model restored from epoch 122 with val_f1 0.9254
+22885.0s 1514 F1 Score: 0.9172±0.0332
+22885.0s 1515 
+22885.0s 1516 Configuration 4/6:
+22885.0s 1517 batch_size: 64
+22885.0s 1518 learning_rate: 0.0001
+22886.1s 1519 Training 500 epochs...
+23384.4s 1520 Early stopping triggered after 306 epochs.
+23384.4s 1521 Best model restored from epoch 156 with val_f1 0.8499
+23385.5s 1522 Training 500 epochs...
+24008.5s 1523 Early stopping triggered after 379 epochs.
+24008.5s 1524 Best model restored from epoch 229 with val_f1 0.9382
+24009.7s 1525 Training 500 epochs...
+24520.0s 1526 Early stopping triggered after 311 epochs.
+24520.0s 1527 Best model restored from epoch 161 with val_f1 0.9275
+24521.1s 1528 Training 500 epochs...
+24907.5s 1529 Early stopping triggered after 237 epochs.
+24907.5s 1530 Best model restored from epoch 87 with val_f1 0.9064
+24908.6s 1531 Training 500 epochs...
+25724.2s 1532 Best model restored from epoch 356 with val_f1 0.9474
+25724.2s 1533 F1 Score: 0.9139±0.0348
+25724.2s 1534 
+25724.2s 1535 Configuration 5/6:
+25724.2s 1536 batch_size: 64
+25724.2s 1537 learning_rate: 0.0003
+25725.3s 1538 Training 500 epochs...
+26443.3s 1539 Early stopping triggered after 443 epochs.
+26443.3s 1540 Best model restored from epoch 293 with val_f1 0.8600
+26444.4s 1541 Training 500 epochs...
+26854.4s 1542 Early stopping triggered after 252 epochs.
+26854.4s 1543 Best model restored from epoch 102 with val_f1 0.9411
+26855.5s 1544 Training 500 epochs...
+27665.9s 1545 Best model restored from epoch 456 with val_f1 0.9384
+27667.0s 1546 Training 500 epochs...
+28416.3s 1547 Early stopping triggered after 461 epochs.
+28416.3s 1548 Best model restored from epoch 311 with val_f1 0.9341
+28417.4s 1549 Training 500 epochs...
+29228.3s 1550 Best model restored from epoch 352 with val_f1 0.9512
+29228.3s 1551 NEW BEST SCORE!
+29228.3s 1552 F1 Score: 0.9250±0.0329
+29228.3s 1553 
+29228.3s 1554 Configuration 6/6:
+29228.3s 1555 batch_size: 64
+29228.3s 1556 learning_rate: 0.001
+29229.4s 1557 Training 500 epochs...
+29683.4s 1558 Early stopping triggered after 280 epochs.
+29683.4s 1559 Best model restored from epoch 130 with val_f1 0.8350
+29684.5s 1560 Training 500 epochs...
+30014.6s 1561 Early stopping triggered after 203 epochs.
+30014.6s 1562 Best model restored from epoch 53 with val_f1 0.9463
+30015.6s 1563 Training 500 epochs...
+30495.1s 1564 Early stopping triggered after 295 epochs.
+30495.1s 1565 Best model restored from epoch 145 with val_f1 0.9363
+30496.2s 1566 Training 500 epochs...
+30938.8s 1567 Early stopping triggered after 272 epochs.
+30938.8s 1568 Best model restored from epoch 122 with val_f1 0.9337
+30939.9s 1569 Training 500 epochs...
+31481.4s 1570 Early stopping triggered after 333 epochs.
+31481.4s 1571 Best model restored from epoch 183 with val_f1 0.9546
+31481.4s 1572 F1 Score: 0.9212±0.0437
+31481.8s 1573 
+31481.8s 1574 Configuration 1/9:
+31481.8s 1575 hidden_layers: 1
+31481.8s 1576 hidden_size: 64
+31482.9s 1577 Training 500 epochs...
+31892.0s 1578 Best model restored from epoch 396 with val_f1 0.8799
+31893.0s 1579 Training 500 epochs...
+32203.8s 1580 Early stopping triggered after 379 epochs.
+32203.8s 1581 Best model restored from epoch 229 with val_f1 0.9371
+32204.9s 1582 Training 500 epochs...
+32623.7s 1583 Best model restored from epoch 459 with val_f1 0.9566
+32624.7s 1584 Training 500 epochs...
+32972.6s 1585 Early stopping triggered after 423 epochs.
+32972.6s 1586 Best model restored from epoch 273 with val_f1 0.9145
+32973.6s 1587 Training 500 epochs...
+33385.2s 1588 Best model restored from epoch 412 with val_f1 0.9586
+33385.2s 1589 NEW BEST SCORE!
+33385.2s 1590 F1 Score: 0.9294±0.0294
+33385.2s 1591 
+33385.2s 1592 Configuration 2/9:
+33385.2s 1593 hidden_layers: 1
+33385.2s 1594 hidden_size: 128
+33386.3s 1595 Training 500 epochs...
+33782.7s 1596 Early stopping triggered after 455 epochs.
+33782.7s 1597 Best model restored from epoch 305 with val_f1 0.8577
+33783.8s 1598 Training 500 epochs...
+34220.3s 1599 Best model restored from epoch 469 with val_f1 0.9526
+34221.4s 1600 Training 500 epochs...
+34657.7s 1601 Best model restored from epoch 413 with val_f1 0.9166
+34658.8s 1602 Training 500 epochs...
+35095.2s 1603 Best model restored from epoch 486 with val_f1 0.9336
+35096.2s 1604 Training 500 epochs...
+35534.5s 1605 Best model restored from epoch 379 with val_f1 0.9389
+35534.5s 1606 F1 Score: 0.9199±0.0332
+35534.5s 1607 
+35534.5s 1608 Configuration 3/9:
+35534.5s 1609 hidden_layers: 1
+35534.5s 1610 hidden_size: 256
+35535.6s 1611 Training 500 epochs...
+35797.8s 1612 Early stopping triggered after 262 epochs.
+35797.8s 1613 Best model restored from epoch 112 with val_f1 0.8726
+35798.9s 1614 Training 500 epochs...
+36246.9s 1615 Early stopping triggered after 447 epochs.
+36246.9s 1616 Best model restored from epoch 297 with val_f1 0.9308
+36247.9s 1617 Training 500 epochs...
+36739.9s 1618 Early stopping triggered after 475 epochs.
+36739.9s 1619 Best model restored from epoch 325 with val_f1 0.9328
+36741.0s 1620 Training 500 epochs...
+37190.4s 1621 Early stopping triggered after 434 epochs.
+37190.4s 1622 Best model restored from epoch 284 with val_f1 0.9244
+37191.5s 1623 Training 500 epochs...
+37474.4s 1624 Early stopping triggered after 271 epochs.
+37474.4s 1625 Best model restored from epoch 121 with val_f1 0.9350
+37474.4s 1626 F1 Score: 0.9191±0.0235
+37474.4s 1627 
+37474.4s 1628 Configuration 4/9:
+37474.4s 1629 hidden_layers: 2
+37474.4s 1630 hidden_size: 64
+37475.5s 1631 Training 500 epochs...
+37989.8s 1632 Early stopping triggered after 499 epochs.
+37989.8s 1633 Best model restored from epoch 349 with val_f1 0.8521
+37990.9s 1634 Training 500 epochs...
+38328.7s 1635 Early stopping triggered after 323 epochs.
+38328.7s 1636 Best model restored from epoch 173 with val_f1 0.9213
+38329.8s 1637 Training 500 epochs...
+38840.7s 1638 Early stopping triggered after 493 epochs.
+38840.7s 1639 Best model restored from epoch 343 with val_f1 0.9540
+38841.8s 1640 Training 500 epochs...
+39246.6s 1641 Early stopping triggered after 397 epochs.
+39246.6s 1642 Best model restored from epoch 247 with val_f1 0.9302
+39247.7s 1643 Training 500 epochs...
+39711.2s 1644 Early stopping triggered after 459 epochs.
+39711.2s 1645 Best model restored from epoch 309 with val_f1 0.9340
+39711.2s 1646 F1 Score: 0.9183±0.0348
+39711.2s 1647 
+39711.2s 1648 Configuration 5/9:
+39711.2s 1649 hidden_layers: 2
+39711.2s 1650 hidden_size: 128
+39712.3s 1651 Training 500 epochs...
+40159.5s 1652 Early stopping triggered after 388 epochs.
+40159.5s 1653 Best model restored from epoch 238 with val_f1 0.8757
+40160.6s 1654 Training 500 epochs...
+40437.8s 1655 Early stopping triggered after 238 epochs.
+40437.8s 1656 Best model restored from epoch 88 with val_f1 0.9445
+40438.9s 1657 Training 500 epochs...
+40858.6s 1658 Early stopping triggered after 363 epochs.
+40858.6s 1659 Best model restored from epoch 213 with val_f1 0.9077
+40859.7s 1660 Training 500 epochs...
+41388.8s 1661 Early stopping triggered after 457 epochs.
+41388.8s 1662 Best model restored from epoch 307 with val_f1 0.9272
+41390.0s 1663 Training 500 epochs...
+41793.7s 1664 Early stopping triggered after 339 epochs.
+41793.7s 1665 Best model restored from epoch 189 with val_f1 0.9613
+41793.7s 1666 F1 Score: 0.9233±0.0297
+41793.7s 1667 
+41793.7s 1668 Configuration 6/9:
+41793.7s 1669 hidden_layers: 2
+41793.7s 1670 hidden_size: 256
+41795.1s 1671 Training 500 epochs...
+42341.2s 1672 Early stopping triggered after 317 epochs.
+42341.2s 1673 Best model restored from epoch 167 with val_f1 0.8617
+42342.5s 1674 Training 500 epochs...
+42925.4s 1675 Early stopping triggered after 335 epochs.
+42925.4s 1676 Best model restored from epoch 185 with val_f1 0.9365
+42926.8s 1677 Training 500 epochs...
