@@ -9,59 +9,6 @@ from sklearn.model_selection import train_test_split
 from datetime import datetime
 
 
-def fix_skewed_features_manual(
-    df: pd.DataFrame,
-    skew_threshold: float = 1.0,
-    clip_quantiles: Tuple[float, float] = (0.01, 0.99),
-    verbose: bool = True
-) -> pd.DataFrame:
-    """
-    Detects and corrects highly skewed numerical features without using trained transformers.
-
-    Args:
-        df: Input DataFrame
-        skew_threshold: Absolute skewness value above which transformation is applied
-        clip_quantiles: Quantile range used for clipping (default 1%–99%)
-        verbose: If True, prints progress info
-
-    Returns:
-        Transformed DataFrame with reduced skewness
-    """
-    df = df.copy()
-    numeric_cols = df.select_dtypes(include=[np.number]).columns
-    skewness = df[numeric_cols].skew()
-    skewed_cols = skewness[abs(skewness) > skew_threshold].index.tolist()
-
-    if verbose:
-        print(f"Detected {len(skewed_cols)} skewed features (|skew| > {skew_threshold}):")
-        for col in skewed_cols:
-            print(f"  {col}: skew={skewness[col]:.2f}")
-
-    for col in skewed_cols:
-        # Step 1: Clip extreme values
-        lower, upper = df[col].quantile(list(clip_quantiles))
-        df[col] = np.clip(df[col], lower, upper)
-
-        # Step 2: Apply a simple mathematical transform
-        if (df[col] >= 0).all():
-            # For positive-only data
-            if skewness[col] > 10:
-                df[col] = np.log1p(df[col])  # strong skew
-            elif skewness[col] > 5:
-                df[col] = np.sqrt(df[col])   # moderate skew
-            elif skewness[col] > 1:
-                df[col] = np.cbrt(df[col])   # mild skew
-        else:
-            # For data with negatives, use cube root (safe for all)
-            df[col] = np.cbrt(df[col])
-
-    if verbose:
-        new_skew = df[skewed_cols].skew()
-        print("\nAfter transformation:")
-        for col in skewed_cols:
-            print(f"  {col}: skew={new_skew[col]:.2f}")
-
-    return df
 
 
 def preprocess_pirates_data(
@@ -95,15 +42,6 @@ def preprocess_pirates_data(
             extract_day_of_week=config['time_features'].get('extract_day_of_week', True),
             extract_day_of_month=config['time_features'].get('extract_day_of_month', False),
             use_cyclical_encoding=config['time_features'].get('use_cyclical_encoding', True),
-            verbose=verbose
-        )
-    
-    # Fix skewed features
-    if config['preprocessing']['scale_features']:
-        X_train = fix_skewed_features_manual(
-            X_train,
-            skew_threshold=config['preprocessing']['skew_threshold'],
-            clip_quantiles=tuple(config['preprocessing']['clip_quantiles']),
             verbose=verbose
         )
     
