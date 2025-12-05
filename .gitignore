@@ -1,7 +1,9 @@
 #Dataset
 data/raw/
 data/processed/
-
+challenge-2/clean_train_data
+challenge-2/train_data
+challenge-2/test_data
 #latex
 *.aux
 *.fls
