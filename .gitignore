@@ -1,3 +1,23 @@
+#Dataset
+data/raw/
+data/processed/
+
+#latex
+*.aux
+*.fls
+*.log
+*.out
+*latexmk
+*.synctex.gz
+
+#Models 
+*.pt
+events.out.tfevents.*
+
+#submission
+*/models/*.csv
+*/models/*.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

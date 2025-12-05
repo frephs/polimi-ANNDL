@@ -1,0 +1,112 @@
+# =============================================================================
+# Pirates Pain Classification - Default Configuration
+# =============================================================================
+
+seed: 42
+
+data:
+  raw_dir: "../data/raw"
+  processed_dir: "../data/processed"
+  train_file: "pirate_pain_train.csv"
+  train_labels_file: "pirate_pain_train_labels.csv"
+  test_file: "pirate_pain_test.csv"
+
+preprocessing:
+  enabled: True
+  scale_features: True
+  skew_threshold: 5.0
+  clip_quantiles: [0.01, 0.99]
+  drop_features: ["joint_30"]
+  combine_correlations: True
+  create_prosthesis_flag: True
+
+labels:
+  no_pain: 0
+  low_pain: 1
+  high_pain: 2
+
+split:
+  val_size: 0.15
+  stratify: True
+
+sequences:
+  window_size: 10
+  stride: 5
+
+augmentation:
+  enabled: True
+  oversample: True
+  target_distribution: "balanced"
+  augment_duplicates: True
+  noise_level: 0.01
+  scale_range: [0.97, 1.02]
+  shift_range: 5
+  apply_noise: True
+  apply_scaling: True
+  apply_shift: True
+
+model:
+  type: "RecurrentClassifier"
+  input_size: null
+  hidden_size: 256
+  num_layers: 1
+  num_classes: 3
+  rnn_type: "LSTM"
+  bidirectional: True
+  dropout_rate: 0.2
+  task: "classification"
+
+training:
+  epochs: 500
+  batch_size: 64
+  learning_rate: 0.0003
+  l1_lambda: 0.0
+  l2_lambda: 0.0000
+  dropout_rate: 0.2
+  patience: 50
+  evaluation_metric: "val_f1"
+  mode: "max"
+  restore_best_weights: True
+  # ADVICE 10/11: Gradient Clipping - Tame the exploding gradient
+  # gradient_clip_value: Clips each gradient element to [-value, +value]
+  # gradient_clip_norm: Clips gradient L2 norm (recommended for RNNs, preserves direction)
+  # Typical values: norm=1.0 to 5.0 for RNNs
+  gradient_clip_value: 0.0  # 0 = disabled
+  gradient_clip_norm: 1.0    # Recommended: 1.0 for RNNs/LSTMs
+  # ADVICE 09/11: Label Smoothing - Prevent overconfident predictions
+  # Typical values: 0.05 to 0.2 (0.1 is common)
+  label_smoothing: 0.1  # 0.0 = disabled, 0.1 = 10% smoothing
+  # ADVICE 08/11: Class Imbalance - Use class weights
+  use_class_weights: True
+  scheduler:
+    enabled: True
+    type: "ReduceLROnPlateau"
+    factor: 0.5
+    patience: 40
+    min_lr: 1.0e-6
+  verbose: 10
+
+dataloader:
+  num_workers: 0
+  shuffle_train: True
+  shuffle_val: False
+  drop_last: False
+  pin_memory: False
+  prefetch_factor: 4
+
+logging:
+  tensorboard_dir: "./tensorboard"
+  save_dir: "./models"
+  experiment_name: "oversampling_B_rnn"
+
+cross_validation:
+  enabled: False
+  k_folds: 5
+
+hyperparameter_tuning:
+  enabled: False
+  param_grid:
+    hidden_size: [64, 128]
+    num_layers: [1, 2]
+    learning_rate: [0.001, 0.0005, 0.01]
+    dropout_rate: [0.1, 0.2, 0.3]
