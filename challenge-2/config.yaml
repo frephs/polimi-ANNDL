@@ -1,0 +1,121 @@
+# ============================================
+# COMPLETE CONFIGURATION - All values required
+# NO DEFAULT VALUES - All settings must be explicitly defined
+# This is the authoritative template for all training runs
+# ============================================
+
+# ========== REPRODUCIBILITY ==========
+SEED: 42
+EXPERIMENT_NAME: resnet50_tissue  # Used for naming saved models
+
+# ========== PATHS ==========
+DATA_DIR: ./train_data
+TEST_DIR: ./test_data
+CSV_PATH: ./train_labels.csv
+OUTPUT_DIR: ./outputs
+MODELS_DIR: ./models
+CHECKPOINT_DIR: ./checkpoints
+TENSORBOARD_DIR: ./tensorboard
+VISUALIZATION_DIR: ./visualizations
+
+# ========== DATA ==========
+IMG_SIZE: 384  # Larger for EfficientNet (better tissue detail)
+VAL_SPLIT: 0.15  # Smaller val = more training data
+BATCH_SIZE: 16  # Larger images = smaller batch
+NUM_WORKERS: 4
+PIN_MEMORY: true
+PREFETCH_FACTOR: 4  # Increased for better GPU utilization
+
+# ========== MODEL ==========
+MODEL_NAME: efficientnet_v2_s  # Best for medical imaging
+USE_PRETRAINED: true
+FREEZE_BACKBONE: false
+USE_ATTENTION: true  # Enable attention for tissue localization
+DROPOUT: 0.3
+
+# ========== TRAINING ==========
+NUM_EPOCHS: 50
+LEARNING_RATE: 0.001
+WEIGHT_DECAY: 0.0001
+OPTIMIZER: lion  # adam, adamw, sgd, lion, ranger
+
+# Loss function
+USE_WEIGHTED_LOSS: false  # Recommended for class imbalance (Triple neg: 156 vs Luminal B: 445)
+CLASS_WEIGHTS: [2.85, 1.08, 1.0, 1.12]  # [Triple neg, Luminal A, Luminal B, HER2+] - inverse frequency
+USE_FOCAL_LOSS: false  # Alternative to weighted loss for hard examples
+FOCAL_ALPHA: 1.0
+FOCAL_GAMMA: 2.0
+
+# Scheduler
+USE_SCHEDULER: true
+SCHEDULER: cosine  # plateau, cosine, step, onecycle (cosine better for fixed epochs)
+PATIENCE_SCHEDULER: 5
+FACTOR: 0.5
+
+# Early stopping
+PATIENCE: 15  # More patience for better convergence
+MONITOR_METRIC: val_f1
+
+# Checkpointing
+CHECKPOINT_INTERVAL: 5
+SAVE_BEST_ONLY: true
+
+# Advanced
+USE_MIXED_PRECISION: true  # 2x faster training
+GRADIENT_CLIP: 1.0  # Prevent exploding gradients
+LABEL_SMOOTHING: 0.1  # Regularization
+
+# Class Imbalance Handling (CRITICAL - Triple negative underrepresented)
+USE_WEIGHTED_LOSS: true  # Use weighted CrossEntropyLoss
+CLASS_WEIGHTS: [2.85, 1.08, 1.0, 1.12]  # [Triple neg, Luminal A, Luminal B, HER2+]
+USE_FOCAL_LOSS: false  # Alternative to weighted loss
+FOCAL_ALPHA: 1.0
+FOCAL_GAMMA: 2.0
+
+# Progressive Training (freeze backbone first, then fine-tune)
+USE_PROGRESSIVE_TRAINING: false
+FREEZE_EPOCHS: 10  # Epochs to train with frozen backbone
+UNFREEZE_LR_MULTIPLIER: 0.1  # LR reduction when unfreezing (e.g., 0.1 = 10x lower)
+
+# ========== AUGMENTATION ==========
+USE_AUGMENTATION: true
+
+# Automated Augmentation (ADVICE 06/12)
+USE_AUTOMATED_AUG: true  # RandAugment learns optimal policy
+AUTOMATED_AUG_METHOD: randaugment  # randaugment, trivialaugment, autoaugment
+RANDAUGMENT_N: 2  # Number of augmentation operations
+RANDAUGMENT_M: 7  # Magnitude (0-10), 7=moderate for medical images
+
+# Manual Augmentation (fallback)
+HORIZONTAL_FLIP: 0.5
+VERTICAL_FLIP: 0.5
+ROTATION_DEGREES: 15
+COLOR_JITTER: 0.2
+RANDOM_ERASING: 0.3
+
+# Advanced Augmentation
+USE_MIXUP: false  # MixUp: blend images and labels (conservative alpha=0.2 for medical)
+MIXUP_ALPHA: 0.2
+MIXUP_PROB: 0.5
+USE_CUTMIX: true  # CutMix: cut and paste regions (recommended over MixUp for tissue)
+CUTMIX_ALPHA: 1.0
+CUTMIX_PROB: 0.5
+
+# Test-Time Augmentation (TTA) - Use during submission for +1-2% accuracy
+USE_TTA: false  # Enable for final submission only (slower)
+TTA_NUM_AUGMENTATIONS: 5  # Number of augmented predictions to average
+
+# ========== NORMALIZATION ==========
+USE_IMAGENET_NORM: true  # Required for pretrained models
+NORM_TYPE: group  # batch, group, layer (group is better for batch_size < 16)
+
+# ========== VISUALIZATION ==========
+VISUALIZE_ATTENTION: false
+VISUALIZE_ACTIVATIONS: false
+SAVE_ATTENTION_MAPS: false
+
+# ========== TENSORBOARD ==========
+USE_TENSORBOARD: true
+LOG_IMAGES: true
+LOG_HISTOGRAMS: false
+LOG_INTERVAL: 50
