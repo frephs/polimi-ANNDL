@@ -22,9 +22,6 @@ Please find below the folder structure of the project:
 
 ```
 challenge-1/
-├── logs/
-│   ├── log_grid_search_1.txt
-│   └── log_grid_search_2.txt
 ├── src/
 │   ├── data_loading/
 │   ├── evaluation/
