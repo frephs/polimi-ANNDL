@@ -32,6 +32,6 @@ challenge-1/
 ├── configs/
 │   └── default_config.yaml
 ├── pirates_pain_classification.ipynb
-├── data_profiling_report.html
+├── data_profiling.ipynb
 └── README.md
 ```
