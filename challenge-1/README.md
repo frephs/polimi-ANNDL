@@ -1,4 +1,4 @@
-# polimi-an2dl
+# Challenge 1: Pirates Pain Classification (Time Series Classification)
 
 Authors: Alessandro Del Fatti, Matteo Garzone, Francesco Genovese
 Date: November 2025
