@@ -1,4 +1,4 @@
-# polimi-an2dl
+# Challenge 1: Pirates Pain Classification (Time Series Classification)
 
 Authors: Alessandro Del Fatti, Matteo Garzone, Francesco Genovese
 Date: November 2025
@@ -22,9 +22,6 @@ Please find below the folder structure of the project:
 
 ```
 challenge-1/
-├── logs/
-│   ├── log_grid_search_1.txt
-│   └── log_grid_search_2.txt
 ├── src/
 │   ├── data_loading/
 │   ├── evaluation/
@@ -35,6 +32,6 @@ challenge-1/
 ├── configs/
 │   └── default_config.yaml
 ├── pirates_pain_classification.ipynb
-├── data_profiling_report.html
+├── data_profiling.ipynb
 └── README.md
 ```

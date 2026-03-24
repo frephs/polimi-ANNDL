@@ -1,9 +1,14 @@
 #Dataset
 data/raw/
+*/patch/*
 data/processed/
-challenge-2/clean_train_data
-challenge-2/train_data
-challenge-2/test_data
+*/clean_train_data
+*/train_data
+*/test_data
+*/tmp
+*/models
+*/patch
+*/info
 #latex
 *.aux
 *.fls

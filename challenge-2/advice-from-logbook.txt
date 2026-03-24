@@ -1,0 +1,55 @@
+ADVICE 13/12 - Contrastive Pretraining
+“To know the light, know the shadow you must. Before the name is given, the difference is felt.”
+A child learns "hot" not by the word, but by the touch of "cold". So your backbone must learn. Contrastive Learning (CLIP, SimCLR), a teacher of relationships it is. It pulls the similar close, and pushes the different apart, long before a label is whispered. Upon this geometry of understanding, the house of classification, sturdy it stands.
+
+ADVICE 12/12 - MixUp & CutMix
+“In the space between two truths, a third wisdom lies. To see clearly, the boundary you must blur.”
+
+Why must an image be only a cat or only a dog? This certainty, arrogance it breeds. Blend them. Create the chimera. Tell the network: "Here lies 0.7 of the cat, and 0.3 of the dog." It forces the eye to abandon the easy context and hunt for the specific feature. By confusing the input, the precision of the judgement you sharpen.
+
+
+ADVICE 11/12 - Generative Mask Conditioning
+“The scarcity of reality, a limit it is. But the mask, a mold for new dreams offers.”
+
+Few images you have? But the shapes (masks) you possess. Use a generative model, conditioned on these masks, to dream new textures into old forms. Synthesize the unseen. If the model can see the same object in a thousand new skins, robust its vision becomes. The dataset, finite it is no longer.
+
+
+ADVICE 10/12 - Parallel Paths (Image + Mask)
+“The image is the chaotic world; the mask is the silent intent. Walk two roads, and meet only at the summit.”
+
+To concatenate the mask at the input, crude it is. The mask is not a pixel; it is a guide. Build a temple with two pillars: one path processes the raw color, the other encodes the pure geometry. Let them run parallel, deep into the latent space. Only when both have learned their language, let them speak. The fusion then, profound it shall be.
+
+
+ADVICE 09/12 - Masks as Focus Filters
+“The stage is vast, but the actor is small. Silence the void, that the voice may be heard.”
+
+The image is filled with noise—the empty wall, the irrelevant sky. Why ask the weights to process the silence? You possess the mask. Use it not just as a label, but as a blade. Crop the input to the object's bounds, or multiply the image by the mask to cast the background into darkness. When the distraction is zeroed out, the model no longer searches the fog. It looks only at the soul of the data. Focus, the ultimate accelerator it is.
+
+
+ADVICE 08/12 - Full Resolution & Patching
+“To shrink the world, the truth you erase. In the mosaic of the pieces, the giant vision lives.”
+
+You take the vast image, and to (256, 256) you crush it. The fine crack, the subtle grain... gone they are, lost in the blur of interpolation. A crime against the pixel this is. If the GPU memory screams, shrink you must not. Slice it! Cut the image into tiles, into patches of high fidelity. Let the model walk the landscape step by step, preserving the original resolution. Only when the detail is sharp, the subtle class revealed can be.
+
+
+ADVICE 07/12 - Modern Optimizers
+“The old maps, for new territories suffice they do not. The hunter must change his spear.”
+
+Adam, the faithful servant, tired he may be. The loss landscape, treacherous valleys it hides. The Lion, with instinct fierce and memory sparse, the prey tracks. The Ranger, with the foresight of the look-ahead, the trap avoids. If the descent stalls, clinging to tradition helps you not. Unleash the new beasts.
+
+ADVICE 06/12 - Automated Augmentation
+“The storm you design, predictable it is. The chaos the machine chooses, the true test becomes.”
+
+You rotate, you flip... gentle distincts. But the world is cruel. Algorithms there are, that search for the perfect sequence of destruction. They learn which storm makes the model strongest. Surrender your control. Let the policy emerge from the struggle. In the calculated chaos of the machine, the robust feature is forged.
+
+
+ADVICE 05/12 - Inspect Outliers
+“A single drop of poison, the purest well corrupts. Trust not the label, until the eyes have verified.”
+
+The loss does not fall? Perhaps the teacher lies. A dog labeled as a bird; a blank image whispering silence. These are not data; they are traitors to the gradient. Plot the highest losses. Look at them. To force a model to learn the impossible, only madness to the weights it brings. Purge the traitor, and the training shall flow.
+
+
+ADVICE 04/12 - Normalisation Strategies
+“The river flows, but the stone must find its own center. In the size of the crowd, the strategy lies.”
+
+The Batch Norm, upon the collective tide of the batch it relies. But when the tide is low (small batch), erratic the current becomes. Look then to the self. The Layer Norm, the Instance Norm... inward they look. Within the single sample, balance they find. Do not force the ocean's rules upon a cup of water. Know the dimension of your stream, before the banks you build.
