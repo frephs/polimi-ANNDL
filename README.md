@@ -6,7 +6,7 @@
 
 **Team**: ReLUctant  
 **Authors**: Alessandro Del Fatti, Matteo Garzone, Francesco Genovese  
-**Course**: Applied Neural Networks and Deep Learning (AN2DL), Politecnico di Milano, 2025 
+**Course**: Applied Neural Networks and Deep Learning (AN2DL), Politecnico di Milano, 2025  
 **Grade**: 10/10 
 
 > [!NOTE]
